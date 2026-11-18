@@ -104,3 +104,10 @@
 - 新術語：蝶式套利, 日曆價差套利, Log-strike, 切片, SSVI, 靜態套利, SVI, 總隱含變異數
 - 衝突：無
 - 備註：全自動 ingest。公式對照 PDF 原圖抄錄。S4 沒有提供任何無套利的具體參數數值，svi-parameterization 中的示意參數是提案，標為「尚待 Itzel 核准」，核准前 N3 不得使用。no-arbitrage-surface 有一條 `[推導]`，驗算示意參數形式滿足 S4 Corollary 4.1。arXiv 授權不含再散布，原檔只留本機。
+
+## [2026-11-18] update | 示意參數核准
+- run/節點：pre-run / N0
+- 狀態：ok
+- 更新頁：svi-parameterization, no-arbitrage-surface, volatility-surface, index
+- 衝突：無
+- 備註：Itzel 核准 SSVI 示意參數：σ₀ = 0.20、ρ = −0.7、η = 1.0、γ = 0.5。核准時已告知兩點取捨：偏斜較陡（三個月期 k = −0.2／0／+0.2 約為 32%／20%／15%），以及價平期限結構為平的。

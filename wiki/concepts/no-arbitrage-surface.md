@@ -84,7 +84,7 @@ $$\frac{\partial_\theta\big(\theta\varphi\big)}{\varphi} = \frac{1}{2(1 + \theta
 
 結論：在 $\eta(1 + |\rho|) \le 2$ 且 $\eta \le 2$ 之下，四個條件都成立。因為 $1 + |\rho| \ge 1$，$\eta(1 + |\rho|) \le 2$ 本身就推得 $\eta \le 2$，所以只需要 $\eta(1 + |\rho|) \le 2$ 一個條件，與 S4 在 p.17 的說法一致。
 
-代入提案的示意參數（$\rho = -0.7$、$\eta = 1.0$）：$\eta(1 + |\rho|) = 1.0 \times 1.7 = 1.7 \le 2$。成立。
+代入已核准的示意參數（$\rho = -0.7$、$\eta = 1.0$）：$\eta(1 + |\rho|) = 1.0 \times 1.7 = 1.7 \le 2$。成立。
 
 ## 相關頁面
 

@@ -30,7 +30,7 @@
 | [波動率微笑與偏斜](concepts/volatility-smile-skew.md) | 固定到期日時，隱含波動率隨履約價變動的型態；各市場形狀不同 | S10, S11 | — | 本次相關 | 完整 | 2026-11-18 |
 | [為什麼會有偏斜](concepts/why-skew-exists.md) | Derman 對偏斜成因的看法（作者觀點） | S1, S2, S10 | — | 本次相關 | 完整 | 2026-11-18 |
 | [波動率曲面](concepts/volatility-surface.md) | 隱含波動率對履約價與到期日的曲面；BS 預測為平的；曲面須無靜態套利 | S10, S4 | — | 本次相關 | 完整 | 2026-11-18 |
-| [SVI 參數化](concepts/svi-parameterization.md) | Raw SVI 與 SSVI 公式、參數意義；示意參數提案尚待核准 | S4, S13 | F10, F11, F12, F13 | 本次相關 | 草稿 | 2026-11-18 |
+| [SVI 參數化](concepts/svi-parameterization.md) | Raw SVI 與 SSVI 公式、參數意義；已核准的示意參數 | S4, S13 | F10, F11, F12, F13 | 本次相關 | 完整 | 2026-11-18 |
 | [無套利曲面](concepts/no-arbitrage-surface.md) | 日曆價差與蝶式套利的條件；SSVI 的無套利條件與驗算 | S4, S13 | F14, F15, F16 | 本次相關 | 完整 | 2026-11-18 |
 | [隱含波動率](concepts/implied-volatility.md) | 讓 BS 公式等於市價的那個波動率；VIX 是例子 | S1, S2, S11, S13 | — | 本次相關 | 完整 | 2026-11-18 |
 | [隱含波動率的反推演算法](concepts/iv-inversion-algorithm.md) | 用二分法解 C_BS(σ) = 市價（自行推導）。Newton 法待 F07 | S1, S4, S11, S12, S13 | — | 本次相關 | 草稿 | 2026-11-18 |

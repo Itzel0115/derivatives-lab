@@ -42,4 +42,4 @@
 
 ## 待補
 
-- S10 的曲面圖（Figure 2）沒有附數據。簡報中的曲面圖必須由 `lab/` 程式依 [[svi-parameterization|SVI 參數化]] 的示意參數產生，並標註「示意參數」。示意參數目前尚待 Itzel 核准。
+- S10 的曲面圖（Figure 2）沒有附數據。簡報中的曲面圖必須由 `lab/` 程式依 [[svi-parameterization|SVI 參數化]] 的示意參數產生，並標註「示意參數」。示意參數已於 2026-11-18 經 Itzel 核准。
