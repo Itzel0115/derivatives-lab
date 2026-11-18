@@ -1,0 +1,13 @@
+# raw/：預設只留本機（著作權），見 AGENTS.md §7
+raw/*
+!raw/MANIFEST.md
+# 預設可 commit：SEC 發布的投資人公告
+!raw/s6-*
+!raw/s7-*
+# S4、S8 在 ingest 時確認授權後，才在這裡加例外
+
+# 系統與編輯器
+.obsidian/
+.DS_Store
+Thumbs.db
+node_modules/

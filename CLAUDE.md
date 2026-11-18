@@ -1,0 +1,1 @@
+每次工作前，請先閱讀 AGENTS.md（Wiki 規則）與 GRAPH_SPEC.md（簡報生成流程），並嚴格遵守。
