@@ -186,8 +186,7 @@
   1. ① 結構型債券由兩個部分組成：債券部分，以及內嵌的衍生性商品；報酬連結到某個參考資產或指數 [[structured-note-architecture]]
   2. ① 通常由金融機構設計並發行，再由券商賣給個人投資人 [[structured-note-architecture]]
   3. ① 它不代表持有任何資產組合，而是發行機構的付款承諾 [[structured-note-architecture]]
-  4. ① 報償可以加上參與率、上限、觸及價等設計；例：參與率 50%、參考資產上漲 20%，投資人拿到 10%（S6） [[structured-note-architecture]]
-  5. ① 台灣常見的包裝名稱：FCN、ELN（S9） [[structured-note-architecture]]
+  4. ① 台灣常見的包裝名稱：FCN、ELN（S9） [[structured-note-architecture]]
 - **必備標註**：教學說明，不構成投資建議 [[structured-note-architecture]]
 
 ## S15｜簡化 ELN：票息從哪裡來
