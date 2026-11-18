@@ -3,6 +3,7 @@
 - 對象：`GRAPH_SPEC.md` 的完整 graph（N1 → C6）。N0（ingest）在 pre-run 完成。
 - 成品：`slides/index.html`（N5 第 2 輪，commit `ccdf3df`）、`slides/slides.md`（N4 第 3 輪，commit `11a2d3c`）、`lab/*.js`（N3 第 2 輪，commit `10054c9`）、`trace.md`
 - 日期：2026-11-19
+- **狀態：PASS**（§6：所有檢查都通過）
 - 各節點報告：`coverage_map.md`、`C1_report.md` … `C6_report.md`；commit 歷史就是執行紀錄（前綴 `[v1]`）
 - C4 的逐條對照由沒有參與撰寫的獨立檢查代理執行（報告中有說明）；其餘檢查由 Claude 執行，其中 C3、C5 以程式為主
 
@@ -18,7 +19,7 @@
 | N3 程式 → C3 | 3 | 5 → 4 → 0 | PASS（C3-11 記錄差異，不強制） | C3 r1 → N3；C3 r2 → **停止（規格未涵蓋）** → Itzel 裁示 → N3 |
 | N4 逐頁內容 → C4 | 3 | 19 → 1 → 0 | PASS | C4 r1 → N1（glossary）＋N4；C4 r2 → **STOP-REGRESSION** → Itzel 裁示 → N4 |
 | N5 HTML → C5 | 2 | 5 → 0 | PASS | C5 r1 → N5 |
-| N6 Trace → C6 | 見 `C6_report.md` | | | |
+| N6 Trace → C6 | 1 | 0 | PASS | → 完成 |
 
 **總修正輪數：6**（C2 一輪、C3 兩輪、C4 兩輪、C5 一輪；STOP-REGRESSION 的 git 回復不另計）。BUDGET 上限 12，未觸發；沒有任何 loop 達到 MAX-ROUNDS（C4 用滿 3 輪，第 3 輪通過）。
 
@@ -65,7 +66,7 @@
 
 | | v0 | v1 |
 |---|---|---|
-| 成品中殘留的錯誤（以 C4–C6 評估） | 67（不計低嚴重度 63） | 0（C4 r3、C5 r2 通過；C6 見報告） |
+| 成品中殘留的錯誤（以 C4–C6 評估） | 67（不計低嚴重度 63） | 0（C4 r3、C5 r2、C6 r1 通過） |
 | 執行過程中抓到並修正的錯誤 | —（v0 不修正） | 25（不計低嚴重度 20） |
 | 修正輪數 | — | 6 |
 
