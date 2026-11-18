@@ -9,7 +9,7 @@
 | 頁面 | 摘要 | 來源 | 公式卡 | 範圍 | 狀態 | 更新 |
 |---|---|---|---|---|---|---|
 | [S1｜選擇權的特性與風險](sources/s1-occ-characteristics-risks.md) | OCC 與美國各選擇權交易所的揭露文件：選擇權條款、用語與主要風險 | S1 | — | 本次相關 | 完整 | 2026-11-18 |
-| [S2｜Cboe 波動率指數編製方法](sources/s2-cboe-vix-methodology.md) | Cboe 的 VIX 官方方法文件：目標、計算步驟與範例。使用限制待 Itzel 決定 | S2 | — | 本次相關 | 完整 | 2026-11-18 |
+| [S2｜Cboe 波動率指數編製方法](sources/s2-cboe-vix-methodology.md) | Cboe 的 VIX 官方方法文件：目標、計算步驟與範例 | S2 | — | 本次相關 | 完整 | 2026-11-18 |
 
 ## Concepts
 

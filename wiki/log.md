@@ -21,3 +21,19 @@
 - 新術語：隱含波動率, 近期／次近期, 實現波動率, VIX 指數
 - 衝突：無
 - 備註：全自動 ingest。S2 的免責聲明禁止未經書面同意的複製、散布與衍生作品，wiki 內容能否公開待 Itzel 決定。implied-volatility 同時引用了先前記在 S1 來源頁的主張。兩個新概念頁都是草稿，缺定義，待 S3。附錄 4、5 的報價與貢獻度表格只掃過文字行，未逐格閱讀。
+
+## [2026-11-18] update | S2 使用限制的決定
+- run/節點：pre-run / N0
+- 狀態：ok
+- 更新頁：s2-cboe-vix-methodology, implied-volatility, volatility-term-structure, index
+- 衝突：無
+- 備註：Itzel 決定維持 S2 現行引用方式（改寫＋短引＋少量範例數字）。移除相關頁面的「待決定」註記。
+
+## [2026-11-18] ingest | S3 Derman An Introduction to the Volatility Smile（暫停）
+- run/節點：pre-run / N0
+- 狀態：暫停，等待 Itzel 決定（尚未寫入任何 wiki 頁）
+- 新增頁：無
+- 更新頁：無
+- 公式卡：無
+- 衝突：無
+- 備註：規格指定的網址只提供一份 3 頁的課程目標與大綱，沒有講義本文。其中沒有 Black-Scholes 公式、假設、put-call parity、隱含波動率定義，也沒有 smile／skew／期限結構的說明。§2.4 中以 S3 為主要來源的頁面目前都沒有可用的支撐。原檔已存入 raw/ 並登記 MANIFEST。
