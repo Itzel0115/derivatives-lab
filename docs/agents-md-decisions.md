@@ -81,7 +81,7 @@ LLM Wiki 原版（`llm-wiki.md`）不同。
 
 ## 7. 第一版之後的決定
 
-`AGENTS.md` 第一版寫入之後、到全部來源 ingest 完成為止，陸續做的決定。逐筆經過記在 `wiki/log.md`。
+`AGENTS.md` 第一版寫入之後陸續做的決定。ingest 期間的經過記在 `wiki/log.md`；run v1 期間的經過記在 `runs/v1/` 的各報告與 commit 歷史。
 
 | 日期 | 決定 | 由誰 |
 |---|---|---|
@@ -94,6 +94,10 @@ LLM Wiki 原版（`llm-wiki.md`）不同。
 | 2026-11-18 | 更新 `GRAPH_SPEC.md`（七處）、`AGENTS.md`（三處）與本檔，使規則檔與 wiki 現況一致 | Itzel 核准草稿 |
 | 2026-11-18 | 新增 `tools/` 資料夾，把引文比對、lint、公式卡數值預檢腳本收進 repo；`GRAPH_SPEC.md` §1 的資料夾結構同步補上 | Itzel |
 | 2026-11-18 | 新增 `.gitattributes`，關閉 `raw/` 原檔的換行轉換，確保 checkout 出來的檔案與 MANIFEST 的 SHA-256 相符 | Itzel |
+| 2026-11-19 | run v1 H1：核准 `slides/outline.md`（commit `e965352`），包括把 put-call-parity 放在 S06 進階區塊、S10 採 wiki 的「固定在價平」寫法 | Itzel |
+| 2026-11-19 | C3 的「全部成立」比照 `tools/precheck_formulas.py` 的容差：價格邊界容許 1e-12；對 σ 的單調性判定為不遞減、容許 1e-9；IV 來回測試只計 vega > 1e-3 的參數。起因是 C3 第 2 輪剩下的失敗都在浮點解析度以下、規格沒有規定容差（`runs/v1/C3_report.md` 第 2、3 輪） | Itzel |
+| 2026-11-19 | C3-11 的 OIC 計算器需要登入：由 Itzel 在內建瀏覽器登入後執行。結果是計算器的時間慣例與本專案不同，依 C3-11「記錄差異，不強制通過」處理 | Itzel |
+| 2026-11-19 | C4 第 2 輪 STOP-REGRESSION 後：重做修正；N4 可以為了 C5-3 的 120 字上限，改寫同一頁上報告沒有列出的文字，但每一處都要記錄在 commit 與報告中，並在下一輪重新檢查（`runs/v1/C4_report.md` 第 2、3 輪） | Itzel |
 
 ## 8. Claude 自行決定、尚未經 Itzel 明確同意的事項
 
@@ -107,7 +111,17 @@ LLM Wiki 原版（`llm-wiki.md`）不同。
 | F13 固定使用 γ = 1/2 | S4 沒有明寫 γ 的允許範圍，只在討論 γ = 1/2 的段落提出式 (4.5) | `wiki/concepts/svi-parameterization.md` |
 | 反推演算法的設計參數 | 初始區間 [0.0001, 5]、容許誤差 1e-8、最大迭代 100、Newton 初始值 0.2、vega 下限 1e-8；都不是來源數字 | `wiki/concepts/iv-inversion-algorithm.md` |
 | Bloomberg 來源的數據 | 一律不抄進 wiki；但含這類內容的 S8、S12 原檔留在本機 `raw/`（沒有 commit） | `runs/pre-run/lint_report.md` L-07 |
+| C3-10 的容差 | Itzel 的裁示是「比照 precheck」，但 precheck 對 F17 只測一組參數、用嚴格遞增；C3-10 改比照 C3-3 的單調性容差（不遞減、容許 1e-9） | `lab/tests/c3.test.js` 開頭；`runs/v1/C3_report.md` 第 3 輪 |
+| C3 的測試參數範圍 | 亂數種子 20261119；一般範圍 S、K ∈ [50, 150]、T ∈ [0.05, 3]、r ∈ [0, 0.10]、σ ∈ [0.05, 1.0]；反推與 vega 測試用 K/S ∈ [0.8, 1.25]、T ∈ [0.25, 2]；C3-8 用 r = 0 使遠期價格等於現價。都是測試設計，不是來源數字 | `lab/tests/c3.test.js` |
+| F05 的 N(x) 實作方式 | 直接對 F05 的積分做複合 Simpson 數值積分（先算尾端），不使用其他近似公式，以符合 N3「不得使用公式卡以外的公式」 | `lab/bs.js` |
+| C4 由獨立檢查代理執行 | 為了讓檢查者不是撰寫者，C4 的逐條對照交給沒有參與 N4 的代理，Claude 核對後才寫入報告 | `runs/v1/C4_report.md` |
+| C4 跳回 N1 的處理 | glossary 缺的 8 個術語用既有 wiki 頁的主張補上，沒有新增來源；找不到支撐的主張（S10「真實市場的價平期限結構通常不是平的」）直接刪除，沒有去找新來源 | `wiki/log.md` 2026-11-19；`runs/v1/C4_report.md` |
+| 互動工具的初始值 | 視為顯示設定（比照 v0 計數規則 4），畫面標示「示意輸入」；輸出一律由 `lab/` 計算 | `slides/slides.md` 開頭；`slides/assets/deck.js` |
+| 版面問題的錯誤分類 | §7.2 沒有版面類別；C2-6 的超出範圍與 C5-6 的版面問題列為「無對應 E 類別」，比照 v0 規則 8 | `runs/v1/check_report.md` §2 |
+| trace.md 的補充欄 | C4 第 1 輪 §5.2 指出部分主張的 wiki 對應句在其他頁；只在 `trace.md` 補充欄補上，成品頁尾沒有改 | `trace.md` |
 
 ## 9. 仍待決定的事項
 
 - `GRAPH_SPEC.md` §9 的 Bloomberg 條款要不要補充說明（lint L-07）。
+- C3 的容差、C4 可為字數改寫未列出文字，這兩個 run v1 的裁示要不要寫進 `GRAPH_SPEC.md`，讓 v2 沿用（§8 要求 v1、v2 使用同一套條件）。
+- run v1 留下的疑義（都沒有計入問題）：S08 第 5 點「它」的指涉；glossary 的 ELN 條目附了 S9 沒有的英文全名；eln-simplified 兩條 `[推導]` 主張行內沒有寫測試編號。
