@@ -161,3 +161,10 @@
 - 新術語：固定配息結構型商品（FCN）, 賣出賣權
 - 衝突：無
 - 備註：全自動 ingest。規格沒有給網址，這篇由搜尋取得、經 Itzel 確認。文章是對財訊報導的轉述，專家與銀行人士都沒有具名；「就是賣出賣權」標為 `[觀點]`。報導中「每個月約10-15%」的配息數字看起來不尋常，wiki 沒有引用為主張，只在來源頁註明照原文、不解讀。eln-simplified、common-misconceptions 由草稿改為完整。這是來源清單的最後一份。
+
+## [2026-11-18] lint | 來源清單 S1–S13 全部 ingest 後的第一次 lint
+- run/節點：pre-run / lint
+- 狀態：完成，只回報、未修正
+- 更新頁：無
+- 衝突：無
+- 備註：報告在 `runs/pre-run/lint_report.md`。§10 的十項檢查中九項通過；第 7 項（術語未收錄）有問題。另外回報：glossary 排序有 8 處顛倒、iv-inversion-algorithm 列了 S5 但沒有引用、payoff-diagram 仍是草稿、52 條待補中有 11 條會限制簡報措辭、GRAPH_SPEC 與 AGENTS 有幾處與 wiki 現況對不上、本機 raw 中 S8 與 S12 含 Bloomberg 來源的內容、程式檢查的四個盲點、raw 原檔換行轉換的風險。
