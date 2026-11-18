@@ -71,6 +71,7 @@
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]
 - [[implied-volatility|隱含波動率]]
 - [[iv-inversion-algorithm|隱含波動率的反推演算法]]
+- [[vega|Vega]]
 
 ## 來源
 

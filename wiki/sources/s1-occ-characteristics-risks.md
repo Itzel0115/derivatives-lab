@@ -43,6 +43,7 @@
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]（引用 p.12）
 - [[why-skew-exists|為什麼會有偏斜]]（引用 p.26）
 - [[iv-inversion-algorithm|隱含波動率的反推演算法]]（引用 p.15）
+- [[theta|Theta]]（引用 p.15）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張

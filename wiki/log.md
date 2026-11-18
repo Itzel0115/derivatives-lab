@@ -111,3 +111,13 @@
 - 更新頁：svi-parameterization, no-arbitrage-surface, volatility-surface, index
 - 衝突：無
 - 備註：Itzel 核准 SSVI 示意參數：σ₀ = 0.20、ρ = −0.7、η = 1.0、γ = 0.5。核准時已告知兩點取捨：偏斜較陡（三個月期 k = −0.2／0／+0.2 約為 32%／20%／15%），以及價平期限結構為平的。
+
+## [2026-11-18] ingest | S5 OCC/OIC Understanding Greeks
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s5-oic-understanding-greeks, vega, greeks-overview, delta, gamma, theta
+- 更新頁：iv-inversion-algorithm, implied-volatility, black-scholes-model, s1-occ-characteristics-risks, s12-mit-18s096-black-scholes, glossary, index
+- 公式卡：F07
+- 新術語：Delta, Gamma, Greeks, 歷史波動率, Rho, Theta, Vega
+- 衝突：無
+- 備註：全自動 ingest。S5 沒有任何公式，F07 標為 `[推導]`，由 F03、F05、F06 推導，對應 C3-5。iv-inversion-algorithm 補上 Newton 法。greeks-overview、delta、gamma、theta 是延伸頁。S5 有與 S2 類似的使用限制聲明，比照 Itzel 對 S2 的決定處理；Itzel 沒有另外就 S5 決定。

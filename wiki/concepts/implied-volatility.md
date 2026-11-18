@@ -18,6 +18,18 @@
 - `[事實]` 換一個說法：隱含波動率是代入 Black-Scholes 公式（連同其他已知參數）後，能算出目前市價的那個波動率。（S13, p.18）
   > "(when plugged into Black-Scholes formula along with known parameters) predicts the current market price"
 
+- `[事實]` 隱含波動率是能解釋選擇權價格的波動率水準，可以用選擇權定價模型（計算器）求出。（S5, p.16）
+  > "Can be determined via option pricing model (calculator)"
+
+### 歷史波動率與隱含波動率
+
+- `[事實]` 歷史波動率是股票過去的波動率，可以觀察與量化；它是統計事實，不是預測。（S5, p.15）
+  > "A statistic, or a fact-- not a prediction"
+- `[事實]` 隱含波動率反映市場預期的標的波動率，是所有市場參與者的共識。（S5, p.16）
+  > "Reflects underlying stock volatility expected by marketplace"
+- `[事實]` 標的歷史波動率的變化不一定會影響選擇權的市價；但其他因素不變時，隱含波動率的變化一定會影響選擇權價格。（S5, p.17）
+  > "A change in underlying stock historical volatility may or may not affect an option's market price."
+
 ### 如果 Black-Scholes 是對的
 
 - `[事實]` 如果 Black-Scholes 完全正確，同一檔股票、同一個到期日，所有履約價的隱含波動率都會相同。（S13, p.18）
@@ -62,11 +74,13 @@
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]
 - [[iv-inversion-algorithm|隱含波動率的反推演算法]]
 - [[black-scholes-model|Black-Scholes 模型]]
+- [[vega|Vega]]
 
 ## 來源
 
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s2-cboe-vix-methodology|S2]]：Cboe, *Cboe Volatility Index — Methodology*（Version 6.0, 2026）
+- [[s5-oic-understanding-greeks|S5]]：OCC／OIC, *Making More Informed Decisions: Understanding Greeks*（2023）
 - [[s11-derman-kani-smile-implied-tree|S11]]：Derman & Kani, *The Volatility Smile and Its Implied Tree*（1994）
 - [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield, *Risk Neutral Probability and Black-Scholes*（Spring 2014）
 
