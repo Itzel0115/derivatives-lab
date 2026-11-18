@@ -151,3 +151,13 @@
 - 新術語：自動提前出場, 有條件配息, 定價補充文件
 - 衝突：無
 - 備註：全自動 ingest。來源由 Itzel 指定為規格中的範例那一份。文件中的指數點數、代號與歷史數據註明取自 Bloomberg，依 GRAPH_SPEC §9 一律沒有抄進 wiki；只使用發行機構訂定的條款與以假設水準 100 計算的範例。estimated-value-vs-issue-price 由草稿改為完整。發行價與估計價值的差額沒有寫成數字，留給簡報並列或用 calc 計算。
+
+## [2026-11-18] ingest | S9 財訊／Yahoo 股市 從美超微下市風波 看懂結構型商品的高息陷阱
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s9-wealth-smci-structured-products
+- 更新頁：eln-simplified, common-misconceptions, structured-note-architecture, liquidity-risk, glossary, index
+- 公式卡：無
+- 新術語：固定配息結構型商品（FCN）, 賣出賣權
+- 衝突：無
+- 備註：全自動 ingest。規格沒有給網址，這篇由搜尋取得、經 Itzel 確認。文章是對財訊報導的轉述，專家與銀行人士都沒有具名；「就是賣出賣權」標為 `[觀點]`。報導中「每個月約10-15%」的配息數字看起來不尋常，wiki 沒有引用為主張，只在來源頁註明照原文、不解讀。eln-simplified、common-misconceptions 由草稿改為完整。這是來源清單的最後一份。

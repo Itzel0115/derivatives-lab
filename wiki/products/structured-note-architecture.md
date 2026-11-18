@@ -42,6 +42,15 @@
 - `[事實]` 某些結構型債券到期時交付給投資人的，是已經下跌的參考資產本身。（S6, §Knock-in feature）
   > "you may actually receive the reference asset that has declined in value during the term of the note"
 
+### 台灣常見的名稱（S9）
+
+- `[事實]` 報導指出，連結美超微的結構型商品主要包裝成 FCN（Fixed Coupon Note，固定配息境外結構型商品），是高資產客戶常用的「不保本」投資工具。（S9, §與投行對賭股價）
+  > "主要包裝成FCN（Fixed Coupon Note，固定配息境外結構型商品）"
+- `[事實]` 報導指出，投資人的交易對手通常是國際投資銀行，商品連結三到四檔美國科技股。（S9, §與投行對賭股價）
+  > "投資人的交易對手通常是高盛或是摩根士丹利等國際投資銀行"
+- `[事實]` 報導中把 ELN 稱為「股權連結結構型商品」，與 FCN 並列。（S9, §只要沒確定下市）
+  > "ELN（股權連結結構型商品）"
+
 ### 可以自己拆開來買嗎
 
 - `[事實]` SEC 建議投資人問的問題之一：能不能分別買進結構型債券的部分或全部組成，而且價格更好。（S6, §Questions to Ask）
@@ -61,6 +70,7 @@
 
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
 - [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
+- [[s9-wealth-smci-structured-products|S9]]：洪綾襄，〈從美超微下市風波 看懂結構型商品的高息陷阱〉（引自《財訊》雙週刊，Yahoo 股市，2024）
 
 ## 待補
 

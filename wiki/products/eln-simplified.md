@@ -41,6 +41,22 @@
 - `[事實]` 同一份文件列出影響債券價值的因素，第一項就是標的指數的預期波動率。（S8, p.PS-16）
   > "the expected volatility of the Indices and the stocks underlying the Indices"
 
+### 台灣的實際案例：連結美超微的結構型商品（S9）
+
+以下出自 2024 年 11 月的一篇財經報導，是轉述，其中的專家與銀行人士都沒有具名。報導談的主要是 FCN（連結三到四檔股票），結構比本頁的簡化 ELN 複雜。
+
+- `[事實]` 報導說明這類商品的運作：只要股價不跌，買方可以賺到固定配息；股價跌超過一定程度，買方就得用設定的執行價買回股票。（S9, §與投行對賭股價）
+  > "買方就得要用設定的執行價買回股票"
+- `[範例]` 報導舉的例子：一位投資人在 7 月 10 日買了一檔連結蘋果、輝達、美超微的商品，換算分拆後執行價為 70 元，簽約時美超微股價 90 美元，三個月後崩跌至不到 20 元；因為觸及轉換價，必須依合約用 70 元接手美超微股票。（S9, §與投行對賭股價）
+- `[觀點]` 財訊報導引述的專家認為，這類商品其實就是選擇權賣出賣權（sell put）的做法。（S9, §只要沒確定下市）
+  > "這其實就是選擇權賣出賣權（sell put）的做法"
+- `[觀點]` 同一位專家質疑：為什麼要為了高配息，讓銀行抽成、賺手續費。（S9, §只要沒確定下市）
+  > "為什麼要為了高配息，讓銀行抽成、賺手續費？"
+- `[事實]` 報導引述通路的說法：美超微股價波動劇烈，把它放進 FCN 會讓整個商品的價格更有吸引力。（S9, §只要沒確定下市）
+  > "美超微股價波動劇烈，加入FCN後會讓整個商品的價格更具吸引力"
+- `[事實]` 報導引述金管會統計：截至 2024 年 10 月底，透過本國銀行購買連結美超微股票的結構型商品有 283 檔，總金額約 44 億元。（S9, §導言）
+  > "則有283檔，總金額約44億元"
+
 ### 拆解與定價（自行推導）
 
 - `[推導]` 簡化 ELN 的到期報償等於 $(N + C) - \frac{N}{K}\max(K - S_T, 0)$（F08）：一筆固定金額，減去 $N/K$ 單位 put 的到期價值。推導見下；測試：C3-9。（S12, p.5）
@@ -117,6 +133,7 @@ $$(N + C^*)\,e^{-rT} = N + \frac{N}{K}P_{BS} \quad\Longrightarrow\quad C^* = N\l
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
 - [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
 - [[s8-barclays-phoenix-autocallable-424b2|S8]]：Barclays Bank PLC, *Pricing Supplement — Phoenix AutoCallable Notes due December 12, 2018*（424B2, 2015）
+- [[s9-wealth-smci-structured-products|S9]]：洪綾襄，〈從美超微下市風波 看懂結構型商品的高息陷阱〉（引自《財訊》雙週刊，Yahoo 股市，2024）
 - [[s12-mit-18s096-black-scholes|S12]]：MIT OpenCourseWare 18.S096 Lecture 19, Strela（Fall 2013）
 - [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield（Spring 2014）
 
@@ -124,7 +141,7 @@ $$(N + C^*)\,e^{-rT} = N + \frac{N}{K}P_{BS} \quad\Longrightarrow\quad C^* = N\l
 
 - S8 把「債務工具＋投資人賣出的 put」列為一種可能的稅務處理方式，不是對商品經濟實質的正式說明；而且 S8 那檔商品的條款（三個指數取最差、障礙價、提前出場）比本頁複雜。它支持「債券加賣出 put」這個拆解方向，但不是本頁條款的實例。
 - 沒有來源描述過和本頁條款完全相同的商品。S6 沒有提到「ELN」這個名稱；它與實際商品（例如 reverse convertible）的對應關係，本 wiki 沒有來源支撐，簡報不得宣稱兩者相同。
-- 台灣的實際案例（S9）尚未 ingest。
+- S9 的案例是 FCN，不是本頁條款的實例。它支持兩件事：這類商品在經濟上像是賣出 put（專家觀點），以及標的波動越大、商品條件看起來越吸引人（通路說法，與 F17 的方向一致）。除此之外的對應都沒有來源支撐。
 - F17 是規格 §2.5 沒有列出的新公式卡。加它的原因是 C3-10 要測「公平票息隨 σ 上升」，而 C3-12 要求 `lab/` 的每個函式都對應一張公式卡。
 - F08、F09、F17 的推導只經過人工檢查，要等 C3-9、C3-10 才算驗證。
 - 真實商品的票息與 F17 的公平票息會有差距，因為發行價包含了費用與避險成本（見 [[estimated-value-vs-issue-price|估計價值與發行價]]）。差多少，本 wiki 沒有數字。

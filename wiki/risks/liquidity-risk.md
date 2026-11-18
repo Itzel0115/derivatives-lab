@@ -39,6 +39,11 @@
 - `[事實]` 到期前賣出可能造成重大損失。（S8, p.PS-15）
   > "any sale prior to the maturity date could result in a substantial loss to you"
 
+### 標的本身的流動性（S9）
+
+- `[觀點]` 財訊報導引述的專家指出，真的跌到執行價、要接下股票時，市場情緒往往低迷，股價與流動性只會更差。（S9, §只要沒確定下市）
+  > "股價和流動性只會更差、更難回本"
+
 ### 和上市選擇權的對照
 
 - `[事實]` 上市選擇權的條款是標準化的，這讓次級市場比較容易存在，買賣雙方可以用反向交易平倉。（S1, p.4）
@@ -58,6 +63,7 @@
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
 - [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
 - [[s8-barclays-phoenix-autocallable-424b2|S8]]：Barclays Bank PLC, *Pricing Supplement — Phoenix AutoCallable Notes due December 12, 2018*（424B2, 2015）
+- [[s9-wealth-smci-structured-products|S9]]：洪綾襄，〈從美超微下市風波 看懂結構型商品的高息陷阱〉（引自《財訊》雙週刊，Yahoo 股市，2024）
 
 ## 待補
 

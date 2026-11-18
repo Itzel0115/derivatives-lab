@@ -16,6 +16,7 @@
 | [S6｜SEC 投資人公告：結構型債券](sources/s6-sec-structured-notes.md) | SEC 對結構型債券的組成、風險與投資前該問的問題的說明 | S6 | — | 本次相關 | 完整 | 2026-11-18 |
 | [S7｜SEC／FINRA 投資人警示：保本型結構型債券](sources/s7-sec-finra-principal-protection.md) | 保本不等於無風險：信用、條件、持有到期、隱藏成本 | S7 | — | 本次相關 | 完整 | 2026-11-18 |
 | [S8｜Barclays Phoenix AutoCallable Notes 定價補充文件](sources/s8-barclays-phoenix-autocallable-424b2.md) | 2015 年一檔真實結構型債券的 424B2：條款、估計價值 $962.10、風險揭露 | S8 | — | 本次相關 | 完整 | 2026-11-18 |
+| [S9｜從美超微下市風波 看懂結構型商品的高息陷阱](sources/s9-wealth-smci-structured-products.md) | 2024 年財經報導（引自財訊）：連結美超微的 FCN、投資人虧損案例、「就是賣出賣權」的專家觀點 | S9 | — | 本次相關 | 完整 | 2026-11-18 |
 | [S10｜黑暗中的笑聲：波動率微笑的問題](sources/s10-derman-laughter-in-the-dark.md) | Derman 2003 演講稿：微笑的出現、各市場的形狀、三類模型 | S10 | — | 本次相關 | 完整 | 2026-11-18 |
 | [S11｜波動率微笑與隱含樹](sources/s11-derman-kani-smile-implied-tree.md) | Derman & Kani 1994：常數波動率假設、隱含波動率定義、skew 與期限結構、隱含樹模型 | S11 | — | 本次相關 | 完整 | 2026-11-18 |
 | [S12｜風險中立定價與 Black-Scholes 公式](sources/s12-mit-18s096-black-scholes.md) | MIT 18.S096 第 19 講投影片：複製組合、BS 方程式、歐式 call／put 公式 | S12 | — | 本次相關 | 完整 | 2026-11-18 |
@@ -49,8 +50,8 @@
 
 | 頁面 | 摘要 | 來源 | 公式卡 | 範圍 | 狀態 | 更新 |
 |---|---|---|---|---|---|---|
-| [結構型商品的組成](products/structured-note-architecture.md) | 債券＋內嵌衍生性商品；報償結構的常見設計 | S6, S7 | — | 本次相關 | 完整 | 2026-11-18 |
-| [簡化 ELN](products/eln-simplified.md) | 教學用結構：條款、拆解成債券減 put、理論價值與公平票息（推導）。待 S9 補台灣案例 | S1, S5, S6, S7, S8, S12, S13 | F08, F09, F17 | 本次相關 | 草稿 | 2026-11-18 |
+| [結構型商品的組成](products/structured-note-architecture.md) | 債券＋內嵌衍生性商品；報償結構的常見設計；台灣的 FCN | S6, S7, S9 | — | 本次相關 | 完整 | 2026-11-18 |
+| [簡化 ELN](products/eln-simplified.md) | 教學用結構：條款、拆解成債券減 put、理論價值與公平票息（推導）；美超微案例 | S1, S5, S6, S7, S8, S9, S12, S13 | F08, F09, F17 | 本次相關 | 完整 | 2026-11-18 |
 | [估計價值與發行價](products/estimated-value-vs-issue-price.md) | 發行價＝估計公平價值＋價差；Barclays 2015 案例：發行價 $1,000、估計價值 $962.10 | S6, S7, S8 | — | 本次相關 | 完整 | 2026-11-18 |
 | [保本型商品](products/principal-protected-note.md) | 零息債券＋選擇權；保本的程度、條件與代價 | S6, S7 | — | 延伸 | 完整 | 2026-11-18 |
 | [自動提前出場型商品](products/autocallable.md) | 以 Barclays 2015 案例說明有條件配息、自動提前出場與障礙價（靜態案例） | S6, S7, S8 | — | 延伸 | 完整 | 2026-11-18 |
@@ -60,5 +61,5 @@
 | 頁面 | 摘要 | 來源 | 公式卡 | 範圍 | 狀態 | 更新 |
 |---|---|---|---|---|---|---|
 | [發行機構信用風險](risks/issuer-credit-risk.md) | 結構型債券是無擔保債務；所有承諾取決於發行機構；Lehman 的例子 | S1, S6, S7, S8 | — | 本次相關 | 完整 | 2026-11-18 |
-| [流動性風險](risks/liquidity-risk.md) | 多數未掛牌、次級市場有限，要有持有到期的準備 | S1, S6, S7, S8 | — | 本次相關 | 完整 | 2026-11-18 |
-| [常見誤解](risks/common-misconceptions.md) | IV 不等於方向；保本不等於不虧；高票息不等於高報酬。待 S9 | S1, S5, S6, S7, S8, S13 | — | 本次相關 | 草稿 | 2026-11-18 |
+| [流動性風險](risks/liquidity-risk.md) | 多數未掛牌、次級市場有限，要有持有到期的準備 | S1, S6, S7, S8, S9 | — | 本次相關 | 完整 | 2026-11-18 |
+| [常見誤解](risks/common-misconceptions.md) | IV 不等於方向；保本不等於不虧；高票息不等於高報酬 | S1, S5, S6, S7, S8, S9, S13 | — | 本次相關 | 完整 | 2026-11-18 |

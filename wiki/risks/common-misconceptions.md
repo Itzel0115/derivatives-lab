@@ -60,6 +60,15 @@
   > "The Notes do not guarantee any return of principal."
 - `[事實]` 配息本身也不保證：只要有一個指數在觀察日低於配息障礙價，該期就沒有配息。（S8, p.PS-13）
   > "You May Not Receive any Contingent Coupon Payments on the Notes"
+- `[事實]` 2024 年的一篇報導指出，不少台灣投資人透過高息的固定配息結構型商品投資美超微；在美超微面臨下市風險時，可能賺了利息卻賠了本金。（S9, §導言）
+  > "投資人恐只賺了息，卻賠了本"
+- `[範例]` 報導舉的例子：一位投資人買了連結蘋果、輝達、美超微的商品，執行價 70 元，簽約時美超微股價 90 美元，三個月後跌至不到 20 元，仍必須依合約用 70 元接手美超微股票。（S9, §與投行對賭股價）
+- `[觀點]` 報導引述有人這樣形容這類商品的設計：「你要他的高息，他要你的本金，看誰賭贏。」（S9, §與投行對賭股價）
+  > "你要他的高息，他要你的本金，看誰賭贏。"
+- `[觀點]` 財訊報導引述的專家認為，這類商品其實就是選擇權賣出賣權（sell put）的做法。（S9, §只要沒確定下市）
+  > "這其實就是選擇權賣出賣權（sell put）的做法"
+- `[觀點]` 同一位專家指出，真的跌到執行價時，市場情緒往往低迷，股價與流動性只會更差、更難回本。（S9, §只要沒確定下市）
+  > "股價和流動性只會更差、更難回本"
 - `[推導]` 在簡化 ELN 中，票息高於無風險利息的部分，來自投資人賣出 put 所收的權利金（F17）；標的波動越大，這筆權利金越高，票息也越高。推導見 [[eln-simplified|簡化 ELN]]；測試：C3-10。（S13, p.11）
 
 整理：高票息是承擔下跌風險的報酬，不是白拿的。票息越高，通常代表賣出的 put 越值錢，也就是市場認為大跌的風險越大。
@@ -81,11 +90,12 @@
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
 - [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
 - [[s8-barclays-phoenix-autocallable-424b2|S8]]：Barclays Bank PLC, *Pricing Supplement — Phoenix AutoCallable Notes due December 12, 2018*（424B2, 2015）
+- [[s9-wealth-smci-structured-products|S9]]：洪綾襄，〈從美超微下市風波 看懂結構型商品的高息陷阱〉（引自《財訊》雙週刊，Yahoo 股市，2024）
 - [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield（Spring 2014）
 
 ## 待補
 
 - 三段「整理」是把上面各條主張串起來的說明，不是來源原句。簡報引用時應引用個別主張，不是「整理」那一段。
 - 誤解三最後一句「票息越高，通常代表市場認為大跌的風險越大」是由 F17 與 vega 為正推出來的，只在簡化 ELN 的模型內成立；對真實商品沒有來源支撐。
-- S9（台灣案例）尚未 ingest，預期會補充誤解三的實例。
+- S9 的標題用了「高息陷阱」一詞，並報導了一批投資人的情況，這是目前唯一間接支持「誤解三確實發生在投資人身上」的來源；它是新聞報導，沒有統計有多少人有這個誤解。
 - S7 在開頭提到這類商品「常有讓人安心的名稱」，這是目前唯一間接支持「誤解二很常見」的來源說法；其他兩個誤解仍然沒有來源說明有多普遍。

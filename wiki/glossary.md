@@ -23,6 +23,7 @@
 | 履約 | exercise | 買方行使選擇權所賦予的權利 | （S1, p.9） | [[call-put-option]] |
 | 履約價（K） | exercise price / strike price | 買方有權買進或賣出標的的價格 | （S1, p.7） | [[strike-maturity-moneyness]] |
 | 到期日 | expiration date | 選擇權失效的日子 | （S1, p.7） | [[strike-maturity-moneyness]] |
+| 固定配息結構型商品（FCN） | fixed coupon note | 股價不跌時支付固定配息、股價跌破約定程度時投資人須以執行價接下股票的不保本結構型商品 | （S9, §與投行對賭股價） | [[structured-note-architecture]] |
 | Gamma | gamma | 標的股價變動 $1.00 時，delta 的預期變動 | （S5, p.13） | [[gamma]] |
 | Greeks | Greeks | 衡量選擇權價值對各個定價因素敏感度的一組理論指標 | （S5, p.6；p.7） | [[greeks-overview]] |
 | 歷史波動率 | historical volatility | 股票過去的波動率；是統計事實，不是預測 | （S5, p.15） | [[implied-volatility]] |
@@ -50,6 +51,7 @@
 | Rho | rho | 無風險利率變動時，選擇權價值的預期變動 | （S5, p.6） | [[greeks-overview]] |
 | 無風險利率（r） | risk-free interest rate | 無風險貨幣市場帳戶的利率，Black-Scholes 公式的輸入之一 | （S12, p.9） | [[black-scholes-model]] |
 | 切片 | slice | 固定到期日時，總隱含變異數對 log-strike 的函數 | （S4, p.2） | [[volatility-surface]] |
+| 賣出賣權 | sell put (short put) | 賣出 put 選擇權：收取權利金，並承擔標的下跌時以履約價買進的義務 | （S9, §只要沒確定下市；S1, p.65） | [[eln-simplified]] |
 | 偏斜 | skew | 隱含波動率隨履約價變動的不對稱；指數選擇權通常是履約價越高、隱含波動率越低 | （S11, p.2） | [[volatility-smile-skew]] |
 | SSVI | Surface SVI | 以價平總隱含變異數為參數、可保證無靜態套利的 SVI 曲面形式（F12） | （S4, p.10–11） | [[svi-parameterization]] |
 | 靜態套利 | static arbitrage | 日曆價差套利與蝶式套利的合稱；曲面兩者皆無才算沒有靜態套利 | （S4, p.3） | [[no-arbitrage-surface]] |
