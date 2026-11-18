@@ -78,3 +78,37 @@ LLM Wiki 原版（`llm-wiki.md`）不同。
 - 一次 ingest 一份來源
 - Query 時先讀 index 再讀頁面
 - 用 git 當版本紀錄
+
+## 7. 第一版之後的決定
+
+`AGENTS.md` 第一版寫入之後、到全部來源 ingest 完成為止，陸續做的決定。逐筆經過記在 `wiki/log.md`。
+
+| 日期 | 決定 | 由誰 |
+|---|---|---|
+| 2026-11-18 | S2 的文件聲明禁止未經同意的複製與衍生作品；維持現行引用方式（改寫＋短引＋少量範例數字） | Itzel |
+| 2026-11-18 | S3 指定網址只有 3 頁課程大綱，新增 S10–S13 補上講義內容，並修改 `GRAPH_SPEC.md` §2.3、§2.4 | Itzel 核准 Claude 找的候選 |
+| 2026-11-18 | 核准 SSVI 示意參數 σ₀ = 0.20、ρ = −0.7、η = 1.0、γ = 0.5 | Itzel |
+| 2026-11-18 | S8 採用規格中作為範例的那一份 424B2 | Itzel |
+| 2026-11-18 | S9 採用搜尋到的 Yahoo 股市轉載文 | Itzel 確認 Claude 找的候選 |
+| 2026-11-18 | 修正第一次 lint 的 L-01、L-02、L-03 | Itzel |
+| 2026-11-18 | 更新 `GRAPH_SPEC.md`（七處）、`AGENTS.md`（三處）與本檔，使規則檔與 wiki 現況一致 | Itzel 核准草稿 |
+
+## 8. Claude 自行決定、尚未經 Itzel 明確同意的事項
+
+以下做法都已在當時的事後摘要中回報，但 Itzel 沒有逐項表示同意或反對。列在這裡，方便日後檢視或推翻。
+
+| 事項 | 做法 | 記在哪裡 |
+|---|---|---|
+| 新增公式卡 F17（公平票息） | 規格 §2.5 原本只有 F08、F09。因為 C3-10 要測公平票息、C3-12 要求每個函式對應公式卡，所以加了 F17。本次規則檔更新已把它寫進 §2.5 | `wiki/products/eln-simplified.md` |
+| S5 的使用限制 | 比照 Itzel 對 S2 的決定處理 | `wiki/sources/s5-oic-understanding-greeks.md` |
+| S7 原檔 commit 進 git | 依 `AGENTS.md` §7 的預設分類；但共同發布者 FINRA 不是政府機關 | `raw/MANIFEST.md` |
+| F13 固定使用 γ = 1/2 | S4 沒有明寫 γ 的允許範圍，只在討論 γ = 1/2 的段落提出式 (4.5) | `wiki/concepts/svi-parameterization.md` |
+| 反推演算法的設計參數 | 初始區間 [0.0001, 5]、容許誤差 1e-8、最大迭代 100、Newton 初始值 0.2、vega 下限 1e-8；都不是來源數字 | `wiki/concepts/iv-inversion-algorithm.md` |
+| Bloomberg 來源的數據 | 一律不抄進 wiki；但含這類內容的 S8、S12 原檔留在本機 `raw/`（沒有 commit） | `runs/pre-run/lint_report.md` L-07 |
+| 檢查用的腳本 | 引文比對、lint、數值預檢三支腳本放在暫存區，沒有納入 repo | `runs/pre-run/lint_report.md` |
+
+## 9. 仍待決定的事項
+
+- `GRAPH_SPEC.md` §9 的 Bloomberg 條款要不要補充說明（lint L-07）。
+- 要不要新增 `tools/` 資料夾收納檢查腳本。
+- 要不要加 `.gitattributes` 保護 `raw/` 原檔的換行（lint L-09）。

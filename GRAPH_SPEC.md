@@ -32,7 +32,9 @@ derivatives-lab/
 ├── AGENTS.md                 # Wiki 規則（ingest、命名、出處格式）
 ├── GRAPH_SPEC.md             # 本檔
 ├── style.md                  # 簡報視覺規格（事前選定，N5 必須遵守）
+├── docs/                     # 決策紀錄（agents-md-decisions.md）
 ├── raw/                      # 原始來源（PDF / HTML 存檔），不得修改
+│   └── MANIFEST.md           # 所有來源的 URL、取得日、SHA-256、是否 commit
 ├── wiki/
 │   ├── index.md              # 所有 wiki 頁清單＋一句話摘要
 │   ├── log.md                # ingest 與修改紀錄（時間、來源、變更頁）
@@ -51,6 +53,7 @@ derivatives-lab/
 │   └── index.html            # N5 產出
 ├── trace.md                  # N6 產出：投影片 → wiki 頁 → 原始來源
 └── runs/
+    ├── pre-run/              # 不屬於任何 run 的 ingest 與 lint 報告
     └── <run-id>/             # 每次執行一個資料夾，例如 v0-baseline、v1、v2
         ├── C0_report.md … C6_report.md
         └── check_report.md   # 本次執行總表
@@ -83,6 +86,8 @@ derivatives-lab/
 > 出處：（S3, p.xx）
 ```
 
+公式卡目前編到 F17，總表見 `wiki/index.md` 的公式卡欄。F01–F09 的內容由本檔 §2.4、§2.5 指定；F10 起依 `AGENTS.md` §4.3 依序編號。
+
 ### 2.3 來源清單（至少 5 份，目標 13 份）
 
 | ID | 來源 | 主要支撐 | 取得位置 |
@@ -94,8 +99,8 @@ derivatives-lab/
 | S5 | OCC / OIC, *Understanding the Greeks*（教學投影片） | Vega 定義（其他 Greeks 為延伸） | https://fidelity.com/bin-public/060_www_fidelity_com/documents/learning-center/understanding-greeks-OIC-slides.pdf |
 | S6 | SEC, *Investor Bulletin: Structured Notes* | L4 債券＋內嵌衍生性商品、風險 | https://investor.gov/additional-resources/news-alerts/alerts-bulletins/investor-bulletin-structured-notes |
 | S7 | FINRA / SEC, 保本型結構型商品投資人警示 | L4 保本的信用風險、隱藏成本 | https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/structured |
-| S8 | SEC EDGAR 424B2 pricing supplement（Autocallable，選 1–2 份） | L4 估計價值低於發行價 | 例：https://sec.gov/Archives/edgar/data/312070/000119312515398608/d101037d424b2.htm |
-| S9 | 財訊，美超微下市風波與結構型商品報導 | L4 台灣真實案例（ELN ≈ 賣出 put） | Yahoo 股市轉載頁 |
+| S8 | Barclays Bank PLC, *Phoenix AutoCallable Notes due December 12, 2018*（SEC EDGAR 424B2 pricing supplement, 2015-12-07） | L4 估計價值低於發行價 | https://www.sec.gov/Archives/edgar/data/312070/000119312515398608/d101037d424b2.htm |
+| S9 | 洪綾襄，〈從美超微下市風波 看懂結構型商品的高息陷阱〉（引自《財訊》雙週刊，Yahoo 股市，2024-11-29） | L4 台灣真實案例（ELN ≈ 賣出 put） | https://tw.stock.yahoo.com/news/%E5%BE%9E%E7%BE%8E%E8%B6%85%E5%BE%AE%E4%B8%8B%E5%B8%82%E9%A2%A8%E6%B3%A2-%E7%9C%8B%E6%87%82%E7%B5%90%E6%A7%8B%E5%9E%8B%E5%95%86%E5%93%81%E7%9A%84%E9%AB%98%E6%81%AF%E9%99%B7%E9%98%B1-020101153.html |
 | S10 | Derman (2003), *Laughter in the Dark — The Problem of the Volatility Smile* | L3 BS 下曲面應為平的、1987 年後的 skew、成因 | https://emanuelderman.com/wp-content/uploads/2003/04/Amsterdam.pdf |
 | S11 | Derman & Kani (1994), *The Volatility Smile and Its Implied Tree*（Goldman Sachs Quantitative Strategies Research Notes） | L2–L3 隱含波動率定義、skew 與期限結構定義、常數波動率假設 | https://emanuelderman.com/wp-content/uploads/1994/01/gs-volatility_smile.pdf |
 | S12 | MIT OpenCourseWare 18.S096 (Fall 2013) Lecture 19, Strela, *Black-Scholes Formula & Risk-neutral Valuation* | L2 BS 公式 F03–F05 | https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/resources/mit18_s096f13_lecnote19/ |
@@ -123,13 +128,13 @@ derivatives-lab/
 | `concepts/volatility-term-structure.md` | 固定 K、T 改變時的 IV 型態 | S2, S11 | ✅ |
 | `concepts/why-skew-exists.md` | 為什麼有 skew（作者觀點） | S10 | ✅ |
 | `concepts/volatility-surface.md` | 兩個方向合成曲面 | S10, S4 | ✅ |
-| `concepts/svi-parameterization.md` | SVI 公式卡、示意參數 | S4 | ✅ |
-| `concepts/no-arbitrage-surface.md` | calendar / butterfly 無套利條件 | S4 | ✅ |
+| `concepts/svi-parameterization.md` | SVI 公式卡 F10–F13、示意參數（已核准） | S4 | ✅ |
+| `concepts/no-arbitrage-surface.md` | calendar / butterfly 無套利條件，公式卡 F14–F16 | S4 | ✅ |
 | `concepts/greeks-overview.md` | 五個 Greeks 總覽 | S5 | 延伸 |
-| `concepts/vega.md` | Vega 定義、公式卡 F07 | S5 | ✅ |
+| `concepts/vega.md` | Vega 定義、公式卡 F07 `[推導]` | S5 | ✅ |
 | `concepts/delta.md` `gamma.md` `theta.md` | 各自定義 | S5 | 延伸 |
 | `products/structured-note-architecture.md` | 債券＋內嵌衍生性商品 | S6 | ✅ |
-| `products/eln-simplified.md` | 簡化 ELN 條款、損益、拆解公式 F08–F09 `[推導]` | S6, S9 | ✅ |
+| `products/eln-simplified.md` | 簡化 ELN 條款、損益、拆解公式 F08–F09、公平票息 F17 `[推導]` | S6, S9 | ✅ |
 | `products/estimated-value-vs-issue-price.md` | 估計價值與發行價的差距 | S8 | ✅ |
 | `products/principal-protected-note.md` | 保本型商品 | S6, S7 | 延伸 |
 | `products/autocallable.md` | 自動提前出場機制 | S8 | 延伸（簡報只放一頁靜態案例） |
@@ -143,6 +148,7 @@ derivatives-lab/
 - 到期時：若 $S_T \ge K$，取回 $N + C$；若 $S_T < K$，取得價值 $N \cdot S_T / K$ 的股票（或等值現金）加上 $C$
 - 等價寫法 **F08**：$\text{Payoff} = (N + C) - \frac{N}{K}\max(K - S_T, 0)$ `[推導]`
 - 理論價值 **F09**：$V = (N + C)e^{-rT} - \frac{N}{K} P_{BS}(K, T, \sigma)$ `[推導]`
+- 公平票息 **F17**：$C^* = N(e^{rT} - 1) + \frac{N}{K} P_{BS}(K, T, \sigma)\, e^{rT}$ `[推導]`（令 F09 的 $V = N$ 解出；供 C3-10 使用）
 - 頁首必須標註：「教學用簡化結構，忽略發行機構信用風險、費用與股利；**不構成投資建議**」
 
 ---
@@ -248,7 +254,7 @@ flowchart TD
 |---|---|
 | C1-1 | 所有標記「本次相關」的頁面都存在 |
 | C1-2 | 每個相關頁至少有 1 條 `[事實]` 或 `[範例]` 主張 |
-| C1-3 | 互動工具需要的公式卡 F01–F09 全部存在，且有出處或完整推導 |
+| C1-3 | 互動工具需要的公式卡 F01–F17 全部存在，且有出處或完整推導 |
 | C1-4 | 每個 `[推導]` 都列在 C3 的測試清單中 |
 
 - **缺頁，且有已知公開來源** → 回 N0 補 ingest
@@ -276,7 +282,7 @@ flowchart TD
 - **核准** → 同時啟動 N3 與 N4
 
 ### N3｜公式卡 → 程式
-- **輸入**：公式卡 F01–F09、`svi-parameterization.md` 的示意參數
+- **輸入**：公式卡 F01–F17、`svi-parameterization.md` 的示意參數
 - **輸出**：`lab/bs.js`、`iv.js`、`svi.js`、`eln.js`；每個函式以註解標出公式 ID
 - **禁止**：使用公式卡以外的公式；憑記憶寫參數
 
@@ -288,11 +294,11 @@ flowchart TD
 | C3-3 | 單調性：C 隨 σ 遞增 | 全部成立 |
 | C3-4 | IV 來回測試：σ → 價格 → σ̂，σ ∈ [0.05, 1.0] | \|σ̂ − σ\| < 1e-6 |
 | C3-5 | Vega（F07）：解析解 vs 數值微分（h = 1e-4） | 相對誤差 < 1e-3 |
-| C3-6 | SVI 曲面：total variance ≥ 0 | 全部成立 |
-| C3-7 | Calendar 無套利：同一 k 下，total variance 隨 T 不遞減 | 全部成立 |
-| C3-8 | Butterfly 無套利：call 價格對 K 的二階差分 ≥ −1e-10 | 全部成立 |
+| C3-6 | SVI 曲面（F12、F13）：total variance ≥ 0 | 全部成立 |
+| C3-7 | Calendar 無套利（F14）：同一 k 下，total variance 隨 T 不遞減 | 全部成立 |
+| C3-8 | Butterfly 無套利（F15）：call 價格對 K 的二階差分 ≥ −1e-10 | 全部成立 |
 | C3-9 | ELN（F08）：$S_T = K$ 時連續；$S_T \ge K$ 時為 $N + C$；$S_T = 0$ 時為 $C$ | 全部成立 |
-| C3-10 | ELN（F09）：發行價固定時，σ 越高，公平票息越高 | 全部成立 |
+| C3-10 | ELN（F09、F17）：發行價固定時，σ 越高，公平票息越高 | 全部成立 |
 | C3-11 | 外部對照：3 組參數與 OIC 選擇權計算器比對（歐式、無股利） | 差距 < 0.01；若計算器模型設定不同，記錄差異，不強制通過 |
 | C3-12 | `lab/` 中每個函式都有公式 ID，而且該公式卡存在 | 全部成立 |
 
