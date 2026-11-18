@@ -15,6 +15,9 @@
 - `[事實]` 其他條件相同時，標的波動越大，選擇權權利金越高。（S1, p.15）
   > "options on more volatile interests command higher premiums than options on less volatile interests"
 
+- `[事實]` Black-Scholes 的（未折現）選擇權價值，對總隱含變異數是嚴格遞增的。（S4, p.4）
+  > "strictly increasing in its second argument"
+
 ### 演算法（自行推導）
 
 - `[推導]` 反推隱含波動率，就是解方程式 $C_{BS}(S, K, T, r, \sigma) = C_{mkt}$ 中的未知數 $\sigma$，其中 $C_{BS}$ 是 F03、$C_{mkt}$ 是市場價格。這是把上面的定義直接寫成方程式。測試：C3-4。（S13, p.18）
@@ -69,6 +72,7 @@
 ## 來源
 
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
+- [[s4-gatheral-jacquier-svi|S4]]：Gatheral & Jacquier, *Arbitrage-free SVI volatility surfaces*（arXiv:1204.0646v4, 2013）
 - [[s11-derman-kani-smile-implied-tree|S11]]：Derman & Kani, *The Volatility Smile and Its Implied Tree*（1994）
 - [[s12-mit-18s096-black-scholes|S12]]：MIT OpenCourseWare 18.S096 Lecture 19, Strela（Fall 2013）
 - [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield（Spring 2014）
@@ -76,5 +80,5 @@
 ## 待補
 
 - Newton 法需要 vega（F07），而 F07 還沒有建立，要等 S5 ingest。規格 §2.4 寫的是「二分法／Newton」，目前只完成二分法。
-- 「call 價格隨 σ 遞增」目前只有 S1 的定性說法（p.15）加上 C3-3 的數值測試；嚴格的證明需要 vega 恆為正，同樣要等 F07。
+- 「call 價格隨 σ 遞增」的依據：S4 指出 Black-Scholes 價值對總隱含變異數嚴格遞增（p.4），而固定 $T$ 時總變異數 $\sigma^2 T$ 隨 $\sigma$ 遞增。另有 S1 的定性說法（p.15）與 C3-3 的數值測試。
 - put 的反推做法相同，把 F03 換成 F04、把界限換成 put 的界限即可；本頁沒有另外推導 put 的界限。

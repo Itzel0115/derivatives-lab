@@ -8,6 +8,8 @@
 | 指派 | assignment | 買方履約後，由 OCC 與券商依規則指定某位賣方履行義務 | （S1, p.9） | [[call-put-option]] |
 | 價平 | at the money | 標的現價等於履約價 | （S1, p.13） | [[strike-maturity-moneyness]] |
 | Black-Scholes 公式 | Black-Scholes formula | 以標的現價、履約價、到期時間、無風險利率與波動率計算歐式選擇權理論價格的公式（F03–F05） | （S12, p.19） | [[black-scholes-model]] |
+| 蝶式套利 | butterfly arbitrage | 同一到期日的曲面切片所隱含的機率密度出現負值時存在的套利 | （S4, p.4） | [[no-arbitrage-surface]] |
+| 日曆價差套利 | calendar spread arbitrage | 相同 moneyness 下，到期日較長的選擇權總隱含變異數反而較小時存在的套利 | （S4, p.3–4） | [[no-arbitrage-surface]] |
 | 買權 | call option | 給予買方「買進」標的之權利的選擇權 | （S1, p.3） | [[call-put-option]] |
 | 現金擔保賣出賣權 | cash-secured put | 賣出 put 的同時，把等於履約價的現金存在券商作為擔保 | （S1, p.65） | [[s1-occ-characteristics-risks]] |
 | 現金結算 | cash-settled | 履約時不交付標的，而是依標的價值與履約價的差額收付現金 | （S1, p.3） | [[call-put-option]] |
@@ -20,6 +22,7 @@
 | 隱含波動率曲面 | implied volatility surface | 隱含波動率對履約價與到期日畫成的曲面 | （S10, p.3） | [[volatility-surface]] |
 | 價內 | in the money | Call：標的現價高於履約價；put：標的現價低於履約價 | （S1, p.13） | [[strike-maturity-moneyness]] |
 | 內含價值 | intrinsic value | 選擇權處於價內的金額；價外時為零 | （S1, p.14） | [[strike-maturity-moneyness]] |
+| Log-strike（k） | log-strike / log-moneyness | 履約價相對於遠期價格的對數，k = ln(K/F) | （S4, p.2） | [[svi-parameterization]] |
 | 乘數 | multiplier | 現金結算選擇權用來把每一點差額換算成金額的倍數 | （S1, p.8） | [[payoff-diagram]] |
 | 近期／次近期 | near-term / next-term | VIX 計算時選出的兩組到期日，一前一後夾住 30 天的目標期限 | （S2, p.5–6） | [[volatility-term-structure]] |
 | 負偏斜 | negative skew | 隱含波動率隨履約價升高而下降的型態，常見於股價指數選擇權 | （S10, p.3） | [[volatility-smile-skew]] |
@@ -31,9 +34,14 @@
 | 買賣權平價 | put-call parity | 相同履約價與到期日的歐式 call 與 put 價格之間的關係（F06） | （S11, p.6；F06 推導） | [[put-call-parity]] |
 | 實現波動率 | realized volatility | 標的在一段期間內實際發生的波動率，由歷史數值計算 | （S1, p.27） | [[implied-volatility]] |
 | 無風險利率（r） | risk-free interest rate | 無風險貨幣市場帳戶的利率，Black-Scholes 公式的輸入之一 | （S12, p.9） | [[black-scholes-model]] |
+| 切片 | slice | 固定到期日時，總隱含變異數對 log-strike 的函數 | （S4, p.2） | [[volatility-surface]] |
 | 偏斜 | skew | 隱含波動率隨履約價變動的不對稱；指數選擇權通常是履約價越高、隱含波動率越低 | （S11, p.2） | [[volatility-smile-skew]] |
+| SSVI | Surface SVI | 以價平總隱含變異數為參數、可保證無靜態套利的 SVI 曲面形式（F12） | （S4, p.10–11） | [[svi-parameterization]] |
+| 靜態套利 | static arbitrage | 日曆價差套利與蝶式套利的合稱；曲面兩者皆無才算沒有靜態套利 | （S4, p.3） | [[no-arbitrage-surface]] |
+| SVI | stochastic volatility inspired (parameterization) | 用五個參數描述單一到期日隱含波動率微笑的公式（F11） | （S4, p.1；p.5） | [[svi-parameterization]] |
 | 期限結構 | term structure (of volatility) | 價平選擇權的隱含波動率隨到期時間的變化 | （S11, p.2） | [[volatility-term-structure]] |
 | 時間價值 | time value | 權利金超過內含價值的部分 | （S1, p.14） | [[strike-maturity-moneyness]] |
+| 總隱含變異數（w） | total implied variance | 隱含波動率的平方乘以到期時間，w = σ²t | （S4, p.2） | [[svi-parameterization]] |
 | 標的 | underlying interest | 選擇權所約定買賣的資產（股票、指數、債券、外匯等） | （S1, p.3） | [[call-put-option]] |
 | 契約單位 | unit of trading / contract size | 一口實物交割選擇權履約時買賣的標的數量；多數股票選擇權是 100 股 | （S1, p.8） | [[call-put-option]] |
 | VIX 指數 | VIX Index (Cboe Volatility Index) | 衡量市場對美國股市未來 30 天波動率預期的指數，由 S&P 500 指數選擇權價格算出 | （S2, p.3） | [[implied-volatility]] |

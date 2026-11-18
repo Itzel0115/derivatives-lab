@@ -94,3 +94,13 @@
 - 新術語：波動率（σ）
 - 衝突：無（S12 與 S13 的 call 公式與 d1、d2 寫法一致）
 - 備註：全自動 ingest。iv-inversion-algorithm 的演算法部分標為 `[推導]`，目前只有二分法；Newton 法需要 F07，待 S5。演算法的初始區間、容許誤差、最大迭代次數是設計參數，頁面中已標明不是來源數字。
+
+## [2026-11-18] ingest | S4 Gatheral & Jacquier Arbitrage-free SVI volatility surfaces
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s4-gatheral-jacquier-svi, svi-parameterization, no-arbitrage-surface
+- 更新頁：volatility-surface, iv-inversion-algorithm, s13-mit-18440-risk-neutral-black-scholes, glossary, index
+- 公式卡：F10, F11, F12, F13, F14, F15, F16
+- 新術語：蝶式套利, 日曆價差套利, Log-strike, 切片, SSVI, 靜態套利, SVI, 總隱含變異數
+- 衝突：無
+- 備註：全自動 ingest。公式對照 PDF 原圖抄錄。S4 沒有提供任何無套利的具體參數數值，svi-parameterization 中的示意參數是提案，標為「尚待 Itzel 核准」，核准前 N3 不得使用。no-arbitrage-surface 有一條 `[推導]`，驗算示意參數形式滿足 S4 Corollary 4.1。arXiv 授權不含再散布，原檔只留本機。

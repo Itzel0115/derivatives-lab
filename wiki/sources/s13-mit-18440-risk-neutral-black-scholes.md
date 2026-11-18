@@ -42,6 +42,8 @@
 - [[iv-inversion-algorithm|隱含波動率的反推演算法]]
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]
 - [[black-scholes-model|Black-Scholes 模型]]
+- [[svi-parameterization|SVI 參數化]]（引用 p.11）
+- [[no-arbitrage-surface|無套利曲面]]（引用 p.6）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張
