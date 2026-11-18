@@ -52,6 +52,7 @@ derivatives-lab/
 │   ├── assets/               # 簡報圖片（相對路徑引用）
 │   └── index.html            # N5 產出
 ├── trace.md                  # N6 產出：投影片 → wiki 頁 → 原始來源
+├── tools/                    # Wiki 檢查腳本（引文比對、lint、公式卡數值預檢）；不是 C3
 └── runs/
     ├── pre-run/              # 不屬於任何 run 的 ingest 與 lint 報告
     └── <run-id>/             # 每次執行一個資料夾，例如 v0-baseline、v1、v2

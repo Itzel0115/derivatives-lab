@@ -11,3 +11,7 @@ raw/*
 .DS_Store
 Thumbs.db
 node_modules/
+
+# 檢查腳本的快取（由 tools/check_quotes.py 產生）
+.cache/
+__pycache__/

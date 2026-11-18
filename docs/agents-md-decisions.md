@@ -92,6 +92,7 @@ LLM Wiki 原版（`llm-wiki.md`）不同。
 | 2026-11-18 | S9 採用搜尋到的 Yahoo 股市轉載文 | Itzel 確認 Claude 找的候選 |
 | 2026-11-18 | 修正第一次 lint 的 L-01、L-02、L-03 | Itzel |
 | 2026-11-18 | 更新 `GRAPH_SPEC.md`（七處）、`AGENTS.md`（三處）與本檔，使規則檔與 wiki 現況一致 | Itzel 核准草稿 |
+| 2026-11-18 | 新增 `tools/` 資料夾，把引文比對、lint、公式卡數值預檢腳本收進 repo；`GRAPH_SPEC.md` §1 的資料夾結構同步補上 | Itzel |
 
 ## 8. Claude 自行決定、尚未經 Itzel 明確同意的事項
 
@@ -105,10 +106,8 @@ LLM Wiki 原版（`llm-wiki.md`）不同。
 | F13 固定使用 γ = 1/2 | S4 沒有明寫 γ 的允許範圍，只在討論 γ = 1/2 的段落提出式 (4.5) | `wiki/concepts/svi-parameterization.md` |
 | 反推演算法的設計參數 | 初始區間 [0.0001, 5]、容許誤差 1e-8、最大迭代 100、Newton 初始值 0.2、vega 下限 1e-8；都不是來源數字 | `wiki/concepts/iv-inversion-algorithm.md` |
 | Bloomberg 來源的數據 | 一律不抄進 wiki；但含這類內容的 S8、S12 原檔留在本機 `raw/`（沒有 commit） | `runs/pre-run/lint_report.md` L-07 |
-| 檢查用的腳本 | 引文比對、lint、數值預檢三支腳本放在暫存區，沒有納入 repo | `runs/pre-run/lint_report.md` |
 
 ## 9. 仍待決定的事項
 
 - `GRAPH_SPEC.md` §9 的 Bloomberg 條款要不要補充說明（lint L-07）。
-- 要不要新增 `tools/` 資料夾收納檢查腳本。
 - 要不要加 `.gitattributes` 保護 `raw/` 原檔的換行（lint L-09）。

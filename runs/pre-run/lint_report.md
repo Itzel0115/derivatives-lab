@@ -209,3 +209,24 @@ Itzel 核准規則檔的修改草稿，處理 L-06。
 
 - `GRAPH_SPEC.md` §2.4 的「主要來源」欄有三列沒有更新（草稿沒有包含這一項）：svi-parameterization 與 no-arbitrage-surface 寫 S4，實際還引用了 S13；eln-simplified 寫 S6、S9，實際引用了 S1、S5、S6、S7、S8、S9、S12、S13。欄名是「主要來源」，所以不算錯，但與 `wiki/index.md` 的來源欄不一致。
 - L-04、L-05、L-07、L-08、L-09 沒有動。L-07、L-09 與「要不要新增 `tools/`」三項，已列在 `docs/agents-md-decisions.md` §9 等待決定。
+
+---
+
+## 後續處理紀錄（三）｜2026-11-18
+
+Itzel 決定把檢查腳本收進 repo。
+
+- 新增 `tools/`：`check_quotes.py`（引文與連結）、`lint.py`（其餘健檢項目）、`precheck_formulas.py`（公式卡數值預檢，不是 C3）、`html2txt.py`、`README.md`。
+- 從專案目錄重新執行，結果與先前在暫存區執行時一致：468 條主張、407 段短引、0 個問題；lint 各項與本報告相同（術語表為修正後的 85 列）；數值預檢 18 項全部通過。
+- `check_quotes.py` 這次是直接從 `raw/` 重新轉出來源文字再比對，不依賴暫存區的檔案，所以 13 份來源的短引等於被獨立重驗了一次。
+- `GRAPH_SPEC.md` §1 的資料夾結構補上 `tools/`；`.gitignore` 加入 `.cache/`。
+
+### 整理腳本時新發現的一件事
+
+把「call 價格對 σ 遞增」加進數值預檢後發現：2000 組隨機參數中有 23 組，σ 增加 0.01 後 call 價格沒有嚴格上升（相等，或低 2e-15 左右）。原因是深度價內／價外時 vega 趨近 0，加上 F03 兩項相減的捨入誤差。公式卡沒有錯；但 `GRAPH_SPEC.md` 的 C3-3 寫「單調性：C 隨 σ 遞增，全部成立」，照字面在這些參數下不會通過。C3-3 需要容許數值誤差，或限制測試參數範圍。這與先前回報的 C3-5（vega 相對誤差接近門檻）是同一類問題。兩者都記在 `tools/README.md`。
+
+### 仍待決定
+
+- L-07（`GRAPH_SPEC.md` §9 的 Bloomberg 條款）、L-09（`.gitattributes`）。
+- `AGENTS.md` §5、§10 目前沒有提到 `tools/` 的腳本。要不要在這兩節註明「C0 與 lint 使用哪支腳本」，由 Itzel 決定。
+- C3-3、C3-5 的門檻或測試參數範圍要不要調整。

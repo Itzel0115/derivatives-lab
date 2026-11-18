@@ -183,3 +183,10 @@
 - 更新頁：無（修改的是 GRAPH_SPEC.md、AGENTS.md、docs/agents-md-decisions.md）
 - 衝突：無
 - 備註：Itzel 核准草稿後寫入。GRAPH_SPEC 七處：資料夾結構、公式卡編號範圍、S8 與 S9 的實際來源、§2.4 四列內容欄、§2.5 加入 F17、N3 與 C1-3 改為 F01–F17、C3 四項測試加註公式卡。AGENTS 三處：沒有頁碼時的出處寫法、公式卡已編到 F17、§7 授權表改為實際結果。決策紀錄新增第 7–9 節。§2.4 有三列的「主要來源」欄未更新，已記在 lint 報告。
+
+## [2026-11-18] update | 檢查腳本收進 tools/
+- run/節點：pre-run / lint
+- 狀態：ok
+- 更新頁：無（新增 tools/；修改 GRAPH_SPEC.md §1、docs/agents-md-decisions.md、.gitignore）
+- 衝突：無
+- 備註：依 Itzel 決定。從專案目錄重新執行三支腳本，結果與先前一致（468 條主張、407 段短引、0 個問題）。數值預檢新增「call 價格對 σ 遞增」後發現：2000 組中有 23 組在浮點精度下沒有嚴格上升，C3-3 照字面會不通過，已記在 lint 報告與 tools/README.md。
