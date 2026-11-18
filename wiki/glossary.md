@@ -15,15 +15,19 @@
 | 履約價（K） | exercise price / strike price | 買方有權買進或賣出標的的價格 | （S1, p.7） | [[strike-maturity-moneyness]] |
 | 到期日 | expiration date | 選擇權失效的日子 | （S1, p.7） | [[strike-maturity-moneyness]] |
 | 買方 | holder | 買下選擇權所賦予權利的人；其部位稱為 long | （S1, p.6；p.13） | [[call-put-option]] |
+| 隱含波動率 | implied volatility | 由選擇權目前的權利金所隱含的、對標的未來波動率的預測 | （S1, p.27） | [[implied-volatility]] |
 | 價內 | in the money | Call：標的現價高於履約價；put：標的現價低於履約價 | （S1, p.13） | [[strike-maturity-moneyness]] |
 | 內含價值 | intrinsic value | 選擇權處於價內的金額；價外時為零 | （S1, p.14） | [[strike-maturity-moneyness]] |
 | 乘數 | multiplier | 現金結算選擇權用來把每一點差額換算成金額的倍數 | （S1, p.8） | [[payoff-diagram]] |
+| 近期／次近期 | near-term / next-term | VIX 計算時選出的兩組到期日，一前一後夾住 30 天的目標期限 | （S2, p.5–6） | [[volatility-term-structure]] |
 | 選擇權 | option | 在到期日之前，以固定履約價買進或賣出特定數量標的的權利 | （S1, p.3） | [[call-put-option]] |
 | 價外 | out of the money | Call：履約價高於標的現價；put：履約價低於標的現價 | （S1, p.14） | [[strike-maturity-moneyness]] |
 | 實物交割 | physical delivery | 履約時實際交付或收取標的 | （S1, p.3） | [[call-put-option]] |
 | 權利金 | premium | 買方付出、賣方收到的選擇權價格 | （S1, p.11） | [[call-put-option]] |
 | 賣權 | put option | 給予買方「賣出」標的之權利的選擇權 | （S1, p.3） | [[call-put-option]] |
+| 實現波動率 | realized volatility | 標的在一段期間內實際發生的波動率，由歷史數值計算 | （S1, p.27） | [[implied-volatility]] |
 | 時間價值 | time value | 權利金超過內含價值的部分 | （S1, p.14） | [[strike-maturity-moneyness]] |
 | 標的 | underlying interest | 選擇權所約定買賣的資產（股票、指數、債券、外匯等） | （S1, p.3） | [[call-put-option]] |
 | 契約單位 | unit of trading / contract size | 一口實物交割選擇權履約時買賣的標的數量；多數股票選擇權是 100 股 | （S1, p.8） | [[call-put-option]] |
+| VIX 指數 | VIX Index (Cboe Volatility Index) | 衡量市場對美國股市未來 30 天波動率預期的指數，由 S&P 500 指數選擇權價格算出 | （S2, p.3） | [[implied-volatility]] |
 | 賣方 | writer | 賣出選擇權、被指派時有義務履行的人；其部位稱為 short | （S1, p.6；p.13） | [[call-put-option]] |
