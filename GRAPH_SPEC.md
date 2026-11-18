@@ -83,19 +83,25 @@ derivatives-lab/
 > 出處：（S3, p.xx）
 ```
 
-### 2.3 來源清單（至少 5 份，目標 9 份）
+### 2.3 來源清單（至少 5 份，目標 13 份）
 
 | ID | 來源 | 主要支撐 | 取得位置 |
 |---|---|---|---|
 | S1 | OCC, *Characteristics and Risks of Standardized Options* | L1 選擇權基本定義與風險 | https://www.theocc.com/components/docs/riskstoc.pdf |
 | S2 | Cboe, *VIX White Paper / Methodology* | L2 隱含波動率的實際應用 | https://cdn.cboe.com/resources/vix/VIX_Methodology.pdf |
-| S3 | Derman, *The Volatility Smile*（港中文短期課程講義） | L2–L3 BS 假設、smile 成因 | https://www.cfe.cuhk.edu.hk/?p=4264 |
+| S3 | Derman, *An Introduction to the Volatility Smile*（港中文 2013 短期課程；實際只有 3 頁課程目標與大綱，沒有講義本文） | 一句作者觀點（模型假設都不是真的成立）；原訂的 L2–L3 內容改由 S10–S13 支撐 | https://www.cfe.cuhk.edu.hk/?p=4264 |
 | S4 | Gatheral & Jacquier (2012), *Arbitrage-free SVI volatility surfaces* | L3 曲面參數化、無套利 | https://arxiv.org/pdf/1204.0646 |
 | S5 | OCC / OIC, *Understanding the Greeks*（教學投影片） | Vega 定義（其他 Greeks 為延伸） | https://fidelity.com/bin-public/060_www_fidelity_com/documents/learning-center/understanding-greeks-OIC-slides.pdf |
 | S6 | SEC, *Investor Bulletin: Structured Notes* | L4 債券＋內嵌衍生性商品、風險 | https://investor.gov/additional-resources/news-alerts/alerts-bulletins/investor-bulletin-structured-notes |
 | S7 | FINRA / SEC, 保本型結構型商品投資人警示 | L4 保本的信用風險、隱藏成本 | https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/structured |
 | S8 | SEC EDGAR 424B2 pricing supplement（Autocallable，選 1–2 份） | L4 估計價值低於發行價 | 例：https://sec.gov/Archives/edgar/data/312070/000119312515398608/d101037d424b2.htm |
 | S9 | 財訊，美超微下市風波與結構型商品報導 | L4 台灣真實案例（ELN ≈ 賣出 put） | Yahoo 股市轉載頁 |
+| S10 | Derman (2003), *Laughter in the Dark — The Problem of the Volatility Smile* | L3 BS 下曲面應為平的、1987 年後的 skew、成因 | https://emanuelderman.com/wp-content/uploads/2003/04/Amsterdam.pdf |
+| S11 | Derman & Kani (1994), *The Volatility Smile and Its Implied Tree*（Goldman Sachs Quantitative Strategies Research Notes） | L2–L3 隱含波動率定義、skew 與期限結構定義、常數波動率假設 | https://emanuelderman.com/wp-content/uploads/1994/01/gs-volatility_smile.pdf |
+| S12 | MIT OpenCourseWare 18.S096 (Fall 2013) Lecture 19, Strela, *Black-Scholes Formula & Risk-neutral Valuation* | L2 BS 公式 F03–F05 | https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/resources/mit18_s096f13_lecnote19/ |
+| S13 | MIT OpenCourseWare 18.440 (Spring 2014) Lecture 36, Sheffield, *Risk Neutral Probability and Black-Scholes* | L2–L3 隱含波動率的白話定義、BS 若正確則各履約價 IV 相同 | https://ocw.mit.edu/courses/18-440-probability-and-random-variables-spring-2014/4583e12e3e052256867388dd86eb5b8b_MIT18_440S14_Lecture36.pdf |
+
+> S10–S13 於 2026-11-18 經 Itzel 核准加入，原因是 S3 指定網址只有課程大綱。
 
 > 取得狀態一律在 ingest 時確認；無法取得的來源標記 `ingest-failed`，不得憑記憶補內容。
 
@@ -108,19 +114,19 @@ derivatives-lab/
 | `concepts/call-put-option.md` | Call / Put 定義、買方賣方權利義務 | S1 | ✅ |
 | `concepts/strike-maturity-moneyness.md` | K、T、價內／價平／價外 | S1 | ✅ |
 | `concepts/payoff-diagram.md` | 到期損益公式（F01, F02） | S1 | ✅ |
-| `concepts/black-scholes-model.md` | 輸入變數、公式卡 F03–F05、假設 | S3 | ✅ |
-| `concepts/bs-assumptions-limitations.md` | 常數波動率假設與現實的落差 | S3 | ✅ |
-| `concepts/put-call-parity.md` | 公式卡 F06（供 C3 測試） | S1 / S3 | ✅ |
-| `concepts/implied-volatility.md` | 定義、從價格反推 | S2, S3 | ✅ |
-| `concepts/iv-inversion-algorithm.md` | 二分法／Newton 反推步驟 `[推導]` | S3 | ✅ |
-| `concepts/volatility-smile-skew.md` | 固定 T、K 改變時的 IV 型態 | S3 | ✅ |
-| `concepts/volatility-term-structure.md` | 固定 K、T 改變時的 IV 型態 | S2, S3 | ✅ |
-| `concepts/why-skew-exists.md` | 為什麼有 skew（作者觀點） | S3 | ✅ |
-| `concepts/volatility-surface.md` | 兩個方向合成曲面 | S3, S4 | ✅ |
+| `concepts/black-scholes-model.md` | 輸入變數、公式卡 F03–F05、假設 | S12 | ✅ |
+| `concepts/bs-assumptions-limitations.md` | 常數波動率假設與現實的落差 | S3, S10, S11, S13 | ✅ |
+| `concepts/put-call-parity.md` | 公式卡 F06（供 C3 測試）`[推導]` | S12（由 F03、F04 推導） | ✅ |
+| `concepts/implied-volatility.md` | 定義、從價格反推 | S1, S2, S11, S13 | ✅ |
+| `concepts/iv-inversion-algorithm.md` | 二分法／Newton 反推步驟 `[推導]` | S11, S13 | ✅ |
+| `concepts/volatility-smile-skew.md` | 固定 T、K 改變時的 IV 型態 | S10, S11 | ✅ |
+| `concepts/volatility-term-structure.md` | 固定 K、T 改變時的 IV 型態 | S2, S11 | ✅ |
+| `concepts/why-skew-exists.md` | 為什麼有 skew（作者觀點） | S10 | ✅ |
+| `concepts/volatility-surface.md` | 兩個方向合成曲面 | S10, S4 | ✅ |
 | `concepts/svi-parameterization.md` | SVI 公式卡、示意參數 | S4 | ✅ |
 | `concepts/no-arbitrage-surface.md` | calendar / butterfly 無套利條件 | S4 | ✅ |
 | `concepts/greeks-overview.md` | 五個 Greeks 總覽 | S5 | 延伸 |
-| `concepts/vega.md` | Vega 定義、公式卡 F07 | S5, S3 | ✅ |
+| `concepts/vega.md` | Vega 定義、公式卡 F07 | S5 | ✅ |
 | `concepts/delta.md` `gamma.md` `theta.md` | 各自定義 | S5 | 延伸 |
 | `products/structured-note-architecture.md` | 債券＋內嵌衍生性商品 | S6 | ✅ |
 | `products/eln-simplified.md` | 簡化 ELN 條款、損益、拆解公式 F08–F09 `[推導]` | S6, S9 | ✅ |

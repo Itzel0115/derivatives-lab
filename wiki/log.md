@@ -37,3 +37,10 @@
 - 公式卡：無
 - 衝突：無
 - 備註：規格指定的網址只提供一份 3 頁的課程目標與大綱，沒有講義本文。其中沒有 Black-Scholes 公式、假設、put-call parity、隱含波動率定義，也沒有 smile／skew／期限結構的說明。§2.4 中以 S3 為主要來源的頁面目前都沒有可用的支撐。原檔已存入 raw/ 並登記 MANIFEST。
+
+## [2026-11-18] update | 來源清單新增 S10–S13
+- run/節點：pre-run / N0
+- 狀態：ok
+- 更新頁：無（修改的是 GRAPH_SPEC.md §2.3、§2.4 與 raw/MANIFEST.md）
+- 衝突：無
+- 備註：S3 指定網址只有課程大綱。Itzel 核准加入四份替代來源：S10 Derman (2003)、S11 Derman & Kani (1994)、S12 MIT 18.S096 Lecture 19、S13 MIT 18.440 Lecture 36。§2.4 各頁的主要來源欄已對應更新；put-call-parity 改為由 F03、F04 推導。
