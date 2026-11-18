@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>波動率為什麼不是一個數字？</title>
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --card: #ffffff;
+    --ink: #1d232b;
+    --muted: #5d6673;
+    --line: #d9d4ca;
+    --accent: #1f5f8b;
+    --accent-soft: #e3eef6;
+    --warm: #b4532a;
+    --warm-soft: #f7e7df;
+    --opinion: #6b4fa0;
+    --opinion-soft: #eee8f7;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    line-height: 1.6;
+    overflow: hidden;
+  }
+  .deck { position: relative; width: 100vw; height: 100vh; }
+  .slide {
+    position: absolute; inset: 0;
+    display: none;
+    padding: 5vh 7vw 9vh;
+    overflow-y: auto;
+  }
+  .slide.active { display: flex; flex-direction: column; }
+  .kicker {
+    font-size: 0.85rem; letter-spacing: .12em; color: var(--accent);
+    font-weight: 700; margin-bottom: .4rem;
+  }
+  h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.25; margin: 0 0 1rem; }
+  h2 { font-size: clamp(1.4rem, 2.8vw, 2.1rem); line-height: 1.3; margin: 0 0 1.2rem; }
+  p, li { font-size: clamp(1rem, 1.55vw, 1.2rem); }
+  ul { padding-left: 1.2em; margin: .2rem 0; }
+  li { margin: .45rem 0; }
+  .cite { color: var(--muted); font-size: .8em; white-space: nowrap; }
+  .tag {
+    display: inline-block; font-size: .72em; font-weight: 700;
+    padding: 0 .45em; border-radius: 4px; margin-right: .35em; vertical-align: .1em;
+  }
+  .tag.fact { background: var(--accent-soft); color: var(--accent); }
+  .tag.ex { background: var(--warm-soft); color: var(--warm); }
+  .tag.op { background: var(--opinion-soft); color: var(--opinion); }
+  .tag.dv { background: #e6f2e8; color: #2f6b3a; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw; align-items: start; flex: 1; }
+  .cols.wide-right { grid-template-columns: 1fr 1.3fr; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+  }
+  .card h3 { margin: 0 0 .5rem; font-size: 1.05rem; color: var(--accent); }
+  .big-q {
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 700;
+    border-left: 5px solid var(--warm); padding-left: 1rem; margin: 1rem 0;
+  }
+  blockquote {
+    margin: .8rem 0; padding: .6rem 1rem; border-left: 4px solid var(--opinion);
+    background: var(--opinion-soft); font-style: italic; border-radius: 0 6px 6px 0;
+  }
+  blockquote .cite { font-style: normal; }
+  .flow { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; margin: 1rem 0; }
+  .flow .box {
+    background: var(--card); border: 1.5px solid var(--accent); border-radius: 8px;
+    padding: .6rem 1rem; font-weight: 600; text-align: center;
+  }
+  .flow .box.hi { background: var(--accent); color: #fff; }
+  .flow .arrow { font-size: 1.5rem; color: var(--muted); }
+  .formula {
+    font-family: "Cambria Math", "Times New Roman", serif; font-size: 1.15rem;
+    background: var(--card); border: 1px dashed var(--line); padding: .6rem 1rem; border-radius: 6px;
+    display: inline-block;
+  }
+  .note { color: var(--muted); font-size: .9rem; margin-top: .6rem; }
+  .badge {
+    display: inline-block; background: var(--warm); color: #fff; font-size: .78rem;
+    padding: .1rem .55rem; border-radius: 999px; font-weight: 700;
+  }
+  svg text { font-family: inherit; }
+  .chart-wrap { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .8rem; }
+  .chart-wrap svg { width: 100%; height: auto; display: block; }
+  .ctrl { display: flex; align-items: center; gap: .8rem; margin-top: .5rem; font-size: .95rem; }
+  .ctrl input { flex: 1; }
+  table.mini { border-collapse: collapse; width: 100%; font-size: .98rem; }
+  table.mini th, table.mini td { border-bottom: 1px solid var(--line); padding: .45rem .5rem; text-align: left; }
+  table.mini th { color: var(--muted); font-weight: 600; }
+  .num { font-variant-numeric: tabular-nums; }
+  .title-slide { justify-content: center; }
+  .title-slide .sub { font-size: 1.25rem; color: var(--muted); max-width: 46rem; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 1rem; }
+  .three .card .n { font-size: 2rem; font-weight: 800; color: var(--warm); line-height: 1; }
+  footer.nav {
+    position: fixed; left: 0; right: 0; bottom: 0; height: 6vh; min-height: 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; font-size: .85rem; color: var(--muted);
+    background: linear-gradient(transparent, var(--bg) 40%);
+  }
+  footer.nav button {
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: .25rem .8rem; cursor: pointer; font: inherit; color: var(--ink);
+  }
+  .progress { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); transition: width .25s; }
+  @media (max-width: 760px) {
+    body { overflow: auto; }
+    .cols, .cols.wide-right, .three { grid-template-columns: 1fr; }
+    .slide { padding: 4vh 16px 10vh; }
+  }
+  @media print {
+    body { overflow: visible; }
+    .slide { display: flex !important; position: relative; page-break-after: always; height: 100vh; }
+    footer.nav, .progress { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+
+<!-- 1 -->
+<section class="slide title-slide">
+  <div class="kicker">DERIVATIVES LAB ｜ 教學簡報 v0-baseline</div>
+  <h1>波動率為什麼<br>不是一個數字？</h1>
+  <p class="sub">Black-Scholes 只給標的一個波動率；市場報出來的隱含波動率卻隨履約價、隨到期日而不同。這份簡報說明這個落差從哪裡來、長什麼樣子。</p>
+  <p class="note">標籤說明：<span class="tag fact">事實</span>來源直接陳述　<span class="tag ex">範例</span>來源中的數字照抄　<span class="tag op">觀點</span>作者個人看法　<span class="tag dv">推導</span>本 wiki 自行推導。出處格式（S10, p.3）對應文末來源清單。</p>
+  <p class="note">←／→ 或空白鍵翻頁。本簡報為教學用途，不構成投資建議。</p>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="kicker">01 ｜ 出發點</div>
+  <h2>Black-Scholes 模型裡，波動率只有一個</h2>
+  <div class="cols">
+    <div>
+      <p>模型用五個輸入算出歐式選擇權的理論價格：</p>
+      <div class="flow">
+        <div class="box">S 現價</div><div class="box">K 履約價</div><div class="box">T 到期時間</div><div class="box">r 利率</div><div class="box hi">σ 波動率</div>
+      </div>
+      <p class="formula">C = S·N(d₁) − K·e<sup>−rT</sup>·N(d₂)</p>
+      <p class="note">F03，Black-Scholes call 價格（S12, p.19）</p>
+      <p>S13 把 σ 以外的輸入稱為「已知參數」<span class="cite">（S13, p.18）</span>。</p>
+    </div>
+    <div class="card">
+      <h3>模型的關鍵假設</h3>
+      <ul>
+        <li><span class="tag fact">事實</span>標的走理想化的連續布朗運動，<b>任何時候都只有一個固定的波動率</b>。<span class="cite">（S10, p.5）</span></li>
+        <li><span class="tag fact">事實</span>在所有時間、所有價位都給標的同一個對數常態波動率。<span class="cite">（S10, p.3）</span></li>
+        <li><span class="tag fact">事實</span>股價在任何時間、任何價位都以固定的局部波動率做對數常態演變。<span class="cite">（S11, p.1）</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="kicker">02 ｜ 隱含波動率</div>
+  <h2>市場怎麼「看到」波動率？從價格反推</h2>
+  <div class="flow">
+    <div class="box">選擇權市價</div><div class="arrow">→</div>
+    <div class="box">代入 BS 公式<br><small>（S, K, T, r 已知）</small></div><div class="arrow">→</div>
+    <div class="box hi">讓公式 = 市價的那個 σ<br><small>隱含波動率</small></div>
+  </div>
+  <div class="cols">
+    <ul>
+      <li><span class="tag fact">事實</span>交易員報市價時，用的是「讓 Black-Scholes 公式算出的價值等於市價」的那個波動率，稱為隱含波動率（implied volatility）。<span class="cite">（S11, p.2）</span></li>
+      <li><span class="tag fact">事實</span>本質上，隱含波動率是一種<b>報價的方式</b>。<span class="cite">（S11, p.2）</span></li>
+      <li><span class="tag fact">事實</span>隱含波動率反映市場預期的標的波動率，是所有市場參與者的共識。<span class="cite">（S5, p.16）</span></li>
+    </ul>
+    <div class="card">
+      <h3>和歷史波動率不同</h3>
+      <ul>
+        <li><span class="tag fact">事實</span>歷史波動率是過去的波動，是統計事實，不是預測。<span class="cite">（S5, p.15）</span></li>
+        <li><span class="tag fact">事實</span>標的事後實現的波動率，不一定符合隱含波動率的預測。<span class="cite">（S1, p.27）</span></li>
+        <li><span class="tag dv">推導</span>BS 的 vega 恆為正，價格隨 σ 嚴格遞增，所以一個市價只對應一個隱含波動率。<span class="cite">（F07；測試 C3-3）</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="kicker">03 ｜ 一個可以檢驗的預測</div>
+  <h2>如果 Black-Scholes 是對的……</h2>
+  <p class="big-q">同一檔股票、同一個到期日，<br>每一個履約價反推出來的隱含波動率都應該一樣。</p>
+  <ul>
+    <li><span class="tag fact">事實</span>如果 Black-Scholes 完全正確，同一檔股票、同一個到期日，所有履約價的隱含波動率都會相同。<span class="cite">（S13, p.18）</span></li>
+    <li><span class="tag fact">事實</span>依照古典理論，隱含波動率應該與履約價、到期日無關；畫成曲面應該是<b>平的</b>。<span class="cite">（S10, p.1）</span></li>
+    <li><span class="tag fact">事實</span>古典 Black-Scholes 模型預測的是一片沒有起伏的平台。<span class="cite">（S10, p.3）</span></li>
+  </ul>
+  <p class="note">下一頁：市場實際上給出的答案。</p>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="kicker">04 ｜ 第一個維度：履約價</div>
+  <h2>實際上：隱含波動率隨履約價變動——微笑與偏斜</h2>
+  <div class="cols wide-right">
+    <div>
+      <ul>
+        <li><span class="tag fact">事實</span>實際上把隱含波動率看成履約價的函數時（「波動率微笑」），它並不是常數。<span class="cite">（S13, p.18）</span></li>
+        <li><span class="tag ex">範例</span>S&amp;P 選擇權的隱含波動率，隨履約價不同，大約從 <b>14% 到 24%</b>。<span class="cite">（S10, p.3）</span></li>
+        <li><span class="tag fact">事實</span>自 1987 年股災以來，指數選擇權中價外 put 的隱含波動率高於價外 call。<span class="cite">（S11, §Summary）</span></li>
+        <li><span class="tag fact">事實</span>隱含波動率隨履約價升高而下降的不對稱，一般稱為 <b>skew（偏斜）</b>；指數的偏斜稱為「負」偏斜。<span class="cite">（S11, p.2；S10, p.3）</span></li>
+        <li><span class="tag fact">事實</span>確切的形狀與幅度每天都在變，但不對稱一直存在。<span class="cite">（S11, p.2）</span></li>
+      </ul>
+    </div>
+    <div class="chart-wrap">
+      <svg id="smileChart" viewBox="0 0 560 360" role="img" aria-label="單一到期日的隱含波動率微笑（示意參數）"></svg>
+      <div class="ctrl">
+        <label for="tSlider">到期時間 t</label>
+        <input type="range" id="tSlider" min="0.05" max="2" step="0.05" value="0.25">
+        <span id="tLabel" class="num">0.25 年</span>
+      </div>
+      <p class="note"><span class="badge">示意參數</span> 以 SSVI（F12、F13）畫出：σ₀ = 0.20、ρ = −0.7、η = 1.0、γ = 0.5。不是市場數據，不對應任何特定市場或日期。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="kicker">05 ｜ 歷史</div>
+  <h2>偏斜不是一直都在：1987 年 10 月是分水嶺</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>股災之前</h3>
+      <ul>
+        <li><span class="tag fact">事實</span>1987 年 10 月股災之前，指數選擇權的波動率曲面相當平。<span class="cite">（S10, p.1）</span></li>
+      </ul>
+      <h3 style="margin-top:1rem">股災之後</h3>
+      <ul>
+        <li><span class="tag fact">事實</span>偏斜在 1987 年 10 月 19 日之前並不存在，之後才在全球各地的指數市場出現。<span class="cite">（S10, p.2）</span></li>
+        <li><span class="tag fact">事實</span>Derman 記述，東京的交易員給他看 Nikkei 選擇權：三個月期、低履約價的隱含波動率遠高於高履約價。<span class="cite">（S10, p.2）</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>來源中的實際觀察</h3>
+      <ul>
+        <li><span class="tag ex">範例</span>1993 年 5 月 5 日的 S&amp;P 500 指數選擇權（到期日固定為 44 天）：隱含波動率隨履約價升高而下降。<span class="cite">（S11, p.2）</span></li>
+        <li><span class="tag ex">範例</span>1994 年 1 月 31 日的 S&amp;P 500 三月到期歐式選擇權（47 天）呈現同樣型態。<span class="cite">（S11, §Summary）</span></li>
+      </ul>
+      <p class="note">來源中的微笑圖沒有附數據表，所以本簡報不重畫這些歷史曲線。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="kicker">06 ｜ 各市場</div>
+  <h2>「微笑」的形狀因市場而異</h2>
+  <div class="three">
+    <div class="card"><h3>股價指數</h3><p>低履約價較高、高履約價較低——<b>負偏斜</b>；波動率與履約價反向變動。<span class="cite">（S10, p.3）</span></p></div>
+    <div class="card"><h3>個股</h3><p>通常比指數<b>對稱</b>，更像一個笑容。<span class="cite">（S10, p.4）</span></p></div>
+    <div class="card"><h3>外匯</h3><p>可以更對稱，兩種貨幣實力相當時尤其如此。「微笑」這個名稱就來自外匯市場。<span class="cite">（S10, p.4；p.3）</span></p></div>
+  </div>
+  <div class="three">
+    <div class="card"><h3>黃金</h3><p>近年出現過<b>正偏斜</b>。<span class="cite">（S10, p.4）</span></p></div>
+    <div class="card" style="grid-column: span 2"><h3>重點</h3><p>同樣叫「波動率」，不同市場、不同履約價給出不同的數字。只用一個 σ，描述不了這些形狀。</p></div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="kicker">07 ｜ 成因（觀點）</div>
+  <h2>為什麼低履約價比較貴？Derman 的看法</h2>
+  <div class="cols">
+    <div>
+      <p><b>背景事實</b></p>
+      <ul>
+        <li><span class="tag fact">事實</span>微笑最早是在 1987 年股災之後出現的。<span class="cite">（S10, p.3）</span></li>
+        <li><span class="tag fact">事實</span>波動率與股市報酬呈負相關，這一點已有充分的文獻紀錄。<span class="cite">（S2, p.3）</span></li>
+        <li><span class="tag fact">事實</span>微笑出現 15 年後，業界對哪個模型才正確仍然<b>沒有共識</b>。<span class="cite">（S10, p.1）</span></li>
+      </ul>
+    </div>
+    <div>
+      <p><b>Derman 認為</b>（作者觀點，非已證明的事實）</p>
+      <ul>
+        <li><span class="tag op">觀點</span>考慮到大盤單日暴跌 20% 以上的可能性，低履約價的 put 應該比高履約價的 call 值錢。<span class="cite">（S10, p.4）</span></li>
+        <li><span class="tag op">觀點</span>隱含波動率最高的地方，很可能就是市場變動最會造成震撼的地方；對指數來說是下跌那一側。<span class="cite">（S10, p.4）</span></li>
+        <li><span class="tag op">觀點</span>指數向下跳空的傾向大於向上，個股則較對稱，這或許是個股微笑較對稱的原因。<span class="cite">（S10, p.4）</span></li>
+      </ul>
+      <blockquote>"The smile is a sign of market sophistication." <span class="cite">— Derman（S10, p.5）</span></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="kicker">08 ｜ 第二個維度：到期日</div>
+  <h2>固定在價平、只改變到期時間：期限結構</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li><span class="tag fact">事實</span>價平選擇權的隱含波動率隨到期時間的變化，稱為波動率的<b>期限結構</b>（term structure）。<span class="cite">（S11, p.2）</span></li>
+        <li><span class="tag ex">範例</span>1993 年 5 月 5 日的 S&amp;P 500 指數選擇權：價平隱含波動率隨到期時間拉長而上升（價平 call 與 put 隱含波動率的平均）。<span class="cite">（S11, p.2）</span></li>
+        <li><span class="tag fact">事實</span>S11 把 skew 與期限結構合稱為波動率「smile」。<span class="cite">（S11, p.2）</span></li>
+      </ul>
+      <p class="note">來源只提供「隨到期時間上升」這一個方向的範例，沒有說明期限結構為什麼有斜率。</p>
+    </div>
+    <div class="card">
+      <h3>連 VIX 都要分兩個到期日算</h3>
+      <p><span class="tag fact">事實</span>VIX 目標期限固定為 30 天，計算時選出「近期」與「次近期」兩組到期日，各自算一個變異數，再依 30 天加權平均、開根號、乘以 100。<span class="cite">（S2, p.4；p.6；p.14）</span></p>
+      <table class="mini">
+        <tr><th>Cboe 假設性範例</th><th>距到期</th><th>變異數</th></tr>
+        <tr><td>近期</td><td class="num">24 天</td><td class="num">0.019233906</td></tr>
+        <tr><td>次近期</td><td class="num">31 天</td><td class="num">0.019423884</td></tr>
+      </table>
+      <p class="note"><span class="tag ex">範例</span>兩個到期日算出的變異數不相等（S2, p.9；p.13）。最後 VIX = 100 × 0.13927842 = 13.93（S2, p.14）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="kicker">09 ｜ 兩個維度合起來</div>
+  <h2>波動率曲面：高度是履約價與到期日的函數</h2>
+  <div class="cols wide-right">
+    <div>
+      <ul>
+        <li><span class="tag fact">事實</span>各個到期日都有類似但不完全相同的偏斜，所以業界開始說「隱含波動率曲面」。<span class="cite">（S10, p.3）</span></li>
+        <li><span class="tag fact">事實</span>曲面會隨時間改變；形狀大致固定，但細節每一刻、每一天都在變。<span class="cite">（S10, p.1；p.3）</span></li>
+        <li><span class="tag fact">事實</span>曲面可以看成一組切片（slice），每個到期日一條。<span class="cite">（S4, p.2；p.9）</span></li>
+      </ul>
+      <p class="formula">w(k, t) = σ<sub>BS</sub>²(k, t) · t，　k = ln(K / F<sub>t</sub>)</p>
+      <p class="note">F10：總隱含變異數與 log-strike（S4, p.2）</p>
+    </div>
+    <div class="chart-wrap">
+      <svg id="surfaceChart" viewBox="0 0 560 360" role="img" aria-label="多個到期日的隱含波動率切片（示意參數）"></svg>
+      <p class="note"><span class="badge">示意參數</span> SSVI，參數同前頁。這組參數讓價平隱含波動率固定在 20%（價平期限結構是平的），所以差異只出現在價外：到期越短，偏斜越陡。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="kicker">10 ｜ 曲面的限制</div>
+  <h2>不是任何形狀都可以：曲面必須沒有套利</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li><span class="tag fact">事實</span>沒有靜態套利的曲面，必須沒有<b>日曆價差套利</b>，而且每個切片都沒有<b>蝶式套利</b>。<span class="cite">（S4, p.3）</span></li>
+        <li><span class="tag fact">事實</span>SVI 微笑有可能含有套利；對 raw SVI，很難找到能排除套利的精確參數條件。<span class="cite">（S4, p.1；p.5）</span></li>
+        <li><span class="tag fact">事實</span>SSVI 是一類有封閉形式、可以保證沒有靜態套利的曲面。<span class="cite">（S4, p.24）</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>本簡報示意曲面的檢查</h3>
+      <p><span class="tag fact">事實</span>採用 F13 的 φ 時，只要 η(1 + |ρ|) ≤ 2，整張曲面就完全沒有靜態套利。<span class="cite">（S4, p.17）</span></p>
+      <p class="formula">η(1 + |ρ|) = 1.0 × (1 + 0.7) = 1.7 ≤ 2</p>
+      <p class="note">σ₀ 固定，θ<sub>t</sub> = σ₀²t 隨 t 遞增，符合 ∂<sub>t</sub>θ<sub>t</sub> ≥ 0 的要求（S4, p.16）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <div class="kicker">11 ｜ 那 σ 到底是什麼？</div>
+  <h2>隱含波動率是一種報價慣例，不是標的的「那個」波動率</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li><span class="tag fact">事實</span>從 call 報價反推出來的分布，實際上並不完全是對數常態：<b>尾部太肥</b>。BS 的主要假設只是近似正確。<span class="cite">（S13, p.18）</span></li>
+        <li><span class="tag fact">事實</span>每天的波動幅度並不固定，價格也可能大幅跳動。<span class="cite">（S13, p.19）</span></li>
+        <li><span class="tag fact">事實</span>因為 BS 無法解釋微笑，交易部門開始改用更複雜的模型來評價與避險。<span class="cite">（S10, p.1）</span></li>
+        <li><span class="tag fact">事實</span>估計隱含波動率的方法不只一種，不同方法可能得到不同的估計值。<span class="cite">（S1, p.27）</span></li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li><span class="tag op">觀點</span>Derman 認為，應該把 BS 隱含波動率看成一種略嫌簡化的報價慣例。<span class="cite">（S10, p.5）</span></li>
+        <li><span class="tag op">觀點</span>Derman 與 Kani 認為，用 BS 等價波動率報價或許方便，但用 BS 公式計算選擇權價格很可能是不正確的。<span class="cite">（S11, p.3）</span></li>
+      </ul>
+      <blockquote>"All financial models are wrong, or at best hold only for a little while…" <span class="cite">— Derman（S10, p.13）</span></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <div class="kicker">12 ｜ 常見誤解</div>
+  <h2>誤解：隱含波動率高，代表市場看漲（或看跌）</h2>
+  <div class="cols">
+    <ul>
+      <li><span class="tag fact">事實</span>其他定價因素不變時，隱含波動率上升，<b>call 和 put 的價格都會上升</b>。<span class="cite">（S5, p.17）</span></li>
+      <li><span class="tag fact">事實</span>Call 和 put 的 vega 都是正的。<span class="cite">（S5, p.18）</span></li>
+      <li><span class="tag fact">事實</span>隱含波動率反映的是市場預期的標的「波動」程度。<span class="cite">（S5, p.16）</span></li>
+      <li><span class="tag fact">事實</span>波動類指數歷史上傾向和參考指數反向變動，但不一定成立；參考指數上漲時，它也可能同時上升。<span class="cite">（S1, p.26）</span></li>
+    </ul>
+    <div class="card">
+      <h3>所以</h3>
+      <p>隱含波動率本身不指出方向，只反映預期的波動幅度。而且如前幾頁所見，「隱含波動率高」還要先問：<b>哪一個履約價？哪一個到期日？</b></p>
+      <p class="note">本頁為教學說明，不構成投資建議。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide">
+  <div class="kicker">13 ｜ 總結</div>
+  <h2>波動率為什麼不是一個數字？</h2>
+  <div class="three">
+    <div class="card"><div class="n">1</div><h3>模型只有一個 σ</h3><p>Black-Scholes 假設標的在所有時間、所有價位只有一個固定波動率。</p></div>
+    <div class="card"><div class="n">2</div><h3>市場給出一整張曲面</h3><p>從市價反推的隱含波動率隨履約價（微笑／偏斜）與到期日（期限結構）而變，而且每天在動。</p></div>
+    <div class="card"><div class="n">3</div><h3>σ 是報價語言</h3><p>隱含波動率是把價格翻成 BS 的單位；曲面的形狀，正是單一 σ 模型沒抓到的部分。曲面也必須滿足無套利條件。</p></div>
+  </div>
+  <p class="note" style="margin-top:1.4rem">成因仍無定論：Derman 認為與股災、跳空與對下跌的恐懼有關，但業界對正確模型沒有共識（S10, p.1）。</p>
+</section>
+
+<!-- 15 -->
+<section class="slide">
+  <div class="kicker">來源</div>
+  <h2>引用來源</h2>
+  <table class="mini">
+    <tr><th>ID</th><th>來源</th></tr>
+    <tr><td>S1</td><td>OCC, <i>Characteristics and Risks of Standardized Options</i>（June 2024）</td></tr>
+    <tr><td>S2</td><td>Cboe, <i>Cboe Volatility Index — Methodology</i>（Version 6.0, 2026）</td></tr>
+    <tr><td>S4</td><td>Gatheral &amp; Jacquier, <i>Arbitrage-free SVI volatility surfaces</i>（arXiv:1204.0646v4, 2013）</td></tr>
+    <tr><td>S5</td><td>OCC／OIC, <i>Making More Informed Decisions: Understanding Greeks</i>（2023）</td></tr>
+    <tr><td>S10</td><td>Derman, <i>Laughter in the Dark — The Problem of the Volatility Smile</i>（2003）</td></tr>
+    <tr><td>S11</td><td>Derman &amp; Kani, <i>The Volatility Smile and Its Implied Tree</i>（1994）</td></tr>
+    <tr><td>S12</td><td>MIT OCW 18.S096 Lecture 19, Strela, <i>Black-Scholes Formula &amp; Risk-neutral Valuation</i>（Fall 2013）</td></tr>
+    <tr><td>S13</td><td>MIT OCW 18.440 Lecture 36, Sheffield, <i>Risk Neutral Probability and Black-Scholes</i>（Spring 2014）</td></tr>
+  </table>
+  <p class="note">內容取自本專案 <code>wiki/</code>（concepts：implied-volatility、volatility-smile-skew、why-skew-exists、volatility-term-structure、volatility-surface、svi-parameterization、no-arbitrage-surface、bs-assumptions-limitations、black-scholes-model、vega；risks：common-misconceptions）。圖表依 wiki 已核准的 SSVI 示意參數於瀏覽器中即時計算，不是市場數據。</p>
+</section>
+
+</div>
+
+<footer class="nav">
+  <button id="prev" aria-label="上一頁">← 上一頁</button>
+  <span id="counter"></span>
+  <button id="next" aria-label="下一頁">下一頁 →</button>
+</footer>
+
+<script>
+// ---------- SSVI（F12 + F13），示意參數（wiki/concepts/svi-parameterization.md 已核准） ----------
+const P = { sigma0: 0.20, rho: -0.7, eta: 1.0, gamma: 0.5 };
+const theta = t => P.sigma0 * P.sigma0 * t;                                   // θ_t = σ0² t
+const phi = th => P.eta / (Math.pow(th, P.gamma) * Math.pow(1 + th, 1 - P.gamma)); // F13
+function w(k, t) {                                                             // F12
+  const th = theta(t), f = phi(th);
+  return th / 2 * (1 + P.rho * f * k + Math.sqrt((f * k + P.rho) ** 2 + 1 - P.rho ** 2));
+}
+const ivol = (k, t) => Math.sqrt(w(k, t) / t);                                 // F10: σ = sqrt(w/t)
+
+// ---------- 繪圖工具 ----------
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent, text) {
+  const e = document.createElementNS(NS, tag);
+  for (const a in attrs) e.setAttribute(a, attrs[a]);
+  if (text !== undefined) e.textContent = text;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+const X0 = 0.7, X1 = 1.3, Y0 = 0.10, Y1 = 0.60;   // 軸：K/F 與隱含波動率
+const M = { l: 58, r: 20, t: 18, b: 48 }, W = 560, H = 360;
+const sx = x => M.l + (x - X0) / (X1 - X0) * (W - M.l - M.r);
+const sy = y => H - M.b - (Math.min(Math.max(y, Y0), Y1) - Y0) / (Y1 - Y0) * (H - M.t - M.b);
+
+function axes(svg) {
+  svg.innerHTML = "";
+  const g = el("g", {}, svg);
+  for (let y = 0.10; y <= 0.601; y += 0.10) {
+    el("line", { x1: M.l, x2: W - M.r, y1: sy(y), y2: sy(y), stroke: css("--line"), "stroke-width": 1 }, g);
+    el("text", { x: M.l - 8, y: sy(y) + 4, "text-anchor": "end", "font-size": 12, fill: css("--muted") }, g, Math.round(y * 100) + "%");
+  }
+  for (let x = 0.7; x <= 1.301; x += 0.1) {
+    el("text", { x: sx(x), y: H - M.b + 18, "text-anchor": "middle", "font-size": 12, fill: css("--muted") }, g, x.toFixed(1));
+  }
+  el("line", { x1: sx(1), x2: sx(1), y1: M.t, y2: H - M.b, stroke: css("--muted"), "stroke-dasharray": "4 4" }, g);
+  el("text", { x: sx(1) + 6, y: M.t + 12, "font-size": 11, fill: css("--muted") }, g, "價平");
+  el("text", { x: (M.l + W - M.r) / 2, y: H - 8, "text-anchor": "middle", "font-size": 13, fill: css("--ink") }, g, "履約價 / 遠期價格（K/F）");
+  el("text", { x: 14, y: (M.t + H - M.b) / 2, "text-anchor": "middle", "font-size": 13, fill: css("--ink"),
+    transform: `rotate(-90 14 ${(M.t + H - M.b) / 2})` }, g, "隱含波動率");
+  return g;
+}
+function curvePath(t) {
+  let d = "";
+  for (let i = 0; i <= 120; i++) {
+    const x = X0 + (X1 - X0) * i / 120, k = Math.log(x);
+    d += (i ? "L" : "M") + sx(x).toFixed(1) + "," + sy(ivol(k, t)).toFixed(1);
+  }
+  return d;
+}
+
+// 第 5 頁：單一切片 + BS 平線 + 滑桿
+function drawSmile(t) {
+  const svg = document.getElementById("smileChart");
+  axes(svg);
+  el("line", { x1: sx(X0), x2: sx(X1), y1: sy(P.sigma0), y2: sy(P.sigma0), stroke: css("--muted"), "stroke-width": 2, "stroke-dasharray": "7 5" }, svg);
+  el("text", { x: sx(1.29), y: sy(P.sigma0) - 8, "text-anchor": "end", "font-size": 12, fill: css("--muted") }, svg, "Black-Scholes 預測：一條水平線");
+  el("path", { d: curvePath(t), fill: "none", stroke: css("--warm"), "stroke-width": 3 }, svg);
+  el("text", { x: sx(0.72), y: sy(ivol(Math.log(0.72), t)) - 10, "font-size": 12, fill: css("--warm") }, svg, "市場型態：負偏斜");
+  document.getElementById("tLabel").textContent = t.toFixed(2) + " 年";
+}
+const slider = document.getElementById("tSlider");
+slider.addEventListener("input", () => drawSmile(parseFloat(slider.value)));
+
+// 第 10 頁：多個到期日
+function drawSurface() {
+  const svg = document.getElementById("surfaceChart");
+  axes(svg);
+  const Ts = [0.1, 0.25, 0.5, 1, 2];
+  const shades = ["#b4532a", "#c97a3e", "#8f8a4a", "#3f7f8f", "#1f5f8b"];
+  Ts.forEach((t, i) => {
+    el("path", { d: curvePath(t), fill: "none", stroke: shades[i], "stroke-width": 2.5 }, svg);
+    const lx = W - M.r - 120, ly = M.t + 14 + i * 18;
+    el("line", { x1: lx, x2: lx + 22, y1: ly - 4, y2: ly - 4, stroke: shades[i], "stroke-width": 3 }, svg);
+    el("text", { x: lx + 28, y: ly, "font-size": 12, fill: css("--ink") }, svg, "t = " + t + " 年");
+  });
+}
+
+// ---------- 翻頁 ----------
+const slides = [...document.querySelectorAll(".slide")];
+let cur = 0;
+function show(i) {
+  cur = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, j) => s.classList.toggle("active", j === cur));
+  document.getElementById("counter").textContent = (cur + 1) + " / " + slides.length;
+  document.getElementById("progress").style.width = ((cur + 1) / slides.length * 100) + "%";
+  try { history.replaceState(null, "", "#" + (cur + 1)); } catch (e) {}
+}
+document.getElementById("prev").onclick = () => show(cur - 1);
+document.getElementById("next").onclick = () => show(cur + 1);
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT") return;
+  if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); show(cur + 1); }
+  if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); show(cur - 1); }
+  if (e.key === "Home") show(0);
+  if (e.key === "End") show(slides.length - 1);
+});
+
+drawSmile(parseFloat(slider.value));
+drawSurface();
+show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>
