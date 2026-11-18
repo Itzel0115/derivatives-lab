@@ -44,3 +44,13 @@
 - 更新頁：無（修改的是 GRAPH_SPEC.md §2.3、§2.4 與 raw/MANIFEST.md）
 - 衝突：無
 - 備註：S3 指定網址只有課程大綱。Itzel 核准加入四份替代來源：S10 Derman (2003)、S11 Derman & Kani (1994)、S12 MIT 18.S096 Lecture 19、S13 MIT 18.440 Lecture 36。§2.4 各頁的主要來源欄已對應更新；put-call-parity 改為由 F03、F04 推導。
+
+## [2026-11-18] ingest | S3 Derman An Introduction to the Volatility Smile（課程大綱）
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s3-derman-volatility-smile, bs-assumptions-limitations
+- 更新頁：s1-occ-characteristics-risks, index
+- 公式卡：無
+- 新術語：無
+- 衝突：無
+- 備註：全自動 ingest。只有 3 頁課程大綱，可用的只有兩句作者觀點。bs-assumptions-limitations 先建立為草稿，並引用 S1 p.12。

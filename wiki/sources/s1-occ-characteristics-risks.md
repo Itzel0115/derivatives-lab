@@ -40,6 +40,7 @@
 - [[strike-maturity-moneyness|履約價、到期日與價內外]]
 - [[payoff-diagram|到期價值與損益]]
 - [[implied-volatility|隱含波動率]]（2026-11-18 於 S2 ingest 時建立，引用 p.12、p.15、p.27）
+- [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]（引用 p.12）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張
