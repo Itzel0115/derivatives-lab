@@ -15,6 +15,16 @@
 - `[事實]` 市場上的選擇權價格，與 Black-Scholes 公式算出的理論價格並不完全一致。（S11, p.2）
   > "Market options prices are not exactly consistent with theoretical prices derived from the BS formula."
 
+- `[事實]` 換一個說法：隱含波動率是代入 Black-Scholes 公式（連同其他已知參數）後，能算出目前市價的那個波動率。（S13, p.18）
+  > "(when plugged into Black-Scholes formula along with known parameters) predicts the current market price"
+
+### 如果 Black-Scholes 是對的
+
+- `[事實]` 如果 Black-Scholes 完全正確，同一檔股票、同一個到期日，所有履約價的隱含波動率都會相同。（S13, p.18）
+  > "If Black-Scholes were completely correct, then given a stock and an expiration date, the implied volatility would be the same for all strike prices."
+- `[事實]` 實際上，把隱含波動率看成履約價的函數時（有時稱為「波動率微笑」），它並不是常數。（S13, p.18）
+  > "In practice, when the implied volatility is viewed as a function of strike price (sometimes called the "volatility smile"), it is not constant."
+
 ### 波動率藏在選擇權價格裡
 
 - `[事實]` 影響權利金的因素之一，是市場參與者各自對標的未來波動率的估計。（S1, p.12）
@@ -50,12 +60,15 @@
 - [[volatility-term-structure|波動率期限結構]]
 - [[volatility-smile-skew|波動率微笑與偏斜]]
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]
+- [[iv-inversion-algorithm|隱含波動率的反推演算法]]
+- [[black-scholes-model|Black-Scholes 模型]]
 
 ## 來源
 
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s2-cboe-vix-methodology|S2]]：Cboe, *Cboe Volatility Index — Methodology*（Version 6.0, 2026）
 - [[s11-derman-kani-smile-implied-tree|S11]]：Derman & Kani, *The Volatility Smile and Its Implied Tree*（1994）
+- [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield, *Risk Neutral Probability and Black-Scholes*（Spring 2014）
 
 ## 待補
 

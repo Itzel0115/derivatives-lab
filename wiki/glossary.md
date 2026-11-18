@@ -37,5 +37,6 @@
 | 標的 | underlying interest | 選擇權所約定買賣的資產（股票、指數、債券、外匯等） | （S1, p.3） | [[call-put-option]] |
 | 契約單位 | unit of trading / contract size | 一口實物交割選擇權履約時買賣的標的數量；多數股票選擇權是 100 股 | （S1, p.8） | [[call-put-option]] |
 | VIX 指數 | VIX Index (Cboe Volatility Index) | 衡量市場對美國股市未來 30 天波動率預期的指數，由 S&P 500 指數選擇權價格算出 | （S2, p.3） | [[implied-volatility]] |
+| 波動率（σ） | volatility | Black-Scholes 公式的輸入之一；模型假設到期時標的價格的對數是常態分布，其變異數為 Tσ² | （S13, p.14；p.16） | [[black-scholes-model]] |
 | 波動率微笑 | volatility smile | 隱含波動率隨履約價（與到期日）變動、不是平的這個現象 | （S10, p.1；p.3） | [[volatility-smile-skew]] |
 | 賣方 | writer | 賣出選擇權、被指派時有義務履行的人；其部位稱為 short | （S1, p.6；p.13） | [[call-put-option]] |

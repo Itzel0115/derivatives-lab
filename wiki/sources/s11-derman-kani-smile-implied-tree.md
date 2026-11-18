@@ -43,6 +43,7 @@
 - [[volatility-term-structure|波動率期限結構]]
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]
 - [[put-call-parity|買賣權平價]]（引用 p.6）
+- [[iv-inversion-algorithm|隱含波動率的反推演算法]]（引用 p.2）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張

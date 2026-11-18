@@ -30,7 +30,26 @@
 - `[事實]` Black-Scholes 理論的另一個特點是與投資人的風險偏好無關：評價選擇權時，可以把標的股票的預期報酬當成無風險報酬。（S11, p.1）
   > "you can value an option as though the underlying stock's expected return is riskless"
 
+- `[事實]` Black-Scholes 的主要假設：在風險中立機率下，資產在未來某個固定時間的價格取對數後是常態分布（也就是價格本身是對數常態分布）。（S13, p.14；p.19）
+  > "Main Black-Scholes assumption: risk neutral probability densities are lognormal."
+
+### 其他假設
+
+- `[事實]` S13 的推導採用固定的到期時間與固定的利率。（S13, p.9）
+  > "fixed interest rate r in this lecture"
+- `[事實]` S13 以不發股利的股票為例，說明股票今天的價格等於未來價值的風險中立期望值折現。（S13, p.11）
+  > "if a non-divided paying stock will be worth X at time T"
+- `[事實]` Black-Scholes 公式的解析解適用於歐式 call 與 put。（S12, p.19）
+  > "For European Call/Put the equation can be solved analytically"
+
 ### 假設與市場的落差
+
+- `[事實]` 從 call 報價反推出來的機率分布，實際上並不完全是對數常態：尾部太肥。Black-Scholes 的主要假設只是近似正確。（S13, p.18）
+  > "Tails are too fat. Main Black-Scholes assumption is only approximately correct."
+- `[事實]` 假設不成立的地方：每天的波動幅度並不固定，價格也可能出現大幅跳動。（S13, p.19）
+  > "Fluctuation sizes vary from day to day. Prices can have big jumps."
+- `[事實]` 修正的方向包括：會變動的波動率、隨機利率、跳躍。（S13, p.19）
+  > "Fixes: variable volatility, random interest rates,"
 
 - `[觀點]` Derman 與 Kani 認為，繼續用 Black-Scholes 等價波動率來報價或許方便，但用 Black-Scholes 公式來計算選擇權價格很可能是不正確的。（S11, p.3）
   > "it is probably incorrect to calculate options prices using the BS formula"
@@ -49,6 +68,7 @@
 - [[volatility-smile-skew|波動率微笑與偏斜]]
 - [[volatility-surface|波動率曲面]]
 - [[why-skew-exists|為什麼會有偏斜]]
+- [[black-scholes-model|Black-Scholes 模型]]
 
 ## 來源
 
@@ -56,7 +76,9 @@
 - [[s3-derman-volatility-smile|S3]]：Derman, *An Introduction to the Volatility Smile*（課程大綱，2013）
 - [[s10-derman-laughter-in-the-dark|S10]]：Derman, *Laughter in the Dark — The Problem of the Volatility Smile*（2003）
 - [[s11-derman-kani-smile-implied-tree|S11]]：Derman & Kani, *The Volatility Smile and Its Implied Tree*（1994）
+- [[s12-mit-18s096-black-scholes|S12]]：MIT OpenCourseWare 18.S096 Lecture 19, Strela（Fall 2013）
+- [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield, *Risk Neutral Probability and Black-Scholes*（Spring 2014）
 
 ## 待補
 
-- 其他假設（歐式、無股利、常數利率）目前沒有來源明確列出，待 S12、S13 補上。
+- 「無股利」沒有任何來源把它明列為 Black-Scholes 公式的假設。目前的依據是：S12 的公式沒有股利項，S13 的定價例子用的是不發股利的股票（p.11）。簡報若要寫「假設無股利」，措辭要對應這個程度的支撐。

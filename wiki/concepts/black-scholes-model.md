@@ -17,6 +17,16 @@
 - `[事實]` Black-Scholes 方程式與股票實際的漂移率（預期報酬）無關。（S12, p.17）
   > "There is no dependence on actual drift"
 
+- `[事實]` 歐式 call 讓持有人有權利（但沒有義務）在到期時以 K 元買進一股股票。（S13, p.15）
+  > "gives the holder the right (but not obligation) to purchase a share of stock for K dollars at time T"
+
+### 五個輸入
+
+- `[事實]` 公式的輸入是：距離到期的時間 $T$、標的現價、履約價 $K$、無風險利率 $r$、波動率 $\sigma$。（S13, p.16）
+  > "Let T be time to maturity, X0 current price of underlying asset, K strike price, r risk free interest rate"
+- `[事實]` 定義隱含波動率時，S13 把波動率以外的輸入稱為「已知參數」。（S13, p.18）
+  > "(when plugged into Black-Scholes formula along with known parameters) predicts the current market price"
+
 ### 假設
 
 - `[事實]` 推導時假設股票價格服從對數常態的動態。（S12, p.13）
@@ -39,7 +49,7 @@
 > $$C = S\,N(d_1) - K e^{-rT} N(d_2)$$
 > 符號定義：$C$＝歐式 call 的價格；$S$＝標的現價；$K$＝履約價；$r$＝無風險利率（連續複利）；$T$＝距離到期的時間（年）；$N(\cdot)$ 與 $d_1$、$d_2$ 見 F05。
 > 適用假設：歐式選擇權；股價服從對數常態動態、波動率 $\sigma$ 為常數；利率 $r$ 為常數；公式不含股利項。
-> 出處：（S12, p.19）。S12 寫成 $C_t = e^{-r(T-t)}\left(e^{r(T-t)} S N(d_1) - K N(d_2)\right)$，此處把括號乘開，並把 $T-t$ 改記為 $T$，沒有加入新的推論。
+> 出處：（S12, p.19）。S12 寫成 $C_t = e^{-r(T-t)}\left(e^{r(T-t)} S N(d_1) - K N(d_2)\right)$，此處把括號乘開，並把 $T-t$ 改記為 $T$，沒有加入新的推論。另一份來源直接寫成 $\Phi(d_1)X_0 - \Phi(d_2)Ke^{-rT}$，與本式相同（S13, p.16）。
 
 > **F04｜Black-Scholes put 價格** `[事實]`
 > $$P = K e^{-rT} N(-d_2) - S\,N(-d_1)$$
@@ -52,7 +62,7 @@
 > $$N(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-u^2/2}\,du$$
 > 符號定義：$\sigma$＝波動率（年化）；$N(x)$＝標準常態分布的累積分布函數；其餘同 F03。
 > 適用假設：同 F03；需要 $\sigma > 0$ 且 $T > 0$。
-> 出處：（S12, p.19）。把 S12 的 $T-t$ 改記為 $T$。由定義可得 $d_2 = d_1 - \sigma\sqrt{T}$。
+> 出處：（S12, p.19）；$d_1$、$d_2$ 另見（S13, p.16），兩份來源的寫法一致。把 S12 的 $T-t$ 改記為 $T$。由定義可得 $d_2 = d_1 - \sigma\sqrt{T}$。
 
 ## 相關頁面
 
@@ -60,13 +70,15 @@
 - [[put-call-parity|買賣權平價]]
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]
 - [[implied-volatility|隱含波動率]]
+- [[iv-inversion-algorithm|隱含波動率的反推演算法]]
 
 ## 來源
 
 - [[s12-mit-18s096-black-scholes|S12]]：MIT OpenCourseWare 18.S096 Lecture 19, Strela, *Black-Scholes Formula & Risk-neutral Valuation*（Fall 2013）
+- [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield, *Risk Neutral Probability and Black-Scholes*（Spring 2014）
 
 ## 待補
 
-- 簡報 S05 打算講「價格由什麼決定：只有 σ 看不到」。S12 沒有這樣的句子；S13 ingest 時確認有沒有來源支撐。
-- S12 沒有明說「無股利」假設。F03 的適用假設只寫「公式不含股利項」；若 S13 有明確說法再補上出處。
+- 簡報 S05 打算講「價格由什麼決定：只有 σ 看不到」。目前最接近的支撐是 S13 把 σ 以外的輸入稱為「已知參數」（p.18）。沒有來源直接說「σ 無法觀察」，簡報措辭不能超出這一點。
+- 沒有來源把「無股利」明列為公式的假設。F03 的適用假設只寫「公式不含股利項」；S13 的定價例子用的是不發股利的股票（p.11）。
 - 公式是對照 PDF 原圖人工抄錄的，尚待 C3 的程式測試（C3-1、C3-2、C3-3、C3-11）驗證。

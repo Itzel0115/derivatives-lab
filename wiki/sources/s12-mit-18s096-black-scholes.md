@@ -44,6 +44,8 @@
 - [[black-scholes-model|Black-Scholes 模型]]
 - [[put-call-parity|買賣權平價]]
 - [[payoff-diagram|到期價值與損益]]
+- [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]（引用 p.19）
+- [[iv-inversion-algorithm|隱含波動率的反推演算法]]（引用 p.19）
 - [[glossary|術語表]]
 
 ## 來源衝突紀錄
