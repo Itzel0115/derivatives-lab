@@ -32,6 +32,17 @@
 - `[事實]` 投資人在發行時支付的價格，很可能高於該債券在發行日的公平價值。（S6, §Issuance price and note value）
   > "The price you will pay for a structured note at issuance will likely be higher than the fair value of the structured note on the date of issuance."
 
+- `[事實]` 名稱帶有「保本」「資本保證」「絕對報酬」「最低報酬」等字樣的結構型債券，並不是沒有風險。（S7, §Introduction）
+  > "they are not risk-free"
+- `[事實]` 發行機構破產時，投資人可能損失全部資金；Lehman Brothers 發行的保本型結構型債券就是實例。（S7, §How Do These Notes Protect）
+  > "This is what happened to investors who purchased structured notes with principal protection issued by now bankrupt Lehman Brothers Holdings."
+- `[事實]` 有些保本附有條件或只保一部分，所以即使發行機構沒有破產，也可能損失本金。（S7, §Introduction）
+  > "you could lose principal even if the issuer does not go bankrupt"
+- `[事實]` 通常要持有到期才有保本。（S7, §Introduction）
+  > "you typically will receive principal protection from the issuer only if you hold your note until maturity"
+- `[事實]` 就算本金在到期時返還，那也可能是投資人拿到的全部；這段期間通膨會侵蝕購買力。（S7, §Calculate the Return）
+  > "that might be all you get back after this lengthy holding period"
+
 整理：保本是發行機構的承諾，不是保證。發行機構違約、到期前賣出，或是把買進時多付的成本算進去，都可能讓投資人虧損。
 
 ### 誤解三：票息（配息）高，所以報酬高
@@ -62,10 +73,12 @@
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s5-oic-understanding-greeks|S5]]：OCC／OIC, *Making More Informed Decisions: Understanding Greeks*（2023）
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
+- [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
 - [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield（Spring 2014）
 
 ## 待補
 
 - 三段「整理」是把上面各條主張串起來的說明，不是來源原句。簡報引用時應引用個別主張，不是「整理」那一段。
 - 誤解三最後一句「票息越高，通常代表市場認為大跌的風險越大」是由 F17 與 vega 為正推出來的，只在簡化 ELN 的模型內成立；對真實商品沒有來源支撐。
-- S7（保本型商品警示）與 S9（台灣案例）尚未 ingest，預期會補充誤解二與誤解三的實例。
+- S9（台灣案例）尚未 ingest，預期會補充誤解三的實例。
+- S7 在開頭提到這類商品「常有讓人安心的名稱」，這是目前唯一間接支持「誤解二很常見」的來源說法；其他兩個誤解仍然沒有來源說明有多普遍。

@@ -131,3 +131,13 @@
 - 新術語：提前贖回條款, 簡化 ELN, 估計價值, 觸及價, 參與率, 保本, 結構型債券
 - 衝突：無
 - 備註：全自動 ingest。原始檔是 SEC 公告，依 AGENTS.md §7 commit 進 git。eln-simplified 的條款依 GRAPH_SPEC §2.5；F08、F09 與新增的 F17（公平票息）都是 `[推導]`。F17 不在規格 §2.5 中，加它是因為 C3-10 要測公平票息、C3-12 要求每個函式對應公式卡。網頁沒有頁碼，出處用小標題。
+
+## [2026-11-18] ingest | S7 SEC/FINRA Structured Notes with Principal Protection
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s7-sec-finra-principal-protection
+- 更新頁：principal-protected-note, issuer-credit-risk, liquidity-risk, estimated-value-vs-issue-price, structured-note-architecture, eln-simplified, common-misconceptions, glossary, index
+- 公式卡：無
+- 新術語：無擔保債權人, 隱藏成本, 零息債券
+- 衝突：無（S6 與 S7 的參與率範例用不同的假設數字，不是衝突）
+- 備註：全自動 ingest。原始檔 commit 進 git；S7 由 FINRA（非政府機關）與 SEC 共同發布，已在來源頁與 MANIFEST 註明，Itzel 可改為只留本機。principal-protected-note、issuer-credit-risk 由草稿改為完整。

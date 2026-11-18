@@ -31,6 +31,11 @@
 - `[事實]` 在沒有套利的情況下，到期支付 $X$ 的契約，今天的價格是 $X$ 的風險中立期望值折現。（S13, p.11）
   > "in absence of arbitrage, price of contract that pays X at time T should be"
 
+- `[事實]` 連結股票或指數的結構型債券，通常不包含標的原本會配發的股利。（S7, §Other Costs or Tradeoffs）
+  > "typically exclude dividends"
+- `[事實]` 結構型債券到期前的價值，會隨當時的利率與標的的波動率等因素變動。（S7, §Can I Get My Money）
+  > "(including prevailing interest rates and the volatility of the underlying asset, index or benchmark)"
+
 ### 拆解與定價（自行推導）
 
 - `[推導]` 簡化 ELN 的到期報償等於 $(N + C) - \frac{N}{K}\max(K - S_T, 0)$（F08）：一筆固定金額，減去 $N/K$ 單位 put 的到期價值。推導見下；測試：C3-9。（S12, p.5）
@@ -105,6 +110,7 @@ $$(N + C^*)\,e^{-rT} = N + \frac{N}{K}P_{BS} \quad\Longrightarrow\quad C^* = N\l
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s5-oic-understanding-greeks|S5]]：OCC／OIC, *Making More Informed Decisions: Understanding Greeks*（2023）
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
+- [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
 - [[s12-mit-18s096-black-scholes|S12]]：MIT OpenCourseWare 18.S096 Lecture 19, Strela（Fall 2013）
 - [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield（Spring 2014）
 

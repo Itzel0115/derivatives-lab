@@ -24,6 +24,7 @@
 | Gamma | gamma | 標的股價變動 $1.00 時，delta 的預期變動 | （S5, p.13） | [[gamma]] |
 | Greeks | Greeks | 衡量選擇權價值對各個定價因素敏感度的一組理論指標 | （S5, p.6；p.7） | [[greeks-overview]] |
 | 歷史波動率 | historical volatility | 股票過去的波動率；是統計事實，不是預測 | （S5, p.15） | [[implied-volatility]] |
+| 隱藏成本 | hidden / imputed costs | 包在結構型債券發行價裡、對投資人不透明的成本，例如避險成本與發行機構利潤 | （S7, §Other Costs or Tradeoffs） | [[estimated-value-vs-issue-price]] |
 | 買方 | holder | 買下選擇權所賦予權利的人；其部位稱為 long | （S1, p.6；p.13） | [[call-put-option]] |
 | 隱含波動率 | implied volatility | 讓 Black-Scholes 公式算出的價值等於選擇權市價的那個波動率；它反映選擇權權利金所隱含的、對標的未來波動率的預測 | （S11, p.2；S1, p.27） | [[implied-volatility]] |
 | 隱含波動率曲面 | implied volatility surface | 隱含波動率對履約價與到期日畫成的曲面 | （S10, p.3） | [[volatility-surface]] |
@@ -56,9 +57,11 @@
 | 時間價值 | time value | 權利金超過內含價值的部分 | （S1, p.14） | [[strike-maturity-moneyness]] |
 | 總隱含變異數（w） | total implied variance | 隱含波動率的平方乘以到期時間，w = σ²t | （S4, p.2） | [[svi-parameterization]] |
 | 標的 | underlying interest | 選擇權所約定買賣的資產（股票、指數、債券、外匯等） | （S1, p.3） | [[call-put-option]] |
+| 無擔保債權人 | unsecured creditor | 發行機構破產時，沒有擔保品可優先受償的債權人；結構型債券的持有人屬於此類 | （S7, §How Do These Notes Protect） | [[issuer-credit-risk]] |
 | 契約單位 | unit of trading / contract size | 一口實物交割選擇權履約時買賣的標的數量；多數股票選擇權是 100 股 | （S1, p.8） | [[call-put-option]] |
 | Vega | vega | 隱含波動率變動 1 個百分點時，選擇權價值的預期變動 | （S5, p.18） | [[vega]] |
 | VIX 指數 | VIX Index (Cboe Volatility Index) | 衡量市場對美國股市未來 30 天波動率預期的指數，由 S&P 500 指數選擇權價格算出 | （S2, p.3） | [[implied-volatility]] |
 | 波動率（σ） | volatility | Black-Scholes 公式的輸入之一；模型假設到期時標的價格的對數是常態分布，其變異數為 Tσ² | （S13, p.14；p.16） | [[black-scholes-model]] |
 | 波動率微笑 | volatility smile | 隱含波動率隨履約價（與到期日）變動、不是平的這個現象 | （S10, p.1；p.3） | [[volatility-smile-skew]] |
 | 賣方 | writer | 賣出選擇權、被指派時有義務履行的人；其部位稱為 short | （S1, p.6；p.13） | [[call-put-option]] |
+| 零息債券 | zero-coupon bond | 到期前不付息的債券；保本型結構型債券的債券部分通常是它 | （S7, §What Are） | [[principal-protected-note]] |

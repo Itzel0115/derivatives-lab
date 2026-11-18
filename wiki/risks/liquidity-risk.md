@@ -19,6 +19,15 @@
 - `[事實]` 許多結構型債券是設計成持有到期的；到期前需要用錢，可能損失相當大的一部分投資。（S6, §Questions to Ask）
   > "If you need your money back prior to maturity, you could lose a significant portion of your investment."
 
+### S7 的補充
+
+- `[事實]` 即使有次級市場，債券的成交價也可能遠低於買進價，而且拿不回完整的保證金額。（S7, §Can I Get My Money）
+  > "the notes might trade at significant discounts to their purchase price and might not return the full guaranteed amount"
+- `[事實]` 即使商品有交易代號，或已獲准在交易所掛牌，仍然可能賣不掉或只能折價賣出。（S7, §Questions）
+  > "This is true even if the product has a ticker symbol or has been approved for listing on an exchange."
+- `[事實]` 到期前債券的價值不容易計算，並且會隨許多因素變動，包括當時的利率與標的的波動率。（S7, §Can I Get My Money）
+  > "(including prevailing interest rates and the volatility of the underlying asset, index or benchmark)"
+
 ### 和上市選擇權的對照
 
 - `[事實]` 上市選擇權的條款是標準化的，這讓次級市場比較容易存在，買賣雙方可以用反向交易平倉。（S1, p.4）
@@ -36,6 +45,7 @@
 
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
+- [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
 
 ## 待補
 

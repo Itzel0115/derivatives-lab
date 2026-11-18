@@ -15,6 +15,13 @@
 - `[事實]` 報酬可以連結的對象包括股價指數、單一股票、一籃子股票、利率、商品、外匯。（S6, §What are Structured Notes?）
   > "Structured notes are securities issued by financial institutions whose returns are based on, among other things, equity indexes, a single equity security, a basket of equity securities"
 
+- `[事實]` 以保本型為例：它通常是零息債券與選擇權（或其他衍生性商品）的組合，選擇權的報償連結到標的資產。（S7, §What Are）
+  > "the combination of a zero-coupon bond, which pays no interest until the bond matures, with an option or other derivative product"
+- `[事實]` 結構型商品並不代表持有任何資產組合，而是發行機構的付款承諾。（S7, §What Are）
+  > "do not represent ownership of any portfolio of assets but rather are promises to pay made by the product issuers"
+- `[事實]` 連結股票或指數的結構型債券，通常不包含標的原本會配發的股利。（S7, §Other Costs or Tradeoffs）
+  > "typically exclude dividends"
+
 ### 誰設計、誰銷售
 
 - `[事實]` 通常由金融機構設計並發行，再由券商賣給個人投資人。（S6, §What are Structured Notes?）
@@ -52,8 +59,9 @@
 ## 來源
 
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
+- [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
 
 ## 待補
 
 - 頁首的一句話摘要中，「債券部分決定本金、衍生性商品部分決定報酬」是把 S6 的兩個組成對應到功能的說法。S6 只說有這兩個部分，沒有逐一說明各自的功能；[[eln-simplified|簡化 ELN]] 的 F08 用一個具體例子呈現這個拆解。
-- S6 沒有說明內嵌的衍生性商品是哪一種選擇權。
+- S6 沒有說明內嵌的衍生性商品是哪一種選擇權；S7 只就保本型說是「選擇權或其他衍生性商品」。
