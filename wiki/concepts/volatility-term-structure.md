@@ -1,8 +1,18 @@
 # 波動率期限結構（Volatility Term Structure）
 
-> 以 VIX 的計算為例：同一個標的、兩個不同到期日的選擇權，各自算出的變異數並不相同。（期限結構的正式定義待 S3 補上。）
+> 固定在價平、只改變到期時間時，隱含波動率也會跟著變。這個隨到期時間的變化稱為波動率的期限結構。
 
 ## 重點主張
+
+### 定義
+
+- `[事實]` 價平選擇權的隱含波動率隨到期時間的變化，一般稱為波動率的「期限結構」。（S11, p.2）
+  > "This variation is generally called the volatility "term structure.""
+- `[範例]` 1993 年 5 月 5 日的 S&P 500 指數選擇權：價平選擇權的隱含波動率隨到期時間拉長而上升。圖中使用的是價平 call 與 put 隱含波動率的平均。（S11, p.2）
+- `[事實]` 作者把 skew 與期限結構合稱為波動率「smile」。（S11, p.2）
+  > "In this paper we will refer to them collectively as the volatility "smile.""
+
+### VIX 計算中的兩個到期日
 
 - `[事實]` VIX 的目標期限固定為 30 天，計算時要選出「近期」與「次近期」兩組不同到期日的選擇權。（S2, p.4；p.6）
   > "apply the rules for selecting the correct near- and next-terms"
@@ -19,11 +29,14 @@
 
 - [[implied-volatility|隱含波動率]]
 - [[strike-maturity-moneyness|履約價、到期日與價內外]]
+- [[volatility-smile-skew|波動率微笑與偏斜]]
+- [[volatility-surface|波動率曲面]]
 
 ## 來源
 
 - [[s2-cboe-vix-methodology|S2]]：Cboe, *Cboe Volatility Index — Methodology*（Version 6.0, 2026）
+- [[s11-derman-kani-smile-implied-tree|S11]]：Derman & Kani, *The Volatility Smile and Its Implied Tree*（1994）
 
 ## 待補
 
-- 本頁目前只有「不同到期日算出的數值不同」的一個範例，還沒有期限結構的定義、常見形狀或成因。這些預期由 S3 提供。
+- 目前只有「1993 年 5 月 5 日隱含波動率隨到期時間上升」這一個方向的範例。沒有來源說明期限結構也可能向下，或它為什麼會有斜率；簡報不得自行補充。

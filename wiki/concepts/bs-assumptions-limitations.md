@@ -23,8 +23,17 @@
 - `[事實]` 古典 Black-Scholes 模型在所有時間、所有價位都給標的同一個對數常態波動率。（S10, p.3）
   > "attributed a single lognormal volatility to an underlier at all times and all levels"
 
+- `[事實]` Black-Scholes 模型假設指數水準以固定的波動率做隨機漫步。（S11, §Summary）
+  > "The Black-Scholes model assumes that the index level executes a random walk with a constant volatility."
+- `[事實]` Black-Scholes 理論假設股價在任何時間、任何價位都以固定的局部波動率做對數常態演變。（S11, p.1）
+  > "stock prices evolve lognormally with a constant local volatility"
+- `[事實]` Black-Scholes 理論的另一個特點是與投資人的風險偏好無關：評價選擇權時，可以把標的股票的預期報酬當成無風險報酬。（S11, p.1）
+  > "you can value an option as though the underlying stock's expected return is riskless"
+
 ### 假設與市場的落差
 
+- `[觀點]` Derman 與 Kani 認為，繼續用 Black-Scholes 等價波動率來報價或許方便，但用 Black-Scholes 公式來計算選擇權價格很可能是不正確的。（S11, p.3）
+  > "it is probably incorrect to calculate options prices using the BS formula"
 - `[事實]` 依照古典理論，選擇權的 Black-Scholes 隱含波動率應該與履約價、到期日無關。（S10, p.1）
   > "the Black-Scholes implied volatility of an option should be independent of its strike and expiration"
 - `[事實]` Black-Scholes 的結果與大多數市場觀察到的微笑不一致。（S10, p.5）
@@ -46,7 +55,8 @@
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s3-derman-volatility-smile|S3]]：Derman, *An Introduction to the Volatility Smile*（課程大綱，2013）
 - [[s10-derman-laughter-in-the-dark|S10]]：Derman, *Laughter in the Dark — The Problem of the Volatility Smile*（2003）
+- [[s11-derman-kani-smile-implied-tree|S11]]：Derman & Kani, *The Volatility Smile and Its Implied Tree*（1994）
 
 ## 待補
 
-- 其他假設（歐式、無股利、常數利率）目前沒有來源明確列出，待 S11–S13 補上。
+- 其他假設（歐式、無股利、常數利率）目前沒有來源明確列出，待 S12、S13 補上。

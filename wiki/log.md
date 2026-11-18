@@ -64,3 +64,13 @@
 - 新術語：隱含波動率曲面, 負偏斜, 波動率微笑
 - 衝突：無（來源內部有一處日期不一致，已記在來源頁）
 - 備註：全自動 ingest。why-skew-exists 的成因主張全部標為 `[觀點]`。文件沒有印頁碼，引用使用 PDF 頁序。
+
+## [2026-11-18] ingest | S11 Derman & Kani The Volatility Smile and Its Implied Tree
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s11-derman-kani-smile-implied-tree
+- 更新頁：implied-volatility, volatility-smile-skew, volatility-term-structure, bs-assumptions-limitations, glossary, index
+- 公式卡：無
+- 新術語：偏斜, 期限結構（並更新「隱含波動率」的定義）
+- 衝突：無（S10 與 S11 對「smile」一詞的涵蓋範圍略有不同，已記在來源頁，不視為衝突）
+- 備註：全自動 ingest。補上 L2 需要的隱含波動率定義。p.5–20 的隱含樹建構與連續時間推導超出本次範圍，沒有寫入 wiki。

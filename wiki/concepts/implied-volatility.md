@@ -4,6 +4,17 @@
 
 ## 重點主張
 
+### 定義：從市場價格反推
+
+- `[事實]` 交易員報選擇權的市價時，用的是「讓 Black-Scholes 公式算出的價值等於市價」的那個波動率。（S11, p.2）
+  > "has led traders to quote a call option's market price in terms of whatever constant local volatility"
+- `[事實]` 這個波動率稱為 Black-Scholes 等價波動率，或隱含波動率。（S11, p.2）
+  > "the Black-Scholes-equivalent or implied volatility"
+- `[事實]` 本質上，隱含波動率是一種報價的方式。（S11, p.2）
+  > "is a means of quoting prices"
+- `[事實]` 市場上的選擇權價格，與 Black-Scholes 公式算出的理論價格並不完全一致。（S11, p.2）
+  > "Market options prices are not exactly consistent with theoretical prices derived from the BS formula."
+
 ### 波動率藏在選擇權價格裡
 
 - `[事實]` 影響權利金的因素之一，是市場參與者各自對標的未來波動率的估計。（S1, p.12）
@@ -37,13 +48,15 @@
 - [[call-put-option|買權與賣權]]
 - [[strike-maturity-moneyness|履約價、到期日與價內外]]
 - [[volatility-term-structure|波動率期限結構]]
+- [[volatility-smile-skew|波動率微笑與偏斜]]
+- [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]
 
 ## 來源
 
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s2-cboe-vix-methodology|S2]]：Cboe, *Cboe Volatility Index — Methodology*（Version 6.0, 2026）
+- [[s11-derman-kani-smile-implied-tree|S11]]：Derman & Kani, *The Volatility Smile and Its Implied Tree*（1994）
 
 ## 待補
 
-- 目前沒有來源定義「把市場價格代回定價模型、反推出波動率」這個做法。S1 與 S2 只說波動率的預期「隱含在」選擇權價格中。學習目標 L2 需要的這個定義，預期由 S3 提供。
 - VIX 是把許多選擇權的價格彙總成一個數字，不是用單一選擇權反推。S2 沒有比較這兩種做法；簡報把 VIX 當作隱含波動率的例子時，措辭不能超出上面幾條主張。
