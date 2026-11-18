@@ -42,6 +42,8 @@
 - [[gamma|Gamma]]
 - [[theta|Theta]]
 - [[implied-volatility|隱含波動率]]
+- [[eln-simplified|簡化 ELN]]（引用 p.18）
+- [[common-misconceptions|常見誤解]]（引用 p.16–18）
 - [[glossary|術語表]]
 
 ## 來源衝突紀錄

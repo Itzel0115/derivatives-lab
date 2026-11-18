@@ -1,0 +1,43 @@
+# 流動性風險（Liquidity Risk）
+
+> 結構型債券通常沒有在交易所掛牌，想在到期前賣掉，買家可能只有發行機構自己的關係企業，價格也可能打折。投資人要有持有到期的準備。
+
+**提醒**：本頁是教學說明，**不構成投資建議**。
+
+## 重點主張
+
+- `[事實]` 結構型債券（ETN 除外）沒有在證券交易所掛牌交易，所以在次級市場買賣的能力通常非常有限。（S6, §Liquidity）
+  > "structured notes (other than exchange-traded notes known as ETNs) are not listed for trading on security exchanges"
+- `[事實]` 唯一可能的買家，也許只有發行機構的券商關係企業，或是經銷這檔債券的券商。（S6, §Liquidity）
+  > "the only potential buyer for your structured note may be the issuing financial institution's broker-dealer affiliate or the broker-dealer distributor of the structured note"
+- `[事實]` 發行機構常常明確聲明，不打算買回或為自己發行的債券造市。（S6, §Liquidity）
+  > "issuers often specifically disclaim their intention to repurchase or make markets in the notes they issue"
+- `[事實]` 投資人應該有持有到期的準備，否則可能要以低於當時價值的價格賣出。（S6, §Liquidity）
+  > "be prepared to hold a structured note to its maturity date, or risk selling the note at a discount to its value at the time of sale"
+- `[事實]` SEC 直言：結構型債券沒有流動的市場。到期前想賣，可能得接受低於買進價的價格，也可能根本賣不掉。（S6, §Questions to Ask）
+  > "A liquid market for structured notes does not exist."
+- `[事實]` 許多結構型債券是設計成持有到期的；到期前需要用錢，可能損失相當大的一部分投資。（S6, §Questions to Ask）
+  > "If you need your money back prior to maturity, you could lose a significant portion of your investment."
+
+### 和上市選擇權的對照
+
+- `[事實]` 上市選擇權的條款是標準化的，這讓次級市場比較容易存在，買賣雙方可以用反向交易平倉。（S1, p.4）
+  > "The standardization of terms makes it more likely that there will be a secondary market on which holders and writers of options can close out their positions"
+- `[事實]` 但即使是上市選擇權，也不保證每一檔在任何時候都有市場。（S1, p.68）
+  > "there is no guarantee that such a market will at all times exist for every option"
+
+## 相關頁面
+
+- [[structured-note-architecture|結構型商品的組成]]
+- [[estimated-value-vs-issue-price|估計價值與發行價]]
+- [[issuer-credit-risk|發行機構信用風險]]
+
+## 來源
+
+- [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
+- [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
+
+## 待補
+
+- 沒有具體數字：提前賣出通常折價多少，本 wiki 沒有來源。
+- 「和上市選擇權的對照」是把 S1 與 S6 兩個來源的說法並列；沒有來源直接比較這兩者。

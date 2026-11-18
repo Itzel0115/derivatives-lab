@@ -44,6 +44,10 @@
 - [[why-skew-exists|為什麼會有偏斜]]（引用 p.26）
 - [[iv-inversion-algorithm|隱含波動率的反推演算法]]（引用 p.15）
 - [[theta|Theta]]（引用 p.15）
+- [[eln-simplified|簡化 ELN]]（引用 p.65、p.66）
+- [[issuer-credit-risk|發行機構信用風險]]（引用 p.6）
+- [[liquidity-risk|流動性風險]]（引用 p.4、p.68）
+- [[common-misconceptions|常見誤解]]（引用 p.26、p.65）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張

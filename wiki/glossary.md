@@ -11,9 +11,12 @@
 | 蝶式套利 | butterfly arbitrage | 同一到期日的曲面切片所隱含的機率密度出現負值時存在的套利 | （S4, p.4） | [[no-arbitrage-surface]] |
 | 日曆價差套利 | calendar spread arbitrage | 相同 moneyness 下，到期日較長的選擇權總隱含變異數反而較小時存在的套利 | （S4, p.3–4） | [[no-arbitrage-surface]] |
 | 買權 | call option | 給予買方「買進」標的之權利的選擇權 | （S1, p.3） | [[call-put-option]] |
+| 提前贖回條款 | call provision | 允許發行機構在到期前贖回結構型債券的條款 | （S6, §Call risk） | [[s6-sec-structured-notes]] |
 | 現金擔保賣出賣權 | cash-secured put | 賣出 put 的同時，把等於履約價的現金存在券商作為擔保 | （S1, p.65） | [[s1-occ-characteristics-risks]] |
 | 現金結算 | cash-settled | 履約時不交付標的，而是依標的價值與履約價的差額收付現金 | （S1, p.3） | [[call-put-option]] |
 | Delta | delta | 標的股價每變動 1 點時，選擇權價格的預期變動 | （S5, p.9） | [[delta]] |
+| 簡化 ELN | simplified equity-linked note | 本專案為教學定義的結構：到期時股價不低於履約價則取回面額加票息，否則取得等值於 N·S_T/K 的股票加票息 | （GRAPH_SPEC §2.5；F08） | [[eln-simplified]] |
+| 估計價值 | estimated value | 發行機構在公開說明書封面揭露的結構型債券價值估計，通常低於發行價 | （S6, §Issuance price and note value） | [[estimated-value-vs-issue-price]] |
 | 歐式選擇權 | European-style option | 只能在到期前的特定期間（目前都是到期日當天）履約的選擇權 | （S1, p.7） | [[strike-maturity-moneyness]] |
 | 履約 | exercise | 買方行使選擇權所賦予的權利 | （S1, p.9） | [[call-put-option]] |
 | 履約價（K） | exercise price / strike price | 買方有權買進或賣出標的的價格 | （S1, p.7） | [[strike-maturity-moneyness]] |
@@ -26,15 +29,18 @@
 | 隱含波動率曲面 | implied volatility surface | 隱含波動率對履約價與到期日畫成的曲面 | （S10, p.3） | [[volatility-surface]] |
 | 價內 | in the money | Call：標的現價高於履約價；put：標的現價低於履約價 | （S1, p.13） | [[strike-maturity-moneyness]] |
 | 內含價值 | intrinsic value | 選擇權處於價內的金額；價外時為零 | （S1, p.14） | [[strike-maturity-moneyness]] |
+| 觸及價 | knock-in / barrier / trigger | 預先設定的價位；參考資產跌破它時，結構型債券的報償方式會改變 | （S6, §Knock-in feature） | [[structured-note-architecture]] |
 | Log-strike（k） | log-strike / log-moneyness | 履約價相對於遠期價格的對數，k = ln(K/F) | （S4, p.2） | [[svi-parameterization]] |
 | 乘數 | multiplier | 現金結算選擇權用來把每一點差額換算成金額的倍數 | （S1, p.8） | [[payoff-diagram]] |
 | 近期／次近期 | near-term / next-term | VIX 計算時選出的兩組到期日，一前一後夾住 30 天的目標期限 | （S2, p.5–6） | [[volatility-term-structure]] |
 | 負偏斜 | negative skew | 隱含波動率隨履約價升高而下降的型態，常見於股價指數選擇權 | （S10, p.3） | [[volatility-smile-skew]] |
 | 選擇權 | option | 在到期日之前，以固定履約價買進或賣出特定數量標的的權利 | （S1, p.3） | [[call-put-option]] |
 | 價外 | out of the money | Call：履約價高於標的現價；put：履約價低於標的現價 | （S1, p.14） | [[strike-maturity-moneyness]] |
+| 參與率 | participation rate | 參考資產的漲幅中，付給結構型債券投資人的固定比例 | （S6, §Participation rates） | [[principal-protected-note]] |
 | 實物交割 | physical delivery | 履約時實際交付或收取標的 | （S1, p.3） | [[call-put-option]] |
 | 權利金 | premium | 買方付出、賣方收到的選擇權價格 | （S1, p.11） | [[call-put-option]] |
 | 賣權 | put option | 給予買方「賣出」標的之權利的選擇權 | （S1, p.3） | [[call-put-option]] |
+| 保本 | principal protection | 結構型債券約定到期時返還本金；仍受發行機構信用風險影響 | （S6, §Market risk） | [[principal-protected-note]] |
 | 買賣權平價 | put-call parity | 相同履約價與到期日的歐式 call 與 put 價格之間的關係（F06） | （S11, p.6；F06 推導） | [[put-call-parity]] |
 | 實現波動率 | realized volatility | 標的在一段期間內實際發生的波動率，由歷史數值計算 | （S1, p.27） | [[implied-volatility]] |
 | Rho | rho | 無風險利率變動時，選擇權價值的預期變動 | （S5, p.6） | [[greeks-overview]] |
@@ -44,6 +50,7 @@
 | SSVI | Surface SVI | 以價平總隱含變異數為參數、可保證無靜態套利的 SVI 曲面形式（F12） | （S4, p.10–11） | [[svi-parameterization]] |
 | 靜態套利 | static arbitrage | 日曆價差套利與蝶式套利的合稱；曲面兩者皆無才算沒有靜態套利 | （S4, p.3） | [[no-arbitrage-surface]] |
 | SVI | stochastic volatility inspired (parameterization) | 用五個參數描述單一到期日隱含波動率微笑的公式（F11） | （S4, p.1；p.5） | [[svi-parameterization]] |
+| 結構型債券 | structured note | 金融機構發行、由債券部分與內嵌衍生性商品組成、報酬連結到參考資產的證券 | （S6, §What are Structured Notes?） | [[structured-note-architecture]] |
 | 期限結構 | term structure (of volatility) | 價平選擇權的隱含波動率隨到期時間的變化 | （S11, p.2） | [[volatility-term-structure]] |
 | Theta | theta | 每經過 1 個日曆天，選擇權價值的預期耗損 | （S5, p.20） | [[theta]] |
 | 時間價值 | time value | 權利金超過內含價值的部分 | （S1, p.14） | [[strike-maturity-moneyness]] |

@@ -47,6 +47,7 @@
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]（引用 p.19）
 - [[iv-inversion-algorithm|隱含波動率的反推演算法]]（引用 p.19）
 - [[vega|Vega]]（F07 由 p.19 的公式推導）
+- [[eln-simplified|簡化 ELN]]（引用 p.5）
 - [[glossary|術語表]]
 
 ## 來源衝突紀錄

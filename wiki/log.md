@@ -121,3 +121,13 @@
 - 新術語：Delta, Gamma, Greeks, 歷史波動率, Rho, Theta, Vega
 - 衝突：無
 - 備註：全自動 ingest。S5 沒有任何公式，F07 標為 `[推導]`，由 F03、F05、F06 推導，對應 C3-5。iv-inversion-algorithm 補上 Newton 法。greeks-overview、delta、gamma、theta 是延伸頁。S5 有與 S2 類似的使用限制聲明，比照 Itzel 對 S2 的決定處理；Itzel 沒有另外就 S5 決定。
+
+## [2026-11-18] ingest | S6 SEC Investor Bulletin: Structured Notes
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 FAIL 1 項 → r2 PASS）
+- 新增頁：s6-sec-structured-notes, structured-note-architecture, eln-simplified, estimated-value-vs-issue-price, principal-protected-note, issuer-credit-risk, liquidity-risk, common-misconceptions
+- 更新頁：s1-occ-characteristics-risks, s5-oic-understanding-greeks, s12-mit-18s096-black-scholes, s13-mit-18440-risk-neutral-black-scholes, glossary, index
+- 公式卡：F08, F09, F17
+- 新術語：提前贖回條款, 簡化 ELN, 估計價值, 觸及價, 參與率, 保本, 結構型債券
+- 衝突：無
+- 備註：全自動 ingest。原始檔是 SEC 公告，依 AGENTS.md §7 commit 進 git。eln-simplified 的條款依 GRAPH_SPEC §2.5；F08、F09 與新增的 F17（公平票息）都是 `[推導]`。F17 不在規格 §2.5 中，加它是因為 C3-10 要測公平票息、C3-12 要求每個函式對應公式卡。網頁沒有頁碼，出處用小標題。

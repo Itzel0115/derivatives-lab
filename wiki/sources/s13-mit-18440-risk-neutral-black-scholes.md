@@ -44,6 +44,8 @@
 - [[black-scholes-model|Black-Scholes 模型]]
 - [[svi-parameterization|SVI 參數化]]（引用 p.11）
 - [[no-arbitrage-surface|無套利曲面]]（引用 p.6）
+- [[eln-simplified|簡化 ELN]]（引用 p.11）
+- [[common-misconceptions|常見誤解]]（引用 p.11）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張
