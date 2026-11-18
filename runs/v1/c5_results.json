@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18T19:13:37.553Z",
+ "generated": "2026-11-18T19:16:57.217Z",
  "url": "http://127.0.0.1:8765/slides/index.html",
  "widths": {
   "390": [
@@ -11,6 +11,7 @@
     "cjk": 114,
     "points": 4,
     "imgs": [],
+    "minFontPx": 11.6,
     "katex": 0,
     "katexErr": 0
    },
@@ -22,6 +23,7 @@
     "cjk": 116,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -33,6 +35,7 @@
     "cjk": 105,
     "points": 5,
     "imgs": [],
+    "minFontPx": 11,
     "katex": 0,
     "katexErr": 0
    },
@@ -44,6 +47,7 @@
     "cjk": 89,
     "points": 4,
     "imgs": [],
+    "minFontPx": 11,
     "katex": 6,
     "katexErr": 0
    },
@@ -55,6 +59,7 @@
     "cjk": 107,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -66,6 +71,7 @@
     "cjk": 105,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 7,
     "katexErr": 0
    },
@@ -77,6 +83,7 @@
     "cjk": 115,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 3,
     "katexErr": 0
    },
@@ -88,6 +95,7 @@
     "cjk": 115,
     "points": 5,
     "imgs": [],
+    "minFontPx": 11.8,
     "katex": 0,
     "katexErr": 0
    },
@@ -99,6 +107,7 @@
     "cjk": 93,
     "points": 4,
     "imgs": [],
+    "minFontPx": 11.4,
     "katex": 0,
     "katexErr": 0
    },
@@ -110,6 +119,7 @@
     "cjk": 96,
     "points": 4,
     "imgs": [],
+    "minFontPx": 11.4,
     "katex": 0,
     "katexErr": 0
    },
@@ -121,6 +131,7 @@
     "cjk": 103,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -132,6 +143,7 @@
     "cjk": 116,
     "points": 5,
     "imgs": [],
+    "minFontPx": 11.7,
     "katex": 13,
     "katexErr": 0
    },
@@ -143,6 +155,7 @@
     "cjk": 78,
     "points": 4,
     "imgs": [],
+    "minFontPx": 13.3,
     "katex": 6,
     "katexErr": 0
    },
@@ -154,6 +167,7 @@
     "cjk": 92,
     "points": 4,
     "imgs": [],
+    "minFontPx": 11,
     "katex": 0,
     "katexErr": 0
    },
@@ -165,6 +179,7 @@
     "cjk": 111,
     "points": 4,
     "imgs": [],
+    "minFontPx": 11,
     "katex": 5,
     "katexErr": 0
    },
@@ -176,6 +191,7 @@
     "cjk": 110,
     "points": 4,
     "imgs": [],
+    "minFontPx": 12,
     "katex": 0,
     "katexErr": 0
    },
@@ -187,6 +203,7 @@
     "cjk": 112,
     "points": 5,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -198,6 +215,7 @@
     "cjk": 13,
     "points": 0,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -209,6 +227,7 @@
     "cjk": 85,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    }
@@ -222,6 +241,7 @@
     "cjk": 114,
     "points": 4,
     "imgs": [],
+    "minFontPx": 12.3,
     "katex": 0,
     "katexErr": 0
    },
@@ -233,6 +253,7 @@
     "cjk": 116,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -244,6 +265,7 @@
     "cjk": 105,
     "points": 5,
     "imgs": [],
+    "minFontPx": 11.9,
     "katex": 0,
     "katexErr": 0
    },
@@ -255,6 +277,7 @@
     "cjk": 89,
     "points": 4,
     "imgs": [],
+    "minFontPx": 11.9,
     "katex": 6,
     "katexErr": 0
    },
@@ -266,6 +289,7 @@
     "cjk": 107,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -277,6 +301,7 @@
     "cjk": 105,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 7,
     "katexErr": 0
    },
@@ -288,6 +313,7 @@
     "cjk": 115,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 3,
     "katexErr": 0
    },
@@ -299,6 +325,7 @@
     "cjk": 115,
     "points": 5,
     "imgs": [],
+    "minFontPx": 12.1,
     "katex": 0,
     "katexErr": 0
    },
@@ -310,6 +337,7 @@
     "cjk": 93,
     "points": 4,
     "imgs": [],
+    "minFontPx": 16.6,
     "katex": 0,
     "katexErr": 0
    },
@@ -321,6 +349,7 @@
     "cjk": 96,
     "points": 4,
     "imgs": [],
+    "minFontPx": 16.6,
     "katex": 0,
     "katexErr": 0
    },
@@ -332,6 +361,7 @@
     "cjk": 103,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -343,6 +373,7 @@
     "cjk": 116,
     "points": 5,
     "imgs": [],
+    "minFontPx": 11.8,
     "katex": 13,
     "katexErr": 0
    },
@@ -354,6 +385,7 @@
     "cjk": 78,
     "points": 4,
     "imgs": [],
+    "minFontPx": 12.5,
     "katex": 6,
     "katexErr": 0
    },
@@ -365,6 +397,7 @@
     "cjk": 92,
     "points": 4,
     "imgs": [],
+    "minFontPx": 8.8,
     "katex": 0,
     "katexErr": 0
    },
@@ -376,6 +409,7 @@
     "cjk": 111,
     "points": 4,
     "imgs": [],
+    "minFontPx": 8.8,
     "katex": 5,
     "katexErr": 0
    },
@@ -387,6 +421,7 @@
     "cjk": 110,
     "points": 4,
     "imgs": [],
+    "minFontPx": 9.6,
     "katex": 0,
     "katexErr": 0
    },
@@ -398,6 +433,7 @@
     "cjk": 112,
     "points": 5,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -409,6 +445,7 @@
     "cjk": 13,
     "points": 0,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    },
@@ -420,6 +457,7 @@
     "cjk": 85,
     "points": 4,
     "imgs": [],
+    "minFontPx": null,
     "katex": 0,
     "katexErr": 0
    }
