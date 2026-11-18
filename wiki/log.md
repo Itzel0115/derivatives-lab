@@ -74,3 +74,13 @@
 - 新術語：偏斜, 期限結構（並更新「隱含波動率」的定義）
 - 衝突：無（S10 與 S11 對「smile」一詞的涵蓋範圍略有不同，已記在來源頁，不視為衝突）
 - 備註：全自動 ingest。補上 L2 需要的隱含波動率定義。p.5–20 的隱含樹建構與連續時間推導超出本次範圍，沒有寫入 wiki。
+
+## [2026-11-18] ingest | S12 MIT 18.S096 Lecture 19 Black-Scholes Formula
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s12-mit-18s096-black-scholes, black-scholes-model, put-call-parity
+- 更新頁：payoff-diagram, s11-derman-kani-smile-implied-tree, glossary, index
+- 公式卡：F03, F04, F05, F06
+- 新術語：Black-Scholes 公式, 買賣權平價, 無風險利率
+- 衝突：無
+- 備註：全自動 ingest。F03–F05 對照 PDF 第 19 頁原圖抄錄，並把 S12 的 T−t 改記為 T。F06 標為 `[推導]`，由 F03、F04 相減得到，對應 C3-1。F01、F02 的出處改為 S12 直接寫出的式子。第 23 張投影片的圖標示資料來源為 Bloomberg，沒有使用。

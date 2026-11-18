@@ -42,6 +42,7 @@
 - [[volatility-smile-skew|波動率微笑與偏斜]]
 - [[volatility-term-structure|波動率期限結構]]
 - [[bs-assumptions-limitations|Black-Scholes 的假設與限制]]
+- [[put-call-parity|買賣權平價]]（引用 p.6）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張

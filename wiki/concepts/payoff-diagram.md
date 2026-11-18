@@ -4,6 +4,10 @@
 
 ## 重點主張
 
+- `[事實]` 歐式 call 在到期時支付 max(S−K, 0)。（S12, p.4）
+  > "European Call option pays max(S-K,0) at time T"
+- `[事實]` 歐式 put 在到期時支付 max(K−S, 0)。（S12, p.5）
+  > "European Put option pays max(K-S,0) at time T"
 - `[事實]` 現金結算的 call，結算金額是標的結算價超過履約價的部分（再乘上乘數）。（S1, p.9）
   > "the amount by which the exercise settlement value of the underlying interest of a cash-settled call exceeds the exercise price"
 - `[事實]` 現金結算的 put，結算金額是履約價超過標的結算價的部分（再乘上乘數）。（S1, p.9）
@@ -23,26 +27,28 @@
 > $$\text{Payoff}_{\text{call}} = \max(S_T - K,\ 0)$$
 > 符號定義：$S_T$＝到期時的標的價格（S1 稱 exercise settlement value）；$K$＝履約價（exercise price）。以每一單位標的計；一口契約的金額要再乘上契約單位或乘數。
 > 適用假設：一般的 call（不含 binary、range、capped 選擇權）；不計權利金、稅、交易成本與保證金。
-> 出處：（S1, p.9；p.14）。S1 以文字定義，此處改寫成符號，未加入新的推論。
+> 出處：（S12, p.4）直接寫出此式；另見 S1 的文字定義（S1, p.9；p.14）。
 > 附註：買方到期損益＝$\max(S_T - K, 0) - \text{權利金}$；賣方到期損益＝$\text{權利金} - \max(S_T - K, 0)$。（S1, p.11–12；p.64）
 
 > **F02｜Put 到期價值** `[事實]`
 > $$\text{Payoff}_{\text{put}} = \max(K - S_T,\ 0)$$
 > 符號定義：同 F01。
 > 適用假設：一般的 put（不含 binary、range、capped 選擇權）；不計權利金、稅、交易成本與保證金。
-> 出處：（S1, p.9；p.14）。S1 以文字定義，此處改寫成符號，未加入新的推論。
+> 出處：（S12, p.5）直接寫出此式；另見 S1 的文字定義（S1, p.9；p.14）。
 > 附註：買方到期損益＝$\max(K - S_T, 0) - \text{權利金}$；賣方到期損益＝$\text{權利金} - \max(K - S_T, 0)$。（S1, p.11–12；p.65）
 
 ## 相關頁面
 
 - [[call-put-option|買權與賣權]]
 - [[strike-maturity-moneyness|履約價、到期日與價內外]]
+- [[black-scholes-model|Black-Scholes 模型]]
 
 ## 來源
 
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
+- [[s12-mit-18s096-black-scholes|S12]]：MIT OpenCourseWare 18.S096 Lecture 19, Strela（Fall 2013）
 
 ## 待補
 
-- S1 沒有任何損益圖。圖形需由 N3 的程式依 F01、F02 產生。
+- S12 的投影片有 call 與 put 的價值圖（p.4、p.5），但依規定不得使用來源圖片。圖形需由 N3 的程式依 F01、F02 產生。
 - S1 沒有「買方到期損益＝到期價值−權利金」的單一原句；F01、F02 附註是由權利金定義（p.11–12）與賣方損失的說法（p.64、p.65）對應而來。若後續來源（S3、S5）有直接寫出的句子，應補上出處。

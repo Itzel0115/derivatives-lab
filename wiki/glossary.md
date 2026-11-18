@@ -7,6 +7,7 @@
 | 美式選擇權 | American-style option | 到期前任何時間都可以履約的選擇權 | （S1, p.7） | [[strike-maturity-moneyness]] |
 | 指派 | assignment | 買方履約後，由 OCC 與券商依規則指定某位賣方履行義務 | （S1, p.9） | [[call-put-option]] |
 | 價平 | at the money | 標的現價等於履約價 | （S1, p.13） | [[strike-maturity-moneyness]] |
+| Black-Scholes 公式 | Black-Scholes formula | 以標的現價、履約價、到期時間、無風險利率與波動率計算歐式選擇權理論價格的公式（F03–F05） | （S12, p.19） | [[black-scholes-model]] |
 | 買權 | call option | 給予買方「買進」標的之權利的選擇權 | （S1, p.3） | [[call-put-option]] |
 | 現金擔保賣出賣權 | cash-secured put | 賣出 put 的同時，把等於履約價的現金存在券商作為擔保 | （S1, p.65） | [[s1-occ-characteristics-risks]] |
 | 現金結算 | cash-settled | 履約時不交付標的，而是依標的價值與履約價的差額收付現金 | （S1, p.3） | [[call-put-option]] |
@@ -27,7 +28,9 @@
 | 實物交割 | physical delivery | 履約時實際交付或收取標的 | （S1, p.3） | [[call-put-option]] |
 | 權利金 | premium | 買方付出、賣方收到的選擇權價格 | （S1, p.11） | [[call-put-option]] |
 | 賣權 | put option | 給予買方「賣出」標的之權利的選擇權 | （S1, p.3） | [[call-put-option]] |
+| 買賣權平價 | put-call parity | 相同履約價與到期日的歐式 call 與 put 價格之間的關係（F06） | （S11, p.6；F06 推導） | [[put-call-parity]] |
 | 實現波動率 | realized volatility | 標的在一段期間內實際發生的波動率，由歷史數值計算 | （S1, p.27） | [[implied-volatility]] |
+| 無風險利率（r） | risk-free interest rate | 無風險貨幣市場帳戶的利率，Black-Scholes 公式的輸入之一 | （S12, p.9） | [[black-scholes-model]] |
 | 偏斜 | skew | 隱含波動率隨履約價變動的不對稱；指數選擇權通常是履約價越高、隱含波動率越低 | （S11, p.2） | [[volatility-smile-skew]] |
 | 期限結構 | term structure (of volatility) | 價平選擇權的隱含波動率隨到期時間的變化 | （S11, p.2） | [[volatility-term-structure]] |
 | 時間價值 | time value | 權利金超過內含價值的部分 | （S1, p.14） | [[strike-maturity-moneyness]] |
