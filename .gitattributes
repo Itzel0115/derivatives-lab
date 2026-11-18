@@ -1,0 +1,5 @@
+# raw/ 是不可修改的原始來源，MANIFEST 記錄了每個檔案的 SHA-256。
+# 關閉換行轉換與文字正規化，確保任何電腦 checkout 出來的位元組都與下載時相同。
+raw/** -text
+# MANIFEST 是本專案自己維護的文字檔，照一般文字檔處理。
+raw/MANIFEST.md text

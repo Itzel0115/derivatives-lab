@@ -190,3 +190,10 @@
 - 更新頁：無（新增 tools/；修改 GRAPH_SPEC.md §1、docs/agents-md-decisions.md、.gitignore）
 - 衝突：無
 - 備註：依 Itzel 決定。從專案目錄重新執行三支腳本，結果與先前一致（468 條主張、407 段短引、0 個問題）。數值預檢新增「call 價格對 σ 遞增」後發現：2000 組中有 23 組在浮點精度下沒有嚴格上升，C3-3 照字面會不通過，已記在 lint 報告與 tools/README.md。
+
+## [2026-11-18] update | 新增 .gitattributes（lint L-09）
+- run/節點：pre-run / lint
+- 狀態：ok
+- 更新頁：無（新增 .gitattributes；修改 docs/agents-md-decisions.md）
+- 衝突：無
+- 備註：依 Itzel 決定。`raw/**` 設為 `-text`，關閉換行轉換；`raw/MANIFEST.md` 仍照一般文字檔處理。已 commit 的 S6、S7 原檔在工作目錄、git 與 MANIFEST 三處的 SHA-256 一致。

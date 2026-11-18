@@ -93,6 +93,7 @@ LLM Wiki 原版（`llm-wiki.md`）不同。
 | 2026-11-18 | 修正第一次 lint 的 L-01、L-02、L-03 | Itzel |
 | 2026-11-18 | 更新 `GRAPH_SPEC.md`（七處）、`AGENTS.md`（三處）與本檔，使規則檔與 wiki 現況一致 | Itzel 核准草稿 |
 | 2026-11-18 | 新增 `tools/` 資料夾，把引文比對、lint、公式卡數值預檢腳本收進 repo；`GRAPH_SPEC.md` §1 的資料夾結構同步補上 | Itzel |
+| 2026-11-18 | 新增 `.gitattributes`，關閉 `raw/` 原檔的換行轉換，確保 checkout 出來的檔案與 MANIFEST 的 SHA-256 相符 | Itzel |
 
 ## 8. Claude 自行決定、尚未經 Itzel 明確同意的事項
 
@@ -110,4 +111,3 @@ LLM Wiki 原版（`llm-wiki.md`）不同。
 ## 9. 仍待決定的事項
 
 - `GRAPH_SPEC.md` §9 的 Bloomberg 條款要不要補充說明（lint L-07）。
-- 要不要加 `.gitattributes` 保護 `raw/` 原檔的換行（lint L-09）。
