@@ -1,0 +1,54 @@
+# C5 呈現檢查報告｜run v1
+
+---
+
+## C5 呈現檢查｜run v1｜第 1 輪
+狀態：FAIL（5 個問題）
+
+檢查對象：`slides/index.html`、`slides/assets/deck.css`、`slides/assets/deck.js`（commit `594b063`）
+檢查方式：
+- 自動：`runs/v1/c5_capture.mjs` 以 Chrome DevTools Protocol 開啟本機靜態伺服器上的簡報，1440 寬（桌機）與 390 寬（手機模擬，mobile = true）逐頁檢查；結果在 `runs/v1/c5_results.json`。
+- 手動：內建瀏覽器在 390 寬逐頁量測 SVG／canvas 內文字的實際顯示大小（style.md §4：手機版 SVG 內文字實際顯示 ≥ 11px）；逐張目視截圖。
+
+| ID | 類別 | 位置 | 問題 | 跳轉 |
+|---|---|---|---|---|
+| C5-v1-r1-01 | 無對應 E 類別（C5-6 版面） | S01 工具 A（canvas 軸標籤） | 390 寬時軸標籤實際顯示約 5.8px，低於 style.md §4 的 11px | → N5 |
+| C5-v1-r1-02 | 無對應 E 類別（C5-6 版面） | S12 工具 A（canvas 軸標籤） | 390 寬時約 5.6px | → N5 |
+| C5-v1-r1-03 | 無對應 E 類別（C5-6 版面） | S14 結構圖 | 390 寬時 SVG 文字約 6.5px | → N5 |
+| C5-v1-r1-04 | 無對應 E 類別（C5-6 版面） | S15 結構圖 | 390 寬時約 6.5px | → N5 |
+| C5-v1-r1-05 | 無對應 E 類別（C5-6 版面） | S16 Fig. 16.1 | 390 寬時約 7.1px | → N5 |
+
+類別說明：§7.2 的 E1–E10 沒有「版面」類別（E4 是圖片或路徑錯誤）。比照 v0 計數規則 8 對 C6-3 的處理，列為「無對應 E 類別」。
+
+| # | 通過條件 | 結果 | 依據 |
+|---|---|---|---|
+| C5-1 | 瀏覽器實際開啟，console 沒有錯誤 | 通過 | 兩種寬度、19 頁、Technical Note 展開與工具操作過程中，console 錯誤／警告 0 筆（N5 時發現的 favicon 404 已在 N5 commit 前處理） |
+| C5-2 | 所有圖片都能載入 | 通過 | 簡報沒有 `<img>`；圖表全由 SVG／canvas 程式繪製，沒有網路圖片。`slides/assets/` 只有 deck.css、deck.js，相對路徑載入成功 |
+| C5-3 | 每頁主文 ≤ 120 中文字、≤ 5 要點 | 通過 | 依 style.md §12 計算（重點帶導言＋要點，不含行內出處）。最多：S02、S12 各 116 字；S03、S08、S12、S17 各 5 點 |
+| C5-4 | LaTeX 正確顯示 | 通過 | 6 頁共 40 個 KaTeX 式子，`.katex-error` 0 個；Technical Note 展開截圖 `*_1440_tn.png` 目視無紅字 |
+| C5-5 | 互動工具改變輸入時輸出更新，數值與 lab/ 一致 | 通過 | 見下表，9 頁共 24 組輸入，畫面數值與直接呼叫 lab/ 函式完全相同 |
+| C5-6 | 1440 與 390 寬不破版 | **不通過** | 兩種寬度 19 頁皆沒有水平捲動（scrollWidth = clientWidth）；但 390 寬有 5 頁的圖內文字小於 11px（上表） |
+| C5-7 | 每頁截圖存到 runs/v1/screenshots/ | 通過 | 19 × 2 寬度＋6 張 Technical Note 展開，共 44 張 |
+
+### C5-5 工具比對（摘自 c5_results.json）
+
+| 頁 | 工具 | 輸入組數 | 結果 |
+|---|---|---|---|
+| S04 | 損益滑桿 | 3 | call／put 買方損益與 `callBuyerPnL`／`putBuyerPnL` 一致 |
+| S06 | B 定價器 | 3 | call／put 價格與 `bsCall`／`bsPut` 一致（4 位小數） |
+| S07 | B 反推 | 4 | 二分法、Newton 法的 σ̂ 與 `impliedVolBisection`／`impliedVolNewton` 一致；超出上界時兩者都顯示「無解」 |
+| S09 | A 切面（固定 T） | 2 | 三個讀數與 `impliedVol` 一致 |
+| S10 | A 切面（固定 k） | 2 | 兩個讀數與 `impliedVol` 一致；價平時兩端相同（示意參數的價平期限結構是平的） |
+| S12 | A 完整 | — | F14、F15、F16 三燈皆「通過」；切換到切面時圖有更新 |
+| S13 | B（拉 σ） | 3 | call、put、vega（每 1 百分點）與 `bsCall`、`bsPut`、`vegaPct` 一致 |
+| S15 | D ELN | 3 | C*、本金利息、put 權利金與 `elnFairCoupon`、`elnFairCouponParts` 一致 |
+| S18 | 測驗 | 6 題 | 選正解後 6 題皆顯示答對，計分 6 / 6 |
+
+### 觀察（不計入問題）
+
+- S05 Fig. 5.1 的表格在 390 寬時第三欄很窄，「看不到，要估計」逐字換行；沒有溢出，不算破版。
+- `.claude/launch.json`（本機靜態伺服器設定）沒有 commit，只供本機檢查使用。
+
+### 跳轉
+
+C5 不通過（版面）→ N5，只修 01–05。累計修正輪數：6（C2 一輪、C3 兩輪、C4 兩輪、C5 一輪）。
