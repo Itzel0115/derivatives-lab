@@ -8,6 +8,11 @@
  *   - 亂數種子固定（mulberry32, seed = 20261119），結果可重現。
  *   - DOMAIN_WIDE：S ∈ [50, 150]、K ∈ [50, 150]、T ∈ [0.05, 3]、r ∈ [0, 0.10]、σ ∈ [0.05, 1.0]
  *   - DOMAIN_IV：K/S ∈ [0.8, 1.25]、T ∈ [0.25, 2]（反推與 vega 測試用；理由見 C3-4 註解）
+ *
+ * 數值容差（Itzel 2026-11-19 決定：比照 tools/precheck_formulas.py；見 runs/v1/C3_report.md 第 2 輪）：
+ *   - C3-2 價格邊界：容許 1e-12（lower − 1e-12 ≤ C ≤ S + 1e-12）
+ *   - C3-3、C3-10「遞增」：判定為不遞減，容許 1e-9 的下降；另統計沒有嚴格上升的次數與最大下降
+ *   - C3-4 來回測試：只計 vega > 1e-3 的參數；其餘只統計、不判定
  */
 'use strict';
 var path = require('path');
@@ -60,16 +65,16 @@ function record(id, name, pass, detail) {
     var gLow = C - lower, gUp = p.S - C;
     if (gLow < minLow) minLow = gLow;
     if (gUp < minUp) minUp = gUp;
-    if (!(gLow >= 0 && gUp >= 0)) fails.push({ p: p, C: C, lower: lower });
+    if (!(gLow >= -1e-12 && gUp >= -1e-12)) fails.push({ p: p, C: C, lower: lower });
   }
   record('C3-2', '價格邊界', fails.length === 0,
-    n + ' 組，不成立 ' + fails.length + ' 組；C − 下界 最小 ' + minLow.toExponential(3) + '，S − C 最小 ' + minUp.toExponential(3));
+    n + ' 組，不成立 ' + fails.length + ' 組（容差 1e-12）；C − 下界 最小 ' + minLow.toExponential(3) + '，S − C 最小 ' + minUp.toExponential(3));
   if (fails.length) console.log('      例：' + JSON.stringify(fails[0]));
 })();
 
 // ---- C3-3 單調性：C 隨 σ 遞增（σ 網格 0.05～1.00，步長 0.01） ----
 (function () {
-  var sets = 500, grid = sigmaGrid(0.01), dec = 0, flat = 0, maxDrop = 0, ex = null;
+  var sets = 500, grid = sigmaGrid(0.01), tolFail = 0, dec = 0, flat = 0, maxDrop = 0, ex = null;
   for (var i = 0; i < sets; i++) {
     var p = wide();
     var prev = bs.bsCall(p.S, p.K, p.T, p.r, grid[0]);
@@ -77,12 +82,13 @@ function record(id, name, pass, detail) {
       var c = bs.bsCall(p.S, p.K, p.T, p.r, grid[j]);
       if (c < prev) { dec++; if (prev - c > maxDrop) { maxDrop = prev - c; ex = { p: p, s0: grid[j - 1], s1: grid[j], c0: prev, c1: c }; } }
       else if (c === prev) { flat++; }
+      if (!(c >= prev - 1e-9)) tolFail++;
       prev = c;
     }
   }
   var pairs = sets * (grid.length - 1);
-  record('C3-3', '單調性：C 隨 σ 遞增', dec === 0,
-    sets + ' 組 × ' + (grid.length - 1) + ' 個相鄰 σ = ' + pairs + ' 對；下降 ' + dec + ' 對（最大下降 ' + maxDrop.toExponential(3) + '）；相等 ' + flat + ' 對');
+  record('C3-3', '單調性：C 隨 σ 遞增（不遞減，容差 1e-9）', tolFail === 0,
+    sets + ' 組 × ' + (grid.length - 1) + ' 個相鄰 σ = ' + pairs + ' 對；下降超過 1e-9 的 ' + tolFail + ' 對；參考：下降 ' + dec + ' 對（最大下降 ' + maxDrop.toExponential(3) + '）；相等 ' + flat + ' 對');
   if (ex) console.log('      例：' + JSON.stringify(ex));
 })();
 
@@ -90,7 +96,7 @@ function record(id, name, pass, detail) {
 // 參數用 DOMAIN_IV：深度價內／價外且短到期時，call 價格對 σ 幾乎不敏感（vega → 0），
 // 價格在浮點精度下已無法分辨 σ，反推本身是病態問題，與程式是否正確無關。
 (function () {
-  var sets = 200, grid = sigmaGrid(0.05), maxB = 0, maxN = 0, fails = [], fallbacks = 0, minVega = Infinity;
+  var sets = 200, grid = sigmaGrid(0.05), skipped = 0, skippedBad = 0, maxB = 0, maxN = 0, fails = [], fallbacks = 0, minVega = Infinity;
   for (var i = 0; i < sets; i++) {
     var p = ivDomain();
     for (var j = 0; j < grid.length; j++) {
@@ -102,6 +108,7 @@ function record(id, name, pass, detail) {
       var nw = iv.impliedVolNewton(c, p.S, p.K, p.T, p.r);
       if (nw.method !== 'newton') fallbacks++;
       var eb = Math.abs(b.sigma - s), en = Math.abs(nw.sigma - s);
+      if (!(v > 1e-3)) { skipped++; if (!(eb < 1e-6) || !(en < 1e-6)) skippedBad++; continue; }
       if (!(eb < 1e-6) || !(en < 1e-6)) fails.push({ p: p, sigma: s, bis: b.sigma, newton: nw.sigma });
       if (eb > maxB) maxB = eb;
       if (en > maxN) maxN = en;
@@ -109,7 +116,7 @@ function record(id, name, pass, detail) {
   }
   record('C3-4', 'IV 來回測試（二分法與 Newton 法）', fails.length === 0,
     sets + ' 組 × ' + grid.length + ' 個 σ；二分法最大誤差 ' + maxB.toExponential(3) + '，Newton 最大誤差 ' + maxN.toExponential(3) +
-    '（門檻 1e-6）；Newton 退回二分法 ' + fallbacks + ' 次；最小 vega ' + minVega.toExponential(3));
+    '（門檻 1e-6，只計 vega > 1e-3）；vega ≤ 1e-3 不判定 ' + skipped + ' 次（其中誤差超過 1e-6 的 ' + skippedBad + ' 次）；Newton 退回二分法 ' + fallbacks + ' 次；最小 vega ' + minVega.toExponential(3));
   if (fails.length) console.log('      例：' + JSON.stringify(fails[0]));
 })();
 
@@ -196,21 +203,22 @@ var tGrid = []; for (var tt = 0.01; tt <= 5 + 1e-9; tt += 0.01) tGrid.push(+tt.t
 
 // ---- C3-10 ELN（F09、F17）：發行價固定時，σ 越高，公平票息越高 ----
 (function () {
-  var sets = 200, grid = sigmaGrid(0.01), nonInc = 0, maxRoundTrip = 0, ex = null;
+  var sets = 200, grid = sigmaGrid(0.01), tolFail = 0, nonInc = 0, maxRoundTrip = 0, ex = null;
   for (var i = 0; i < sets; i++) {
     var S = U(50, 150), p = { S: S, K: S * U(0.7, 1.1), T: U(0.25, 3), r: U(0, 0.10), N: U(100, 10000) };
     var prev = -Infinity;
     for (var j = 0; j < grid.length; j++) {
       var c = eln.elnFairCoupon(p.S, p.K, p.T, p.r, grid[j], p.N);
       if (!(c > prev)) { nonInc++; if (!ex) ex = { p: p, sigma: grid[j], c: c, prev: prev }; }
+      if (!(c >= prev - 1e-9)) tolFail++;
       prev = c;
       var V = eln.elnValue(p.S, p.K, p.T, p.r, grid[j], p.N, c);
       var rt = Math.abs(V - p.N) / p.N;
       if (rt > maxRoundTrip) maxRoundTrip = rt;
     }
   }
-  record('C3-10', 'ELN 公平票息隨 σ 遞增（F09、F17）', nonInc === 0 && maxRoundTrip < 1e-12,
-    sets + ' 組 × ' + grid.length + ' 個 σ；沒有嚴格上升的 ' + nonInc + ' 處；把 C* 代回 F09 得到 V 與面額 N 的最大相對差 ' + maxRoundTrip.toExponential(3));
+  record('C3-10', 'ELN 公平票息隨 σ 遞增（F09、F17；不遞減，容差 1e-9）', tolFail === 0 && maxRoundTrip < 1e-12,
+    sets + ' 組 × ' + grid.length + ' 個 σ；下降超過 1e-9 的 ' + tolFail + ' 處；參考：沒有嚴格上升的 ' + nonInc + ' 處；把 C* 代回 F09 得到 V 與面額 N 的最大相對差 ' + maxRoundTrip.toExponential(3));
   if (ex) console.log('      例：' + JSON.stringify(ex));
 })();
 
