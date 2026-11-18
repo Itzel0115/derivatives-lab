@@ -2,15 +2,21 @@
 
 所有 wiki 頁的清單。格式見 `AGENTS.md` §8.1；本檔連結使用標準 Markdown 相對路徑。
 
+其他入口：[術語表](glossary.md)、[紀錄](log.md)
+
 ## Sources
 
 | 頁面 | 摘要 | 來源 | 公式卡 | 範圍 | 狀態 | 更新 |
 |---|---|---|---|---|---|---|
+| [S1｜選擇權的特性與風險](sources/s1-occ-characteristics-risks.md) | OCC 與美國各選擇權交易所的揭露文件：選擇權條款、用語與主要風險 | S1 | — | 本次相關 | 完整 | 2026-11-18 |
 
 ## Concepts
 
 | 頁面 | 摘要 | 來源 | 公式卡 | 範圍 | 狀態 | 更新 |
 |---|---|---|---|---|---|---|
+| [買權與賣權](concepts/call-put-option.md) | Call／put 定義、買方權利與賣方義務、權利金、主要風險 | S1 | — | 本次相關 | 完整 | 2026-11-18 |
+| [履約價、到期日與價內外](concepts/strike-maturity-moneyness.md) | K、到期日、美式／歐式、價內價平價外、內含價值與時間價值 | S1 | — | 本次相關 | 完整 | 2026-11-18 |
+| [到期價值與損益](concepts/payoff-diagram.md) | Call／put 到期價值公式與買賣雙方損益 | S1 | F01, F02 | 本次相關 | 草稿 | 2026-11-18 |
 
 ## Products
 
