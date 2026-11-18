@@ -28,6 +28,15 @@
 - `[事實]` 結構型商品並不代表持有任何資產組合，而是發行機構的付款承諾。（S7, §What Are）
   > "do not represent ownership of any portfolio of assets but rather are promises to pay made by the product issuers"
 
+### 真實文件中的寫法（S8）
+
+- `[事實]` 這檔債券是發行機構的優先無擔保債務，不是任何第三方的義務。（S8, p.PS-14）
+  > "The Notes are senior unsecured debt obligations of the issuer"
+- `[事實]` 包括配息、提前出場與到期付款在內的所有款項，都沒有第三方保證，取決於發行機構的信用。（S8, §cover）
+  > "is not guaranteed by any third party and is subject to both the creditworthiness of the Issuer"
+- `[事實]` 它不是存款，也不受美國聯邦存款保險公司或任何政府機關的保險或保證。（S8, §cover）
+  > "are not insured or guaranteed by the U.S. Federal Deposit Insurance Corporation or any other governmental agency"
+
 ### 和上市選擇權的對照
 
 - `[事實]` 上市選擇權的買方依靠的是 OCC 的制度來確保履約，而不是某一個特定的賣方。（S1, p.6）
@@ -45,6 +54,7 @@
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
 - [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
+- [[s8-barclays-phoenix-autocallable-424b2|S8]]：Barclays Bank PLC, *Pricing Supplement — Phoenix AutoCallable Notes due December 12, 2018*（424B2, 2015）
 
 ## 待補
 

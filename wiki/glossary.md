@@ -8,12 +8,14 @@
 | 指派 | assignment | 買方履約後，由 OCC 與券商依規則指定某位賣方履行義務 | （S1, p.9） | [[call-put-option]] |
 | 價平 | at the money | 標的現價等於履約價 | （S1, p.13） | [[strike-maturity-moneyness]] |
 | Black-Scholes 公式 | Black-Scholes formula | 以標的現價、履約價、到期時間、無風險利率與波動率計算歐式選擇權理論價格的公式（F03–F05） | （S12, p.19） | [[black-scholes-model]] |
+| 自動提前出場 | automatic call / autocall | 標的在觀察日達到約定水準時，結構型債券依條款自動提前贖回 | （S8, p.PS-2） | [[autocallable]] |
 | 蝶式套利 | butterfly arbitrage | 同一到期日的曲面切片所隱含的機率密度出現負值時存在的套利 | （S4, p.4） | [[no-arbitrage-surface]] |
 | 日曆價差套利 | calendar spread arbitrage | 相同 moneyness 下，到期日較長的選擇權總隱含變異數反而較小時存在的套利 | （S4, p.3–4） | [[no-arbitrage-surface]] |
 | 買權 | call option | 給予買方「買進」標的之權利的選擇權 | （S1, p.3） | [[call-put-option]] |
 | 提前贖回條款 | call provision | 允許發行機構在到期前贖回結構型債券的條款 | （S6, §Call risk） | [[s6-sec-structured-notes]] |
 | 現金擔保賣出賣權 | cash-secured put | 賣出 put 的同時，把等於履約價的現金存在券商作為擔保 | （S1, p.65） | [[s1-occ-characteristics-risks]] |
 | 現金結算 | cash-settled | 履約時不交付標的，而是依標的價值與履約價的差額收付現金 | （S1, p.3） | [[call-put-option]] |
+| 有條件配息 | contingent coupon | 只有在觀察日標的不低於配息障礙價時才發放的配息 | （S8, p.PS-2） | [[autocallable]] |
 | Delta | delta | 標的股價每變動 1 點時，選擇權價格的預期變動 | （S5, p.9） | [[delta]] |
 | 簡化 ELN | simplified equity-linked note | 本專案為教學定義的結構：到期時股價不低於履約價則取回面額加票息，否則取得等值於 N·S_T/K 的股票加票息 | （GRAPH_SPEC §2.5；F08） | [[eln-simplified]] |
 | 估計價值 | estimated value | 發行機構在公開說明書封面揭露的結構型債券價值估計，通常低於發行價 | （S6, §Issuance price and note value） | [[estimated-value-vs-issue-price]] |
@@ -38,6 +40,7 @@
 | 選擇權 | option | 在到期日之前，以固定履約價買進或賣出特定數量標的的權利 | （S1, p.3） | [[call-put-option]] |
 | 價外 | out of the money | Call：履約價高於標的現價；put：履約價低於標的現價 | （S1, p.14） | [[strike-maturity-moneyness]] |
 | 參與率 | participation rate | 參考資產的漲幅中，付給結構型債券投資人的固定比例 | （S6, §Participation rates） | [[principal-protected-note]] |
+| 定價補充文件 | pricing supplement (424B2) | 發行機構向 SEC 申報、載明某一檔結構型債券確定條款與估計價值的文件 | （S8, §cover） | [[estimated-value-vs-issue-price]] |
 | 實物交割 | physical delivery | 履約時實際交付或收取標的 | （S1, p.3） | [[call-put-option]] |
 | 權利金 | premium | 買方付出、賣方收到的選擇權價格 | （S1, p.11） | [[call-put-option]] |
 | 賣權 | put option | 給予買方「賣出」標的之權利的選擇權 | （S1, p.3） | [[call-put-option]] |

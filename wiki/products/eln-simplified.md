@@ -36,6 +36,11 @@
 - `[事實]` 結構型債券到期前的價值，會隨當時的利率與標的的波動率等因素變動。（S7, §Can I Get My Money）
   > "(including prevailing interest rates and the volatility of the underlying asset, index or benchmark)"
 
+- `[事實]` 一份真實的定價補充文件在討論稅務處理時提到：這類債券可能被視為一個投資單位，由「發行機構發給投資人的債務工具」加上「投資人發給發行機構的 put 選擇權」組成。（S8, p.PS-12）
+  > "(i) a debt instrument that is issued to you by us and (ii) a put option in respect of the Indices that is issued by you to us"
+- `[事實]` 同一份文件列出影響債券價值的因素，第一項就是標的指數的預期波動率。（S8, p.PS-16）
+  > "the expected volatility of the Indices and the stocks underlying the Indices"
+
 ### 拆解與定價（自行推導）
 
 - `[推導]` 簡化 ELN 的到期報償等於 $(N + C) - \frac{N}{K}\max(K - S_T, 0)$（F08）：一筆固定金額，減去 $N/K$ 單位 put 的到期價值。推導見下；測試：C3-9。（S12, p.5）
@@ -111,11 +116,13 @@ $$(N + C^*)\,e^{-rT} = N + \frac{N}{K}P_{BS} \quad\Longrightarrow\quad C^* = N\l
 - [[s5-oic-understanding-greeks|S5]]：OCC／OIC, *Making More Informed Decisions: Understanding Greeks*（2023）
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
 - [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
+- [[s8-barclays-phoenix-autocallable-424b2|S8]]：Barclays Bank PLC, *Pricing Supplement — Phoenix AutoCallable Notes due December 12, 2018*（424B2, 2015）
 - [[s12-mit-18s096-black-scholes|S12]]：MIT OpenCourseWare 18.S096 Lecture 19, Strela（Fall 2013）
 - [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield（Spring 2014）
 
 ## 待補
 
+- S8 把「債務工具＋投資人賣出的 put」列為一種可能的稅務處理方式，不是對商品經濟實質的正式說明；而且 S8 那檔商品的條款（三個指數取最差、障礙價、提前出場）比本頁複雜。它支持「債券加賣出 put」這個拆解方向，但不是本頁條款的實例。
 - 沒有來源描述過和本頁條款完全相同的商品。S6 沒有提到「ELN」這個名稱；它與實際商品（例如 reverse convertible）的對應關係，本 wiki 沒有來源支撐，簡報不得宣稱兩者相同。
 - 台灣的實際案例（S9）尚未 ingest。
 - F17 是規格 §2.5 沒有列出的新公式卡。加它的原因是 C3-10 要測「公平票息隨 σ 上升」，而 C3-12 要求 `lab/` 的每個函式都對應一張公式卡。

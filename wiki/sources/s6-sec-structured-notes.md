@@ -43,6 +43,7 @@
 - [[issuer-credit-risk|發行機構信用風險]]
 - [[liquidity-risk|流動性風險]]
 - [[common-misconceptions|常見誤解]]
+- [[autocallable|自動提前出場型商品]]（引用 §Call risk）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張

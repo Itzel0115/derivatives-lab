@@ -54,6 +54,12 @@
 - `[事實]` 某些結構型債券到期時交付給投資人的，是已經下跌的參考資產本身。（S6, §Knock-in feature）
   > "you may actually receive the reference asset that has declined in value during the term of the note"
 - `[範例]` XYZ 股價 $50 時，投資人賣出一口 XYZ 50 put，收到權利金 $300（每股 $3）。之後股價跌到 $40 並被指派履約，她必須以 $50 買進股票；扣掉每股 $3 權利金後有效成本是 $47，仍遠高於 $40 的市價。（S1, p.65）
+- `[事實]` 一檔真實的有條件配息債券，正報酬以配息為限，投資人不參與標的的上漲。（S8, p.PS-13）
+  > "The positive return on the Notes is limited to the Contingent Coupons"
+- `[事實]` 同一檔債券不保證返還本金，投資人最多可能損失全部本金。（S8, p.PS-13）
+  > "The Notes do not guarantee any return of principal."
+- `[事實]` 配息本身也不保證：只要有一個指數在觀察日低於配息障礙價，該期就沒有配息。（S8, p.PS-13）
+  > "You May Not Receive any Contingent Coupon Payments on the Notes"
 - `[推導]` 在簡化 ELN 中，票息高於無風險利息的部分，來自投資人賣出 put 所收的權利金（F17）；標的波動越大，這筆權利金越高，票息也越高。推導見 [[eln-simplified|簡化 ELN]]；測試：C3-10。（S13, p.11）
 
 整理：高票息是承擔下跌風險的報酬，不是白拿的。票息越高，通常代表賣出的 put 越值錢，也就是市場認為大跌的風險越大。
@@ -74,6 +80,7 @@
 - [[s5-oic-understanding-greeks|S5]]：OCC／OIC, *Making More Informed Decisions: Understanding Greeks*（2023）
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
 - [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
+- [[s8-barclays-phoenix-autocallable-424b2|S8]]：Barclays Bank PLC, *Pricing Supplement — Phoenix AutoCallable Notes due December 12, 2018*（424B2, 2015）
 - [[s13-mit-18440-risk-neutral-black-scholes|S13]]：MIT OpenCourseWare 18.440 Lecture 36, Sheffield（Spring 2014）
 
 ## 待補

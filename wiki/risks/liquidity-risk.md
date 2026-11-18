@@ -28,6 +28,17 @@
 - `[事實]` 到期前債券的價值不容易計算，並且會隨許多因素變動，包括當時的利率與標的的波動率。（S7, §Can I Get My Money）
   > "(including prevailing interest rates and the volatility of the underlying asset, index or benchmark)"
 
+### 真實文件中的寫法（S8）
+
+- `[事實]` 這檔債券不會在任何證券交易所掛牌。（S8, p.PS-15）
+  > "The Notes will not be listed on any securities exchange."
+- `[事實]` 發行機構的關係企業有意造市，但沒有義務，而且可以隨時停止、不另行通知。（S8, p.PS-15）
+  > "may discontinue any such secondary market making at any time, without notice"
+- `[事實]` 這檔債券不是設計成短線交易工具；投資人應該能夠並且願意持有到期。（S8, p.PS-15）
+  > "you should be able and willing to hold your Notes to maturity"
+- `[事實]` 到期前賣出可能造成重大損失。（S8, p.PS-15）
+  > "any sale prior to the maturity date could result in a substantial loss to you"
+
 ### 和上市選擇權的對照
 
 - `[事實]` 上市選擇權的條款是標準化的，這讓次級市場比較容易存在，買賣雙方可以用反向交易平倉。（S1, p.4）
@@ -46,6 +57,7 @@
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s6-sec-structured-notes|S6]]：SEC, *Investor Bulletin: Structured Notes*（2015）
 - [[s7-sec-finra-principal-protection|S7]]：FINRA／SEC, *Structured Notes with Principal Protection: Note the Terms of Your Investment*（2011）
+- [[s8-barclays-phoenix-autocallable-424b2|S8]]：Barclays Bank PLC, *Pricing Supplement — Phoenix AutoCallable Notes due December 12, 2018*（424B2, 2015）
 
 ## 待補
 

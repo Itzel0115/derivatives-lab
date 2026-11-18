@@ -141,3 +141,13 @@
 - 新術語：無擔保債權人, 隱藏成本, 零息債券
 - 衝突：無（S6 與 S7 的參與率範例用不同的假設數字，不是衝突）
 - 備註：全自動 ingest。原始檔 commit 進 git；S7 由 FINRA（非政府機關）與 SEC 共同發布，已在來源頁與 MANIFEST 註明，Itzel 可改為只留本機。principal-protected-note、issuer-credit-risk 由草稿改為完整。
+
+## [2026-11-18] ingest | S8 Barclays Phoenix AutoCallable Notes 424B2
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s8-barclays-phoenix-autocallable-424b2, autocallable
+- 更新頁：estimated-value-vs-issue-price, eln-simplified, issuer-credit-risk, liquidity-risk, common-misconceptions, structured-note-architecture, s6-sec-structured-notes, s7-sec-finra-principal-protection, glossary, index
+- 公式卡：無
+- 新術語：自動提前出場, 有條件配息, 定價補充文件
+- 衝突：無
+- 備註：全自動 ingest。來源由 Itzel 指定為規格中的範例那一份。文件中的指數點數、代號與歷史數據註明取自 Bloomberg，依 GRAPH_SPEC §9 一律沒有抄進 wiki；只使用發行機構訂定的條款與以假設水準 100 計算的範例。estimated-value-vs-issue-price 由草稿改為完整。發行價與估計價值的差額沒有寫成數字，留給簡報並列或用 calc 計算。

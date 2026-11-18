@@ -47,6 +47,7 @@
 - [[liquidity-risk|流動性風險]]
 - [[structured-note-architecture|結構型商品的組成]]
 - [[eln-simplified|簡化 ELN]]
+- [[autocallable|自動提前出場型商品]]（引用 §Can I Get My Money）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張

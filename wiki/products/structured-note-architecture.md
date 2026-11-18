@@ -55,6 +55,7 @@
 - [[issuer-credit-risk|發行機構信用風險]]
 - [[liquidity-risk|流動性風險]]
 - [[call-put-option|買權與賣權]]
+- [[autocallable|自動提前出場型商品]]
 
 ## 來源
 
