@@ -68,6 +68,7 @@
     }
     return fallback(DESIGN.maxIter);
 
+    // F03：保護措施，改用二分法解 C_BS(σ) = C_mkt（iv-inversion-algorithm 第 4 節第 5 步）
     function fallback(used) {
       var res = impliedVolBisection(cMkt, S, K, T, r);
       res.method = 'newton→bisection';

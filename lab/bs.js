@@ -24,27 +24,32 @@
   }
 
   // F05：N(x) = (1/√(2π)) ∫_{−∞}^{x} e^(−u²/2) du
-  // 實作方式：N(x) = 1/2 ± (1/√(2π)) ∫_0^{|x|} e^(−u²/2) du，對 F05 的被積函數做複合 Simpson 數值積分
-  // （步長 ≤ 0.002，Kahan 補償加總）。這是直接計算 F05 的積分，沒有使用其他近似公式。
-  // |x| > 12 時尾端機率小於 1e-32，直接回傳 0 或 1。
+  // 實作方式：先算尾端 Q(a) = (1/√(2π)) ∫_a^{∞} e^(−u²/2) du（a = |x|），再取 N(x) = Q(|x|)（x < 0）或 1 − Q(|x|)（x ≥ 0）。
+  // Q(a) 對 F05 的被積函數做複合 Simpson 數值積分，積分區間 [a, a + 10]（a + 10 之後的部分相對於 Q(a) 小於 e^(−50)），
+  // 步長 0.002，Kahan 補償加總。直接積分尾端，使很小的尾端機率也能算出來，不會因 0.5 − 積分 而相消成 0。
+  // 這是直接計算 F05 的積分，沒有使用其他近似公式。
   function normCdf(x) {
     if (x !== x) return NaN;
-    if (x === 0) return 0.5;
-    var a = Math.abs(x);
-    if (a > 12) return x > 0 ? 1 : 0;
-    var n = 2 * Math.ceil(a / 0.004); // 偶數個區間，步長 h = a/n ≤ 0.002
-    var h = a / n;
+    if (x === Infinity) return 1;
+    if (x === -Infinity) return 0;
+    var q = upperTail(Math.abs(x));
+    return x < 0 ? q : 1 - q;
+  }
+
+  // F05：尾端 Q(a) = (1/√(2π)) ∫_a^{∞} e^(−u²/2) du，a ≥ 0（normCdf 的一部分，說明見上）
+  function upperTail(a) {
+    var L = 10, n = 5000; // 區間長度 10、5000 個區間（偶數），步長 0.002
+    var h = L / n;
     var sum = 0, c = 0;
     for (var i = 0; i <= n; i++) {
       var w = (i === 0 || i === n) ? 1 : (i % 2 === 1 ? 4 : 2);
-      var u = i * h;
+      var u = a + i * h;
       var term = w * Math.exp(-u * u / 2) - c; // Kahan 補償加總
       var t = sum + term;
       c = (t - sum) - term;
       sum = t;
     }
-    var half = INV_SQRT_2PI * sum * h / 3;
-    return x > 0 ? 0.5 + half : 0.5 - half;
+    return INV_SQRT_2PI * sum * h / 3;
   }
 
   // F05：d1 = [ln(S/K) + (r + σ²/2)T] / (σ√T)，d2 = [ln(S/K) + (r − σ²/2)T] / (σ√T)
