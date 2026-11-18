@@ -168,3 +168,11 @@
 - 更新頁：無
 - 衝突：無
 - 備註：報告在 `runs/pre-run/lint_report.md`。§10 的十項檢查中九項通過；第 7 項（術語未收錄）有問題。另外回報：glossary 排序有 8 處顛倒、iv-inversion-algorithm 列了 S5 但沒有引用、payoff-diagram 仍是草稿、52 條待補中有 11 條會限制簡報措辭、GRAPH_SPEC 與 AGENTS 有幾處與 wiki 現況對不上、本機 raw 中 S8 與 S12 含 Bloomberg 來源的內容、程式檢查的四個盲點、raw 原檔換行轉換的風險。
+
+## [2026-11-18] update | 修正 lint 的整理類問題（L-01、L-02、L-03）
+- run/節點：pre-run / lint
+- 狀態：ok
+- 更新頁：glossary, iv-inversion-algorithm, s5-oic-understanding-greeks
+- 新術語：套利, 障礙價, 平倉交易, 票息, 累積分布函數, 疊券, 跳躍擴散模型, 槓桿, 局部波動率, 對數常態, 保證金, 觀察日, 到期報償, 面額, 複製投資組合, 風險中立機率, 次級市場, 隨機波動率模型, 執行價
+- 衝突：無
+- 備註：依 Itzel 要求。術語表重新依英文字母排序（85 列）；iv-inversion-algorithm 補上引用 S5 的主張；補上 19 個有來源定義的術語。布朗運動、漂移、避險、機率密度、複委託、bail-in 因來源沒有定義而未補。處理紀錄附在 `runs/pre-run/lint_report.md` 末尾。L-04 至 L-09 未處理。
