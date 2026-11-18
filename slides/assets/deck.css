@@ -244,6 +244,9 @@ cite{font:400 .74em var(--sans);font-style:normal;color:var(--ink-3);margin-left
   .tchart text{font-size:16px}
   .fig svg text{font-size:15px}
   .ts{font-size:12.5px}
+  /* 結構圖在手機上維持原尺寸、框內橫向捲動，使圖內文字實際顯示 ≥ 11px（style.md §4；C5-v1-r1-03～05） */
+  .struct-wrap > div{overflow-x:auto}
+  .struct{min-width:560px}
   .ts th,.ts td{padding:6px 6px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.in{opacity:1;transform:none}}

@@ -174,13 +174,17 @@
       });
       // 軸
       ctx.strokeStyle = tok('--t-muted'); ctx.lineWidth = 1; ctx.fillStyle = tok('--t-muted');
-      ctx.font = '12px ' + tok('--mono');
+      // 文字以「實際顯示 ≥ 11.5px」換算畫布像素（style.md §4；C5-v1-r1-01、02）
+      var fs = Math.max(12, Math.ceil(11.5 * W / (canvas.clientWidth || W)));
+      ctx.font = fs + 'px ' + tok('--mono');
       var o0 = P(o.kMin, o.tMin, o.lo), ok = P(o.kMax, o.tMin, o.lo), ot = P(o.kMin, o.tMax, o.lo), ov = P(o.kMin, o.tMin, o.hi);
       [[ok, o.xLabel], [ot, o.zLabel], [ov, o.yLabel]].forEach(function (a) {
         ctx.beginPath(); ctx.moveTo(o0.x, o0.y); ctx.lineTo(a[0].x, a[0].y); ctx.stroke();
-        ctx.fillText(a[1], a[0].x + 4, a[0].y + 4);
+        ctx.textAlign = a[0].x > W * 0.6 ? 'right' : 'left';
+        ctx.fillText(a[1], a[0].x + (ctx.textAlign === 'right' ? -4 : 4), a[0].y + (a[0].y > H * 0.8 ? -6 : fs + 2));
+        ctx.textAlign = 'left';
       });
-      if (o.note) { ctx.fillStyle = tok('--t-cursor'); ctx.fillText(o.note, 8, 16); }
+      if (o.note) { ctx.fillStyle = tok('--t-cursor'); ctx.fillText(o.note, 8, fs + 4); }
     }
     // 互動：拖曳、鍵盤
     if (o.rotate) {

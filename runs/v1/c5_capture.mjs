@@ -58,7 +58,12 @@ const PER_SLIDE = `(() => {
   }
   const cjk = (txt.match(/[\\u4e00-\\u9fff]/g) || []).length;
   const imgs = Array.from(s.querySelectorAll('img')).map((i) => ({ src: i.getAttribute('src'), ok: i.complete && i.naturalWidth > 0 }));
-  return { id, W, SW, overflowX: SW > W, cjk, points: pts, imgs,
+  // style.md §4：SVG／canvas 內文字的實際顯示大小（px）
+  let minFont = null;
+  s.querySelectorAll('svg').forEach((svg) => { const vb = svg.viewBox && svg.viewBox.baseVal; if (!vb || !vb.width) return; const sc = svg.getBoundingClientRect().width / vb.width; if (!sc) return;
+    svg.querySelectorAll('text').forEach((t) => { const px = parseFloat(getComputedStyle(t).fontSize) * sc; if (minFont === null || px < minFont) minFont = px; }); });
+  s.querySelectorAll('canvas').forEach((c) => { if (!c.clientWidth) return; const fs = Math.max(12, Math.ceil(11.5 * c.width / c.clientWidth)); const px = fs * c.clientWidth / c.width; if (minFont === null || px < minFont) minFont = px; });
+  return { id, W, SW, overflowX: SW > W, cjk, points: pts, imgs, minFontPx: minFont === null ? null : +minFont.toFixed(1),
     katex: s.querySelectorAll('.katex').length, katexErr: s.querySelectorAll('.katex-error').length };
 })()`;
 
