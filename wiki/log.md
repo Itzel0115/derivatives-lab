@@ -54,3 +54,13 @@
 - 新術語：無
 - 衝突：無
 - 備註：全自動 ingest。只有 3 頁課程大綱，可用的只有兩句作者觀點。bs-assumptions-limitations 先建立為草稿，並引用 S1 p.12。
+
+## [2026-11-18] ingest | S10 Derman Laughter in the Dark
+- run/節點：pre-run / N0
+- 狀態：ok（C0 r1 PASS）
+- 新增頁：s10-derman-laughter-in-the-dark, volatility-smile-skew, why-skew-exists, volatility-surface
+- 更新頁：bs-assumptions-limitations, s1-occ-characteristics-risks, s2-cboe-vix-methodology, glossary, index
+- 公式卡：無
+- 新術語：隱含波動率曲面, 負偏斜, 波動率微笑
+- 衝突：無（來源內部有一處日期不一致，已記在來源頁）
+- 備註：全自動 ingest。why-skew-exists 的成因主張全部標為 `[觀點]`。文件沒有印頁碼，引用使用 PDF 頁序。

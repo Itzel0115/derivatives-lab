@@ -42,6 +42,7 @@
 
 - [[implied-volatility|隱含波動率]]
 - [[volatility-term-structure|波動率期限結構]]
+- [[why-skew-exists|為什麼會有偏斜]]（引用 p.3）
 - [[glossary|術語表]]
 
 ## 可支撐其他頁的主張

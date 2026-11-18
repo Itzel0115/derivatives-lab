@@ -13,15 +13,40 @@
 - `[事實]` 選擇權的權利金不一定符合任何理論定價公式。（S1, p.12）
   > "Readers should not assume that options premiums will necessarily conform or correlate with any theoretical options pricing formula"
 
+- `[觀點]` Derman 認為，所有金融模型都是錯的，頂多在人們改變行為之前暫時成立。（S10, p.13）
+  > "All financial models are wrong, or at best hold only for a little while until people change their behavior."
+
+### 常數波動率假設
+
+- `[事實]` Black-Scholes 模型假設標的股票走的是理想化的連續布朗運動，任何時候都只有一個固定的波動率，並且可以連續避險、沒有交易成本。（S10, p.5）
+  > "The Black-Scholes model assumes for the underlying stock an idealized continuous Brownian motion with a single constant volatility at all times"
+- `[事實]` 古典 Black-Scholes 模型在所有時間、所有價位都給標的同一個對數常態波動率。（S10, p.3）
+  > "attributed a single lognormal volatility to an underlier at all times and all levels"
+
+### 假設與市場的落差
+
+- `[事實]` 依照古典理論，選擇權的 Black-Scholes 隱含波動率應該與履約價、到期日無關。（S10, p.1）
+  > "the Black-Scholes implied volatility of an option should be independent of its strike and expiration"
+- `[事實]` Black-Scholes 的結果與大多數市場觀察到的微笑不一致。（S10, p.5）
+  > "its results are inconsistent with observed smiles in most markets"
+- `[事實]` 因為 Black-Scholes 模型無法解釋微笑，交易部門開始改用更複雜的模型來評價與避險。（S10, p.1）
+  > "trading desks have begun to use more complex models to value"
+- `[觀點]` Derman 認為，應該把 Black-Scholes 隱含波動率看成一種略嫌簡化的報價慣例。（S10, p.5）
+  > "You should think of Black-Scholes implied volatilities as a somewhat simplistic quoting convention"
+
 ## 相關頁面
 
 - [[implied-volatility|隱含波動率]]
+- [[volatility-smile-skew|波動率微笑與偏斜]]
+- [[volatility-surface|波動率曲面]]
+- [[why-skew-exists|為什麼會有偏斜]]
 
 ## 來源
 
 - [[s1-occ-characteristics-risks|S1]]：OCC, *Characteristics and Risks of Standardized Options*（June 2024）
 - [[s3-derman-volatility-smile|S3]]：Derman, *An Introduction to the Volatility Smile*（課程大綱，2013）
+- [[s10-derman-laughter-in-the-dark|S10]]：Derman, *Laughter in the Dark — The Problem of the Volatility Smile*（2003）
 
 ## 待補
 
-- 常數波動率假設的具體內容，以及它與市場的落差，待 S10、S11、S13 補上。
+- 其他假設（歐式、無股利、常數利率）目前沒有來源明確列出，待 S11–S13 補上。
