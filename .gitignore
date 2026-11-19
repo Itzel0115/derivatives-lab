@@ -15,3 +15,6 @@ node_modules/
 # 檢查腳本的快取（由 tools/check_quotes.py 產生）
 .cache/
 __pycache__/
+
+# 本機工具設定（例如預覽伺服器）
+.claude/
