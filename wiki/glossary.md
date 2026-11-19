@@ -25,7 +25,7 @@
 | 信用風險（發行機構） | credit risk (issuer) | 發行機構違約時，投資人可能損失部分或全部本金與其他應得款項的風險 | （S6, §Credit risk） | [[issuer-credit-risk]] |
 | 累積分布函數 | cumulative distribution function | 標準常態分布的累積機率 N(x)，Black-Scholes 公式中用它計算 | （S12, p.19） | [[black-scholes-model]] |
 | Delta | delta | 標的股價每變動 1 點時，選擇權價格的預期變動 | （S5, p.9） | [[delta]] |
-| ELN | equity-linked note (ELN) | 股權連結結構型商品；S9 報導中與 FCN 並列的結構型商品名稱 | （S9, §只要沒確定下市） | [[structured-note-architecture]] |
+| ELN | equity-linked note (ELN) | 股權連結結構型商品；S9 報導中與 FCN 並列的結構型商品名稱（英文全名為本 wiki 補充，S9 只寫 ELN） | （S9, §只要沒確定下市） | [[structured-note-architecture]] |
 | 估計價值 | estimated value | 發行機構在公開說明書封面揭露的結構型債券價值估計，通常低於發行價 | （S6, §Issuance price and note value） | [[estimated-value-vs-issue-price]] |
 | 歐式選擇權 | European-style option | 只能在到期前的特定期間（目前都是到期日當天）履約的選擇權 | （S1, p.7） | [[strike-maturity-moneyness]] |
 | 履約 | exercise | 買方行使選擇權所賦予的權利 | （S1, p.9） | [[call-put-option]] |

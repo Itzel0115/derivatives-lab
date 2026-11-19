@@ -51,7 +51,7 @@
 | 頁面 | 摘要 | 來源 | 公式卡 | 範圍 | 狀態 | 更新 |
 |---|---|---|---|---|---|---|
 | [結構型商品的組成](products/structured-note-architecture.md) | 債券＋內嵌衍生性商品；報償結構的常見設計；台灣的 FCN | S6, S7, S9 | — | 本次相關 | 完整 | 2026-11-18 |
-| [簡化 ELN](products/eln-simplified.md) | 教學用結構：條款、拆解成債券減 put、理論價值與公平票息（推導）；美超微案例 | S1, S5, S6, S7, S8, S9, S12, S13 | F08, F09, F17 | 本次相關 | 完整 | 2026-11-18 |
+| [簡化 ELN](products/eln-simplified.md) | 教學用結構：條款、拆解成債券減 put、理論價值與公平票息（推導）；美超微案例 | S1, S5, S6, S7, S8, S9, S12, S13 | F08, F09, F17 | 本次相關 | 完整 | 2026-11-19 |
 | [估計價值與發行價](products/estimated-value-vs-issue-price.md) | 發行價＝估計公平價值＋價差；Barclays 2015 案例：發行價 $1,000、估計價值 $962.10 | S6, S7, S8 | — | 本次相關 | 完整 | 2026-11-18 |
 | [保本型商品](products/principal-protected-note.md) | 零息債券＋選擇權；保本的程度、條件與代價 | S6, S7 | — | 延伸 | 完整 | 2026-11-18 |
 | [自動提前出場型商品](products/autocallable.md) | 以 Barclays 2015 案例說明有條件配息、自動提前出場與障礙價（靜態案例） | S6, S7, S8 | — | 延伸 | 完整 | 2026-11-18 |
