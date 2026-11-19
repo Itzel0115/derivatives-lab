@@ -1,0 +1,812 @@
+{
+ "generated": "2026-11-19T05:58:00.237Z",
+ "url": "http://127.0.0.1:8765/slides/index.html",
+ "widths": {
+  "390": [
+   {
+    "id": "S01",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 102,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S02",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 111,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S03",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 111,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S04",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 107,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 12,
+    "katex": 8,
+    "katexErr": 0
+   },
+   {
+    "id": "S05",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 98,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S06",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 114,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 27,
+    "katexErr": 0
+   },
+   {
+    "id": "S07",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 112,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 15,
+    "katexErr": 0
+   },
+   {
+    "id": "S08",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 111,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S09",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 113,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 12,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S10",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 115,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 12,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S11",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 108,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S12",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 111,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 38,
+    "katexErr": 0
+   },
+   {
+    "id": "S13",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 85,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 12,
+    "katex": 9,
+    "katexErr": 0
+   },
+   {
+    "id": "S14",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 107,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S15",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 114,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 20,
+    "katexErr": 0
+   },
+   {
+    "id": "S16",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 114,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.7,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S17",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 110,
+    "points": 5,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S18",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 22,
+    "points": 0,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S19",
+    "W": 390,
+    "SW": 390,
+    "overflowX": false,
+    "cjk": 104,
+    "points": 5,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 0,
+    "katexErr": 0
+   }
+  ],
+  "1440": [
+   {
+    "id": "S01",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 102,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.8,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S02",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 111,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S03",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 111,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.6,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S04",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 107,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 15.3,
+    "katex": 8,
+    "katexErr": 0
+   },
+   {
+    "id": "S05",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 98,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 13,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S06",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 114,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 27,
+    "katexErr": 0
+   },
+   {
+    "id": "S07",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 112,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 15,
+    "katexErr": 0
+   },
+   {
+    "id": "S08",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 111,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 14.5,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S09",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 113,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 23.1,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S10",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 115,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 23.1,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S11",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 108,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 14.5,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S12",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 111,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 11.9,
+    "katex": 38,
+    "katexErr": 0
+   },
+   {
+    "id": "S13",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 85,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 15.3,
+    "katex": 9,
+    "katexErr": 0
+   },
+   {
+    "id": "S14",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 107,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 15.3,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S15",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 114,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 15.3,
+    "katex": 20,
+    "katexErr": 0
+   },
+   {
+    "id": "S16",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 114,
+    "points": 4,
+    "imgs": [],
+    "minFontPx": 18.3,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S17",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 110,
+    "points": 5,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S18",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 22,
+    "points": 0,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 0,
+    "katexErr": 0
+   },
+   {
+    "id": "S19",
+    "W": 1440,
+    "SW": 1440,
+    "overflowX": false,
+    "cjk": 104,
+    "points": 5,
+    "imgs": [],
+    "minFontPx": null,
+    "katex": 0,
+    "katexErr": 0
+   }
+  ]
+ },
+ "tools": {
+  "S04": [
+   {
+    "in": [
+     "call",
+     "buyer",
+     120,
+     100,
+     5
+    ],
+    "shown": [
+     "20.00",
+     "15.00",
+     "價內"
+    ],
+    "lab": [
+     "20.00",
+     "15.00"
+    ]
+   },
+   {
+    "in": [
+     "put",
+     "buyer",
+     63,
+     80,
+     2.5
+    ],
+    "shown": [
+     "17.00",
+     "14.50",
+     "價內"
+    ],
+    "lab": [
+     "17.00",
+     "14.50"
+    ]
+   },
+   {
+    "in": [
+     "call",
+     "writer",
+     41,
+     45,
+     3
+    ],
+    "shown": [
+     "0.00",
+     "3.00",
+     "價外"
+    ],
+    "lab": [
+     "0.00",
+     "3.00"
+    ]
+   },
+   {
+    "in": [
+     "put",
+     "writer",
+     100,
+     100,
+     4
+    ],
+    "shown": [
+     "0.00",
+     "4.00",
+     "價平"
+    ],
+    "lab": [
+     "0.00",
+     "4.00"
+    ]
+   }
+  ],
+  "S06": [
+   {
+    "in": [
+     100,
+     100,
+     1,
+     0.05,
+     0.2
+    ],
+    "shown": [
+     "10.4506",
+     "5.5735"
+    ],
+    "lab": [
+     "10.4506",
+     "5.5735"
+    ]
+   },
+   {
+    "in": [
+     120,
+     90,
+     0.5,
+     0.02,
+     0.45
+    ],
+    "shown": [
+     "33.9661",
+     "3.0706"
+    ],
+    "lab": [
+     "33.9661",
+     "3.0706"
+    ]
+   },
+   {
+    "in": [
+     60,
+     140,
+     2,
+     0.08,
+     0.9
+    ],
+    "shown": [
+     "18.0214",
+     "77.3215"
+    ],
+    "lab": [
+     "18.0214",
+     "77.3215"
+    ]
+   }
+  ],
+  "S07": [
+   {
+    "in": [
+     "bisection",
+     10.4506
+    ],
+    "shown": "20.00%",
+    "lab": "20.00%"
+   },
+   {
+    "in": [
+     "newton",
+     10.4506
+    ],
+    "shown": "20.00%",
+    "lab": "20.00%"
+   },
+   {
+    "in": [
+     "newton",
+     15
+    ],
+    "shown": "32.03%",
+    "lab": "32.03%"
+   },
+   {
+    "in": [
+     "bisection",
+     150
+    ],
+    "shown": "無解",
+    "lab": "無解"
+   }
+  ],
+  "S09": [
+   {
+    "in": 0.25,
+    "shown": [
+     "45.17%",
+     "19.24%"
+    ],
+    "lab": [
+     "45.17%",
+     "19.24%"
+    ]
+   },
+   {
+    "in": 2,
+    "shown": [
+     "30.65%",
+     "14.41%"
+    ],
+    "lab": [
+     "30.65%",
+     "14.41%"
+    ]
+   }
+  ],
+  "S10": [
+   {
+    "shown": [
+     "20.00%",
+     "20.00%"
+    ],
+    "lab": [
+     "20.00%",
+     "20.00%"
+    ]
+   }
+  ],
+  "S12": {
+   "leds": [
+    "無套利",
+    "無套利",
+    "成立"
+   ],
+   "sliceChartPaths": [
+    2,
+    2
+   ]
+  },
+  "S13": [
+   {
+    "in": 0.1,
+    "shown": [
+     "5.5819",
+     "2.6264",
+     "0.3752"
+    ],
+    "lab": [
+     "5.5819",
+     "2.6264",
+     "0.3752"
+    ]
+   },
+   {
+    "in": 0.55,
+    "shown": [
+     "22.8569",
+     "19.9014",
+     "0.3779"
+    ],
+    "lab": [
+     "22.8569",
+     "19.9014",
+     "0.3779"
+    ]
+   },
+   {
+    "in": 1,
+    "shown": [
+     "39.2200",
+     "36.2645",
+     "0.3467"
+    ],
+    "lab": [
+     "39.2200",
+     "36.2645",
+     "0.3467"
+    ]
+   }
+  ],
+  "S15": [
+   {
+    "in": [
+     0.3,
+     90
+    ],
+    "shown": [
+     "98.54",
+     "30.45",
+     "68.08",
+     "1000.00"
+    ],
+    "lab": [
+     "98.54",
+     "30.45",
+     "68.08",
+     "1000.00"
+    ]
+   },
+   {
+    "in": [
+     0.6,
+     90
+    ],
+    "shown": [
+     "217.10",
+     "30.45",
+     "186.65",
+     "1000.00"
+    ],
+    "lab": [
+     "217.10",
+     "30.45",
+     "186.65",
+     "1000.00"
+    ]
+   },
+   {
+    "in": [
+     0.05,
+     60
+    ],
+    "shown": [
+     "30.45",
+     "30.45",
+     "0.00",
+     "1000.00"
+    ],
+    "lab": [
+     "30.45",
+     "30.45",
+     "0.00",
+     "1000.00"
+    ]
+   },
+   {
+    "in": [
+     1,
+     100
+    ],
+    "shown": [
+     "404.14",
+     "30.45",
+     "373.69",
+     "1000.00"
+    ],
+    "lab": [
+     "404.14",
+     "30.45",
+     "373.69",
+     "1000.00"
+    ]
+   }
+  ],
+  "S18": {
+   "ans": [
+    1,
+    1,
+    0,
+    1,
+    1,
+    2
+   ],
+   "score": "6 / 6",
+   "goals": "> L1：1 / 1\n> L2：1 / 1\n> L3：2 / 2\n> L4：2 / 2",
+   "fb": [
+    "fb ok",
+    "fb ok",
+    "fb ok",
+    "fb ok",
+    "fb ok",
+    "fb ok"
+   ]
+  }
+ },
+ "consoleErrors": []
+}
