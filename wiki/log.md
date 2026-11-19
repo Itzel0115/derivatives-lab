@@ -212,3 +212,19 @@
 - 更新頁：glossary, eln-simplified, index
 - 衝突：無
 - 備註：Itzel 授權 Claude 決定 `docs/agents-md-decisions.md` §9 的事項。glossary 的 ELN 條目註明英文全名是本 wiki 補充（S9 只寫 ELN）；eln-simplified 兩條 `[推導]` 主張補上測試編號（C3-9、C3-10；C3-10），符合 AGENTS.md §4.2。主張內容與出處沒有改，簡報不受影響。
+
+## [2026-11-19] update | glossary 補 13 個術語（C2-v2-r1 → N1）
+- run/節點：v2 / N1（由 C2 第 1 輪跳回）
+- 狀態：ok
+- 更新頁：glossary
+- 新術語：解析解, 二分法, 避險成本, 信用風險（發行機構）, 衍生性商品, ELN, 公平票息, 肥尾, 公平價值, 發行價, 流動性風險, Newton 法, 機率密度
+- 衝突：無
+- 備註：C2-v2-r1-01～13 指出大綱（術語首次出現表）用到、但 glossary 沒有收錄的術語。定義都取自既有 wiki 頁的主張、推導或用法，沒有新增來源。報告在 `runs/v2/C2_report.md`。
+
+## [2026-11-19] update | 合併 run v2 到 main：glossary 與 v1 版本合併
+- run/節點：v2 / 結案後合併
+- 狀態：ok
+- 更新頁：glossary
+- 新術語：解析解, 避險成本, 衍生性商品, 公平價值, 肥尾, 機率密度
+- 衝突：無
+- 備註：run v2 在獨立分支上把 wiki 還原到 `75a35ef` 後執行（GRAPH_SPEC §8）。合併到 main 時依 Itzel 決定保留 v1 的 wiki 紀錄與修正（本檔 v1 的紀錄、glossary「遠期價格」、eln-simplified 的測試編號），glossary 只加入 v2 補收、main 尚未收錄的術語；兩邊都有的術語保留 main（v1）的條目。
