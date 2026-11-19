@@ -386,8 +386,13 @@ def page_html(pid, title, page):
     if '講者備註' in s:
         notes = ('<details class="notes"><summary>SPEAKER NOTES · 講者備註（N）</summary><ul>'
                  + ''.join('<li>' + inline(' '.join(b)) + '</li>' for b in bullets(s['講者備註'])) + '</ul></details>')
-    srcs = sorted(set(re.findall(r'\bS(\d{1,2})\b', re.sub(r'^## S\d\d.*$', '', page, flags=re.M))), key=int)
-    srcs = [x for x in srcs if 1 <= int(x) <= 13]
+    # 頁尾來源：只取出處括號（…）與 Source 行中的來源 ID（C5-v2-r1-01～08：不可把投影片編號當成來源）
+    ids = set()
+    for par in PAREN.findall(page):
+        ids |= set(re.findall(r'\bS([1-9]\d?)\b', par))
+    for line in re.findall(r'^- Source：(.*)$', page, re.M):
+        ids |= set(re.findall(r'\bS([1-9]\d?)\b', line))
+    srcs = sorted([x for x in ids if 1 <= int(x) <= 13], key=int)
     foot = (f'<div class="pfoot"><span class="wk">Wiki：{"、".join(esc(w) for w in wikis)}'
             + (f'｜來源：{"、".join("S" + x for x in srcs)}' if srcs else '') + f'</span><span>Page {pid[1:]}</span></div>')
     phead = f'<div class="phead"><span>{DECK}</span><span class="pt">{PARTS[pid]}</span><span>{pid} / 19</span></div>'
