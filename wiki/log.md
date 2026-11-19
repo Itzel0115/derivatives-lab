@@ -197,3 +197,11 @@
 - 更新頁：無（新增 .gitattributes；修改 docs/agents-md-decisions.md）
 - 衝突：無
 - 備註：依 Itzel 決定。`raw/**` 設為 `-text`，關閉換行轉換；`raw/MANIFEST.md` 仍照一般文字檔處理。已 commit 的 S6、S7 原檔在工作目錄、git 與 MANIFEST 三處的 SHA-256 一致。
+
+## [2026-11-19] update | glossary 補 13 個術語（C2-v2-r1 → N1）
+- run/節點：v2 / N1（由 C2 第 1 輪跳回）
+- 狀態：ok
+- 更新頁：glossary
+- 新術語：解析解, 二分法, 避險成本, 信用風險（發行機構）, 衍生性商品, ELN, 公平票息, 肥尾, 公平價值, 發行價, 流動性風險, Newton 法, 機率密度
+- 衝突：無
+- 備註：C2-v2-r1-01～13 指出大綱（術語首次出現表）用到、但 glossary 沒有收錄的術語。定義都取自既有 wiki 頁的主張、推導或用法，沒有新增來源。報告在 `runs/v2/C2_report.md`。
