@@ -4,6 +4,7 @@
 - 做法（§8「v2 的具體做法」）：`wiki/` 還原到 v1 起點 `75a35ef`（`[v2][setup]` 4e628cd）；大綱沿用 v1 經 H1 核准的 `e965352`，N2 只加上術語首次出現表；`lab/*.js`、`slides/slides.md`、`slides/index.html`、`slides/assets/`、`trace.md` 全部重新產生；檢查工具沿用 v1（`lab/tests/c3.test.js`、`runs/v1/c5_capture.mjs` 的判定邏輯、C4 由獨立檢查代理執行），計數規則沿用 v0。
 - 成品：`slides/index.html`（N5 第 2 輪，commit `33131a9`）、`slides/slides.md`（N4 第 2 輪，commit `79432b9`）、`lab/*.js`（N3，commit `704bf04`）、`trace.md`
 - 日期：2026-11-19
+- **狀態：PASS**（§6：所有檢查都通過）
 - 各節點報告：`coverage_map.md`、`C1_report.md` … `C6_report.md`；commit 歷史就是執行紀錄（前綴 `[v2]`）
 
 ---
@@ -18,7 +19,7 @@
 | N3 程式 → C3 | 1 | 0 | PASS（C3-11 記錄差異，不強制） | → N5 |
 | N4 逐頁內容 → C4 | 2 | 3 → 0 | PASS | C4 r1 → N4 |
 | N5 HTML → C5 | 2 | 8 → 0 | PASS | C5 r1 → N5 |
-| N6 Trace → C6 | 見 `C6_report.md` | | | |
+| N6 Trace → C6 | 1 | 0 | PASS | → 完成 |
 
 **總修正輪數：3**（C2 一輪〔含 N1 r2 與 N2 r2〕、C4 一輪、C5 一輪）。BUDGET 上限 12，未觸發；沒有任何 loop 達到 MAX-ROUNDS；沒有 STOP-REGRESSION、STOP-DATA、STOP-SCOPE。
 
