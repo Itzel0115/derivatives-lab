@@ -31,6 +31,16 @@ ws.addEventListener('message', (m) => {
   if (d.id && pending.has(d.id)) { pending.get(d.id)(d); pending.delete(d.id); } else if (d.method) events.push(d);
 });
 const send = (method, params = {}) => new Promise((res) => { const id = ++seq; pending.set(id, res); ws.send(JSON.stringify({ id, method, params })); });
+// 載入簡報並確認真的渲染出來（本機伺服器偶爾回 ERR_CONNECTION_RESET，失敗就重試，最多 3 次）
+async function loadDeck(tag) {
+  for (let i = 1; i <= 3; i++) {
+    await send('Page.navigate', { url: URL0 + '#S01' }); await sleep(3500);
+    const ok = await evaluate(`!!(window.DLab && document.querySelector('.slide.show'))`);
+    if (ok === true) { if (i > 1) consoleErrors.push({ tag, kind: 'harness', text: `deck loaded on attempt ${i}` }); return; }
+    events.length = 0; // 丟棄失敗那次載入的錯誤頁事件
+  }
+  throw new Error('deck failed to load 3 times (' + tag + ')');
+}
 const evaluate = async (expr) => { const r = await send('Runtime.evaluate', { expression: expr, awaitPromise: true, returnByValue: true }); if (r.result?.exceptionDetails) return { __error: r.result.exceptionDetails.text + ' ' + (r.result.exceptionDetails.exception?.description || '') }; return r.result?.result?.value; };
 
 await send('Page.enable'); await send('Runtime.enable'); await send('Log.enable');
@@ -70,7 +80,7 @@ const PER_SLIDE = `(() => {
 const results = { generated: new Date().toISOString(), url: URL0, widths: {}, tools: {}, consoleErrors };
 for (const [W, H, mobile] of [[1440, 900, false], [390, 844, true]]) {
   await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile });
-  await send('Page.navigate', { url: URL0 + '#S01' }); await sleep(3500); harvest(`load@${W}`);
+  await loadDeck(`load@${W}`); harvest(`load@${W}`);
   results.widths[W] = [];
   for (const id of SLIDES) {
     await evaluate(`location.hash = '#${id}'`); await sleep(1300); harvest(`${id}@${W}`);
@@ -91,7 +101,7 @@ for (const [W, H, mobile] of [[1440, 900, false], [390, 844, true]]) {
 
 // C5-5：操作工具，比對輸出與 lab/ 函式
 await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
-await send('Page.navigate', { url: URL0 + '#S01' }); await sleep(3000); harvest('tools-load');
+await loadDeck('tools-load'); harvest('tools-load');
 const TOOL_TESTS = {
   S04: `(async () => { const set=(id,v)=>{const e=document.getElementById(id); e.value=v; e.dispatchEvent(new Event('input'));};
     const r=[]; for (const [st,k,pc,pp] of [[50,50,4,3],[63,50,4,3],[41.5,45,2.5,6]]) { set('pay-st',st); set('pay-k',k); set('pay-pc',pc); set('pay-pp',pp);
