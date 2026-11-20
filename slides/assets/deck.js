@@ -1,4 +1,4 @@
-/* slides/assets/deck.js — run v2 / N5。導覽、KaTeX、逐步標註、圖表與互動工具。
+/* slides/assets/deck.js — run v2.1 / N5（由 v2 修改：導覽改為每頁頁首按鈕與章節分頁；工具 A 曲面改用 surface3d.js）。導覽、KaTeX、逐步標註、圖表與互動工具。
  * 所有數值都由 lab/*.js（C3 測試過的函式）計算；本檔不重寫任何公式，只負責繪圖與介面。 */
 (function () {
   'use strict';
@@ -12,22 +12,20 @@
   /* ---------------- 導覽 ---------------- */
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var ids = slides.map(function (s) { return s.id; });
-  var dots = Array.prototype.slice.call(document.querySelectorAll('#dots button'));
   var drawn = {};
   function show(id) {
     if (ids.indexOf(id) < 0) id = ids[0];
     slides.forEach(function (s) { s.classList.toggle('show', s.id === id); });
     var i = ids.indexOf(id);
-    dots.forEach(function (d, j) { d.classList.toggle('on', j === i); d.setAttribute('aria-current', j === i ? 'page' : 'false'); });
-    $('prev').disabled = i === 0; $('next').disabled = i === ids.length - 1;
+    slides[i].querySelectorAll('.prev').forEach(function (b) { b.disabled = i === 0; });
+    slides[i].querySelectorAll('.next').forEach(function (b) { b.disabled = i === ids.length - 1; });
     if (!drawn[id] && INIT[id]) { drawn[id] = true; INIT[id](); }
     window.scrollTo(0, 0);
   }
   function go(d) { var i = ids.indexOf(location.hash.slice(1)); if (i < 0) i = 0; i = Math.max(0, Math.min(ids.length - 1, i + d)); location.hash = '#' + ids[i]; }
   window.addEventListener('hashchange', function () { show(location.hash.slice(1)); });
-  $('prev').addEventListener('click', function () { go(-1); });
-  $('next').addEventListener('click', function () { go(1); });
-  dots.forEach(function (d, j) { d.addEventListener('click', function () { location.hash = '#' + ids[j]; }); });
+  document.querySelectorAll('.phead .prev').forEach(function (b) { b.addEventListener('click', function () { go(-1); }); });
+  document.querySelectorAll('.phead .next').forEach(function (b) { b.addEventListener('click', function () { go(1); }); });
   document.addEventListener('keydown', function (e) {
     var t = e.target; if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.tagName === 'CANVAS')) return;
     if (e.key === 'ArrowRight') go(1);
@@ -105,83 +103,12 @@
     var d = (hi - lo) || Math.abs(hi) || 1; return [lo - d * (pad || 0.12), hi + d * (pad || 0.12)];
   }
 
-  /* ---------------- 3D 曲面（工具 A） ---------------- */
-  function hexRgb(h) { h = h.replace('#', ''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
-  function surface(canvas, opts) {
-    var ctx = canvas.getContext('2d');
-    var K = range(-0.5, 0.5, 41), Tt = range(0.1, 2, 20);
-    var Z = Tt.map(function (t) { return K.map(function (k) { return DLab.impliedVol(k, t); }); });
-    var zmin = Infinity, zmax = -Infinity; Z.forEach(function (r) { r.forEach(function (z) { zmin = Math.min(zmin, z); zmax = Math.max(zmax, z); }); });
-    var lo = hexRgb(css('--surf-lo')), hi = hexRgb(css('--call-dk'));
-    var st = { yaw: -0.65, pitch: 0.55, slice: null, hover: null };
-    var proj = [];
-    function P(i, j) { // i：到期（Tt），j：履約價（K）
-      var x = (j / (K.length - 1) - 0.5) * 2, y = (i / (Tt.length - 1) - 0.5) * 2, z = ((Z[i][j] - zmin) / (zmax - zmin) - 0.5) * 1.1;
-      var cy = Math.cos(st.yaw), sy = Math.sin(st.yaw), cp = Math.cos(st.pitch), sp = Math.sin(st.pitch);
-      var x1 = x * cy - y * sy, y1 = x * sy + y * cy;
-      var y2 = y1 * cp - z * sp, depth = y1 * sp + z * cp;
-      var s = canvas.width * 0.30;
-      return [canvas.width / 2 + x1 * s, canvas.height * 0.52 + y2 * s * 0.85 - depth * 0 , y1 * cp * -1 + z * sp * -1];
-    }
-    function draw() {
-      var w = canvas.width, h = canvas.height;
-      ctx.clearRect(0, 0, w, h); ctx.fillStyle = css('--t-pane'); ctx.fillRect(0, 0, w, h);
-      proj = Tt.map(function (_, i) { return K.map(function (_, j) { return P(i, j); }); });
-      var quads = [];
-      for (var i = 0; i < Tt.length - 1; i++) for (var j = 0; j < K.length - 1; j++) {
-        var a = proj[i][j], b = proj[i][j + 1], c = proj[i + 1][j + 1], d = proj[i + 1][j];
-        quads.push({ p: [a, b, c, d], z: (a[2] + b[2] + c[2] + d[2]) / 4, v: (Z[i][j] + Z[i][j + 1] + Z[i + 1][j] + Z[i + 1][j + 1]) / 4 });
-      }
-      quads.sort(function (q1, q2) { return q2.z - q1.z; });
-      quads.forEach(function (q) {
-        var f = (q.v - zmin) / (zmax - zmin);
-        ctx.fillStyle = 'rgb(' + [0, 1, 2].map(function (n) { return Math.round(lo[n] + (hi[n] - lo[n]) * f); }).join(',') + ')';
-        ctx.strokeStyle = css('--t-line'); ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(q.p[0][0], q.p[0][1]); for (var n = 1; n < 4; n++) ctx.lineTo(q.p[n][0], q.p[n][1]); ctx.closePath(); ctx.fill(); ctx.stroke();
-      });
-      if (st.slice) { // 切面曲線
-        ctx.strokeStyle = css('--t-cursor'); ctx.lineWidth = 3; ctx.beginPath();
-        if (st.slice.type === 't') { var ii = st.slice.idx; proj[ii].forEach(function (p, j) { j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); }
-        else { var jj = st.slice.idx; proj.forEach(function (r, i) { i ? ctx.lineTo(r[jj][0], r[jj][1]) : ctx.moveTo(r[jj][0], r[jj][1]); }); }
-        ctx.stroke();
-      }
-      var fs = Math.max(12, Math.ceil(11.5 * canvas.width / (canvas.clientWidth || canvas.width)));
-      ctx.font = fs + 'px ' + css('--mono').split(',')[0]; ctx.fillStyle = css('--t-muted');
-      // 軸標籤：放在曲面邊緣中點、往遠離畫面中心的方向推出去，避免壓在曲面上
-      var cx0 = w / 2, cy0 = h * 0.52;
-      var edgeLabel = function (pa, pb, txt) {
-        var mx = (pa[0] + pb[0]) / 2, my = (pa[1] + pb[1]) / 2, dx = mx - cx0, dy = my - cy0, n = Math.sqrt(dx * dx + dy * dy) || 1;
-        var tw = ctx.measureText(txt).width;
-        var x = mx + dx / n * fs * 3.4, y = my + dy / n * fs * 3.4;
-        x = Math.max(tw / 2 + fs * 0.5, Math.min(w - tw / 2 - fs * 0.5, x)); y = Math.max(fs * 3, Math.min(h - fs * 0.6, y));
-        ctx.fillText(txt, x, y);
-      };
-      ctx.textAlign = 'center';
-      edgeLabel(proj[0][0], proj[0][K.length - 1], '履約價 K（低 → 高）');
-      edgeLabel(proj[0][0], proj[Tt.length - 1][0], '到期時間（短 → 長）');
-      ctx.textAlign = 'left'; ctx.fillText('高度：隱含波動率', fs, fs * 1.6);
-      ctx.textAlign = 'right'; ctx.fillStyle = css('--t-cursor'); ctx.fillText('示意參數', w - fs, fs * 1.6);
-      if (st.hover) { ctx.fillStyle = css('--t-cursor'); ctx.beginPath(); ctx.arc(st.hover.p[0], st.hover.p[1], fs * 0.35, 0, 7); ctx.fill(); }
-    }
-    var drag = null;
-    canvas.addEventListener('pointerdown', function (e) { drag = [e.clientX, e.clientY]; canvas.setPointerCapture(e.pointerId); });
-    canvas.addEventListener('pointerup', function () { drag = null; });
-    canvas.addEventListener('pointermove', function (e) {
-      var r = canvas.getBoundingClientRect(), sx = canvas.width / r.width;
-      if (drag) { st.yaw += (e.clientX - drag[0]) * 0.01; st.pitch = Math.max(0.1, Math.min(1.4, st.pitch + (e.clientY - drag[1]) * 0.01)); drag = [e.clientX, e.clientY]; draw(); return; }
-      var mx = (e.clientX - r.left) * sx, my = (e.clientY - r.top) * sx, best = null;
-      proj.forEach(function (row, i) { row.forEach(function (p, j) { var d = (p[0] - mx) * (p[0] - mx) + (p[1] - my) * (p[1] - my); if (!best || d < best.d) best = { d: d, i: i, j: j, p: p }; }); });
-      if (best && best.d < 900 * sx) { st.hover = best; if (opts.onHover) opts.onHover(Z[best.i][best.j]); } else { st.hover = null; if (opts.onHover) opts.onHover(null); }
-      draw();
-    });
-    canvas.addEventListener('keydown', function (e) {
-      var k = e.key;
-      if (k === 'ArrowLeft') st.yaw -= 0.1; else if (k === 'ArrowRight') st.yaw += 0.1;
-      else if (k === 'ArrowUp') st.pitch = Math.min(1.4, st.pitch + 0.08); else if (k === 'ArrowDown') st.pitch = Math.max(0.1, st.pitch - 0.08); else return;
-      e.preventDefault(); draw();
-    });
-    draw();
-    return { draw: draw, setSlice: function (s) { st.slice = s; draw(); }, K: K, T: Tt, Z: Z };
+  /* ---------------- 3D 曲面（工具 A）：surface3d.js（three.js），高度只呼叫 LabSVI.impliedVol ---------------- */
+  DLab.surfaces = {};
+  function surface(host, opts) {
+    var sf = window.Surface3D.mount(host, opts);
+    DLab.surfaces[host.id] = sf;
+    return sf;
   }
 
   /* ---------------- 逐步標註 ---------------- */
@@ -210,8 +137,8 @@
   /* ---------------- 各頁的圖與工具 ---------------- */
   var INIT = {};
   INIT.S01 = function () {
-    var c = $('a1-canvas'); if (!c) return;
-    surface(c, { onHover: function (v) { $('a1-read').textContent = v == null ? '—' : pct(v); } });
+    var c = $('a1-stage'); if (!c) return;
+    surface(c, { dist: 4.1, onHover: function (v) { $('a1-read').textContent = v == null ? '—' : pct(v); } });
   };
   INIT.S04 = function () {
     var upd = function () {
@@ -292,7 +219,7 @@
     el('path', { d: 'M' + (m.X(b[0]) - 30) + ' ' + (m.Y(b[1]) - 24) + ' L' + (m.X(b[0]) - 4) + ' ' + (m.Y(b[1]) - 6), 'class': 'flow sv-call' }, g2);
   };
   INIT.S12 = function () {
-    var cv = $('a12-canvas'), svg = $('a12-chart'), sf = surface(cv, { onHover: function (v) { if (segVal('a12-mode') === '3d') $('a12-read').textContent = v == null ? '—' : pct(v); } });
+    var cv = $('a12-stage'), svg = $('a12-chart'), sf = surface(cv, { dist: 4.4, label: '完整隱含波動率曲面（示意參數），可拖曳或用方向鍵旋轉', onHover: function (v) { if (segVal('a12-mode') === '3d') $('a12-read').textContent = v == null ? '—' : pct(v); } });
     // 無套利檢查（F14、F15、F16），網格同曲面
     var minInc = DLab.calendarMinIncrement(sf.K, sf.T), gmin = Infinity;
     sf.T.forEach(function (t) { sf.K.forEach(function (k) { gmin = Math.min(gmin, DLab.butterflyG(k, t)); }); });
@@ -304,6 +231,7 @@
     var upd = function () {
       var mode = segVal('a12-mode'), pos = +$('a12-pos').value;
       $('a12-pos').disabled = mode === '3d';
+      cv.classList.toggle('sliced', mode !== '3d');
       if (mode === '3d') { sf.setSlice(null); svg.style.display = 'none'; $('a12-pos-v').textContent = '—'; $('a12-read').textContent = '—'; return; }
       svg.style.display = 'block';
       if (mode === 't') {
@@ -373,21 +301,11 @@
     upd();
   };
 
-  /* ---------------- 扉頁波紋（裝飾，不代表資料） ---------------- */
-  function waves() {
-    var svg = document.querySelector('.cover svg.waves'); if (!svg) return;
-    for (var n = 0; n < 40; n++) {
-      var d = '', a = 8 + n * 0.9, f = 0.004 + n * 0.00012, ph = n * 0.35, y0 = 40 + n * 8;
-      for (var x = 0; x <= 1200; x += 20) d += (x ? 'L' : 'M') + x + ' ' + (y0 + a * Math.sin(x * f + ph)).toFixed(1);
-      el('path', { d: d }, svg);
-    }
-  }
-
   function boot() {
     if (window.renderMathInElement) {
       renderMathInElement(document.body, { delimiters: [{ left: '\\[', right: '\\]', display: true }, { left: '\\(', right: '\\)', display: false }], throwOnError: false });
     }
-    waves(); steppers();
+    steppers();
     document.querySelectorAll('.draw').forEach(function (p) { if (p.getTotalLength) p.style.setProperty('--len', Math.ceil(p.getTotalLength())); });
     show(location.hash.slice(1) || ids[0]);
   }

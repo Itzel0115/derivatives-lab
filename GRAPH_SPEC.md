@@ -9,6 +9,7 @@
 |---|---|---|---|
 | v1 | 2026-11-18 定案；2026-11-19 增補 | run v1 使用的規格。run v1 期間依 Itzel 裁示增補三處：C3 數值容差、C4 為字數改寫同頁文字的例外、§9 Bloomberg 條款的說明 | 增補原因見 `runs/v1/C3_report.md`、`runs/v1/C4_report.md` 與 `docs/agents-md-decisions.md` §7、§9 |
 | **v2** | 2026-11-19 | ① **術語檢查往前移到 C2**：N2 的輸出加上「術語首次出現表」；C2 新增 **C2-7**（大綱用到的專門術語都已收錄在 `glossary.md`，且首次出現的那一頁安排了定義）；graph 新增 **C2 → N1** 跳轉（glossary 缺漏回 N1 補）。C4-5 保留，用來量測往前移之後還漏掉多少<br>② **字數檢查往前移到 C4**：C4 新增 **C4-7**（在 `slides.md` 上計算每頁主文 ≤ 120 字、≤ 5 點）；C5-3 保留，作為成品的最終確認<br>③ §8 寫明 v2 的公平比較做法：wiki 還原到 v1 起點（commit `75a35ef`）、沿用 v1 核准的大綱內容、使用相同的檢查工具與計數規則 | 依 `runs/v1/check_report.md` 與各檢查報告：<br>• v1 最多的錯誤是 **E8 術語未定義（13／25）**，全部在 C4 才被抓到；其中 10 個源自 N0 的 glossary 缺漏（術語早已出現在 wiki 頁，卻沒有收錄），9 個在 H1 核准的大綱中就已出現。v0 最多的也是 E8（23）<br>• C4 的修正受 C5-3 字數上限牽制，但字數要到 C5 才檢查，造成 v1 唯一一次 STOP-REGRESSION（C4-v1-r2-01）與 4 處未列出的改寫 |
+| **v2.1** | 2026-11-20 | 檢查規則與 graph **都不變**。只換呈現：`style.md` 改為 v2（藍金配色、明暗交替、6 種頁型、3D 封面），以 v2 的成品為輸入，**只重跑 N5 → C5 → N6 → C6**（做法見 §8「v2.1 的做法」） | v2 完成後 Itzel 認為簡報版面單調、封面曲面太小；原因是 `style.md` v1 只用一張 S03 範例頁核准，看不出 19 頁的整體節奏。改版經過見 `style.md` 檔首版本紀錄與 `docs/agents-md-decisions.md` §11 |
 
 ---
 
@@ -456,6 +457,12 @@ GitHub 的 commit 歷史就是執行紀錄。
   - **大綱**：大綱內容沿用 v1 經 H1 核准的版本（commit `e965352`），N2 只加上術語首次出現表；C2-7 若要求改寫，照常修改並記錄
   - **成品**：`lab/*.js`、`slides/slides.md`、`slides/index.html`、`slides/assets/`、`trace.md` 由 v2 重新產生，不得沿用 v1 的成品
   - **檢查工具**：沿用 v1 的檢查實作（`lab/tests/c3.test.js`、`runs/v1/c5_capture.mjs` 的判定邏輯、C4 由沒有參與 N4 撰寫的獨立檢查代理執行），並沿用 v0 的計數規則
+- **v2.1 的做法**（2026-11-20 定案）：
+  - 只改呈現，**不列入上面的錯誤統計比較**；v2.1 的檢查結果另外記在 `runs/v2.1/check_report.md`
+  - 輸入沿用 v2 的成品：wiki、`slides/outline.md`、`slides/slides.md`、`lab/*.js` 都不改；N5 開始的前提「C3、C4 都通過」以 `runs/v2/C3_report.md`、`runs/v2/C4_report.md` 為準
+  - 重跑 N5（依 `style.md` v2 重新產生 `slides/index.html` 與 `slides/assets/`）→ C5 → N6 → C6；輪數上限與停止規則照 §5、§6
+  - C5 沿用 v2 的判定邏輯（`runs/v2/c5_capture.mjs`），只依新版頁面結構調整選擇器；`style.md` v2 的新規則（宋體只用於粗體標題、§2.6 對比、曲面高度來自 `lab/`）不符時，列為 C5 的版面問題 → N5
+  - 若 `slides.md` 需要修改，依 graph 回 N4 → C4，並在報告中記錄
 
 **最後要產出的統計表**
 

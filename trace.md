@@ -1,6 +1,6 @@
-# Trace｜run v2｜投影片 → wiki 頁 → 原始來源
+# Trace｜run v2.1｜投影片 → wiki 頁 → 原始來源
 
-> run v2 / N6 產出（由 `runs/v2/n6_trace.py` 產生）。依據：`slides/slides.md`（C4 第 2 輪通過，commit `79432b9`）與 `wiki/index.md`；成品 `slides/index.html`（C5 第 2 輪通過，commit `33131a9`）。
+> run v2.1 / N6 產出（由 `runs/v2.1/n6_trace.py` 產生）。依據：`slides/slides.md`（沿用 run v2，C4 第 2 輪通過，commit `79432b9`；v2.1 未修改）與 `wiki/index.md`；成品 `slides/index.html`（run v2.1 依 `style.md` v2 重新產生，C5 第 1 輪通過，commit `89ccf56`）。
 > 連結使用標準 Markdown 相對路徑（`AGENTS.md` §3），可在 GitHub 網頁上直接點選。
 > 「引用的 wiki 頁」欄括號內的來源 ID：該 wiki 頁的來源（`wiki/index.md`「來源」欄）中，確實在這一頁投影片的出處括號或 Source 行裡出現的那些。
 > 「補充」欄：C4 第 1 輪報告 §4.5 指出，這些主張在 wiki 中的對應句位於另一個頁面，但該頁沒有列在投影片的引用清單中（✅註，不計問題）；這裡補上，讓追溯不斷鏈。
