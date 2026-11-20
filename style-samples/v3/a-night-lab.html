@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>樣本 A｜夜間實驗室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* 樣本 A：全程深色、電影感。曲面是主角；每頁一個大焦點。 */
+:root{
+  --bg:#070C16; --bg-2:#0B1320; --bg-3:#101B2C; --line:#1A283D; --line-2:#26395A;
+  --text:#E6EDF7; --text-2:#B4C2D6; --muted:#71839C; --dim:#43546E;
+  --cyan:#22C7E8; --cursor:#F2D64B;
+  --call:#8FB3E8; --put:#5CCDBD; --atm:#C9D3E3;
+  --surf-lo:#14284A; --surf-hi:#9CC0F5; --surf-line:#A9C8FF;
+  --cjk:"Noto Sans TC","Inter",system-ui,sans-serif; --sans:"Inter","Noto Sans TC",system-ui,sans-serif;
+  --mono:"JetBrains Mono","Noto Sans TC",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--cjk);-webkit-font-smoothing:antialiased}
+.slide{position:relative;min-height:100svh;scroll-snap-align:start;padding:clamp(22px,4vw,56px) clamp(16px,5vw,72px);display:flex;flex-direction:column;overflow:hidden}
+.cite{font-family:var(--sans);font-size:.74em;color:var(--muted);white-space:nowrap}
+.lat{font-family:var(--sans)}
+b,strong{color:var(--text);font-weight:700}
+
+/* 頂部：學習路線條 */
+.path{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.path .brand{color:var(--text);font-weight:700;letter-spacing:.06em;margin-right:auto}
+.path ol{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.path li{padding:5px 10px;border:1px solid var(--line-2);color:var(--dim)}
+.path li.on{border-color:var(--cyan);color:var(--bg);background:var(--cyan);font-weight:700}
+.path li.done{color:var(--text-2)}
+.path .pg{min-width:52px;text-align:right}
+
+/* 樣本切換 */
+.switch{position:fixed;right:14px;bottom:14px;z-index:20;display:flex;gap:4px;font-family:var(--sans);font-size:12px}
+.switch a{padding:6px 10px;border:1px solid var(--line-2);color:var(--text-2);text-decoration:none;background:var(--bg-2)}
+.switch a[aria-current]{background:var(--cyan);color:var(--bg);border-color:var(--cyan);font-weight:700}
+
+/* ---------- S01 封面 ---------- */
+.cover{padding:0}
+.cover .stage{position:absolute;inset:0 0 8% 26%}
+.cover .stage canvas{display:block;cursor:grab}
+.cover .stage canvas:active{cursor:grabbing}
+.cover .veil{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(120% 80% at 75% 45%,transparent 30%,var(--bg) 85%),
+  linear-gradient(to top,var(--bg) 4%,transparent 42%)}
+.cover .path{position:relative;z-index:2;padding:clamp(22px,4vw,56px) clamp(16px,5vw,72px) 0}
+.cover .hero{position:relative;z-index:2;margin-top:auto;padding:0 clamp(16px,5vw,72px) clamp(22px,4vw,48px);pointer-events:none}
+.kicker{font-family:var(--sans);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+.cover h1{font-size:clamp(34px,6.2vw,92px);line-height:1.06;font-weight:900;margin:.18em 0 .2em;max-width:14em;letter-spacing:-.01em;text-shadow:0 4px 30px var(--bg)}
+.cover .sub{font-size:clamp(15px,1.6vw,20px);color:var(--text-2);margin:0 0 clamp(18px,3vw,34px)}
+.cover .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);max-width:1100px;pointer-events:auto}
+.cover .facts li{list-style:none;background:rgba(7,12,22,.82);backdrop-filter:blur(6px);padding:14px 16px;font-size:14.5px;line-height:1.6;color:var(--text-2)}
+.cover .facts li span{display:block;font-family:var(--mono);font-size:11px;color:var(--cyan);margin-bottom:4px}
+.cover .facts{margin:0;padding:0}
+.cover .legend{position:absolute;z-index:2;right:clamp(16px,5vw,72px);top:42%;font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.9;text-align:right;pointer-events:none}
+.cover .legend em{font-style:normal;color:var(--cursor)}
+.cover .lead{font-size:13px;color:var(--muted);margin:10px 0 0;pointer-events:none}
+
+/* ---------- S02 卡片 ---------- */
+.s02 h2,.s08 h2,.s04 h2{font-size:clamp(28px,4.2vw,54px);font-weight:900;margin:.5em 0 .15em;line-height:1.15}
+.s02 .intro{color:var(--text-2);margin:0 0 28px}
+.goals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;flex:1;align-content:center}
+.goal{position:relative;border:1px solid var(--line-2);background:linear-gradient(180deg,var(--bg-3),var(--bg-2));padding:22px 20px 20px;display:flex;flex-direction:column;min-height:300px;transition:border-color .3s,transform .3s}
+.goal:hover{border-color:var(--cyan);transform:translateY(-4px)}
+.goal .n{font-family:var(--sans);font-size:clamp(54px,6vw,88px);font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1px var(--cyan)}
+.goal p{font-size:16px;line-height:1.65;margin:14px 0 auto}
+.goal .where{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.goal .bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--cyan);transform-origin:left;transform:scaleX(var(--w))}
+.warn{margin-top:18px;font-size:12px;color:var(--muted)}
+
+/* ---------- S08 宣言 ---------- */
+.s08 .grid{flex:1;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(20px,4vw,56px);align-items:center}
+.s08 .claim{font-size:clamp(34px,5.4vw,76px);font-weight:900;line-height:1.12;margin:0}
+.s08 .claim .flat{color:var(--text-2)}
+.s08 .claim .curve{color:var(--cyan)}
+.s08 .pts{margin:26px 0 0;padding:0;list-style:none;counter-reset:p}
+.s08 .pts li{counter-increment:p;position:relative;padding:10px 0 10px 34px;border-top:1px solid var(--line);font-size:15.5px;line-height:1.6;color:var(--text-2)}
+.s08 .pts li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:12px;font-family:var(--mono);font-size:11px;color:var(--cyan)}
+.fig{background:var(--bg-2);border:1px solid var(--line-2);padding:16px}
+.fig .cap{font-family:var(--sans);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;margin-bottom:6px}
+.fig svg{width:100%;height:auto;display:block}
+.fig .axis{stroke:var(--line-2);stroke-width:2}
+.fig .flat{stroke:var(--atm);stroke-width:2;stroke-dasharray:6 6;fill:none}
+.fig .smile{stroke:var(--cyan);stroke-width:3;fill:none;filter:drop-shadow(0 0 6px rgba(34,199,232,.55));stroke-dasharray:1;stroke-dashoffset:1}
+.in .fig .smile{animation:draw 1.6s .5s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fig .lbl{font-family:var(--cjk);font-size:15px;fill:var(--muted)}
+.fig .flat-lbl{fill:var(--atm)} .fig .smile-lbl{fill:var(--cyan)} .fig .tag{fill:var(--cursor);font-size:13px}
+.src{font-family:var(--sans);font-size:11px;color:var(--dim);margin-top:8px}
+
+/* ---------- S04 實驗室 ---------- */
+.s04 .grid{flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(20px,3vw,40px);align-items:stretch;margin-top:10px}
+.s04 .lead{font-size:18px;font-weight:700;margin:0 0 10px;line-height:1.5}
+.s04 ul{margin:0;padding:0;list-style:none}
+.s04 ul li{padding:10px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6;color:var(--text-2)}
+.tool{border:1px solid var(--line-2);background:var(--bg-2);display:grid;grid-template-columns:260px 1fr;grid-template-rows:auto 1fr auto;font-family:var(--mono)}
+.tool .head{grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:8px 12px;background:var(--bg-3);border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.tool .head .id{background:var(--cyan);color:var(--bg);font-weight:700;padding:2px 7px}
+.tool .ctrl{padding:16px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.seg{display:flex;border:1px solid var(--line-2)}
+.seg button{flex:1;background:none;border:0;color:var(--muted);font:inherit;font-size:12px;padding:8px 6px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--cyan);color:var(--bg);font-weight:700}
+[data-type=call] .seg button[data-type=call][aria-pressed=true]{background:var(--call)}
+[data-type=put] .seg button[data-type=put][aria-pressed=true]{background:var(--put)}
+.tool label{display:grid;grid-template-columns:1fr auto;gap:6px;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.tool label output{font-size:24px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
+.tool input[type=range]{grid-column:1/-1;-webkit-appearance:none;appearance:none;height:4px;background:linear-gradient(to right,var(--cyan) var(--pct,50%),var(--line-2) var(--pct,50%));outline:none}
+.tool input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:18px;background:var(--text);box-shadow:0 0 10px var(--cyan);border:0;cursor:pointer}
+.tool input[type=range]::-moz-range-thumb{width:10px;height:18px;background:var(--text);box-shadow:0 0 10px var(--cyan);border:0;border-radius:0}
+.tool input[type=number]{grid-column:1/-1;background:var(--bg-3);border:1px solid var(--line-2);color:var(--text);font:inherit;padding:6px 8px;width:100%}
+.tool :focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
+.tool .viz{padding:12px 14px;display:flex;flex-direction:column;min-width:0}
+.tool svg.payoff{width:100%;height:auto;flex:1}
+.payoff .axis{stroke:var(--line-2);stroke-width:2}
+.payoff .kline{stroke:var(--atm);stroke-dasharray:4 5;stroke-width:1.5}
+.payoff .curve{fill:none;stroke-width:3}
+.payoff .curve.call{stroke:var(--call)} .payoff .curve.put{stroke:var(--put)}
+.payoff .area{opacity:.14} .payoff .area.call{fill:var(--call)} .payoff .area.put{fill:var(--put)}
+.payoff .cursor-line{stroke:var(--cursor);stroke-width:1;opacity:.5}
+.payoff .cursor{fill:var(--cursor);filter:drop-shadow(0 0 8px var(--cursor))}
+.payoff .lbl{font-family:var(--mono);font-size:13px;fill:var(--muted)}
+.reads{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.reads div{background:var(--bg-2);padding:10px 14px;font-size:11px;color:var(--muted)}
+.reads b{display:block;font-size:28px;color:var(--text);font-variant-numeric:tabular-nums;margin-top:4px}
+.reads [data-state=itm]{color:var(--call)} [data-type=put] .reads [data-state=itm]{color:var(--put)}
+.reads [data-state=atm]{color:var(--atm)} .reads [data-state=otm]{color:var(--muted)}
+.tool .foot{grid-column:1/-1;padding:8px 12px;border-top:1px solid var(--line);font-size:11px;color:var(--dim)}
+
+/* 進場動畫（reduced-motion 時關閉） */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.in .rv{opacity:1;transform:none}
+.in .rv:nth-child(2){transition-delay:.08s}.in .rv:nth-child(3){transition-delay:.16s}.in .rv:nth-child(4){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.fig .smile{stroke-dashoffset:0;animation:none!important}html{scroll-behavior:auto}}
+
+/* 手機 */
+@media (max-width:899px){
+  html{scroll-snap-type:none}
+  .path ol li{padding:4px 6px}.path .brand{display:none}
+  .cover{min-height:100svh}
+  .cover .stage{inset:0;height:62svh}
+  .cover .veil{height:62svh}
+  .cover .legend{top:auto;bottom:auto;display:none}
+  .cover .hero{margin-top:46svh}
+  .cover .facts{grid-template-columns:1fr}
+  .cite{white-space:normal}
+  .goals{grid-template-columns:repeat(2,minmax(0,1fr))}.goal{min-height:0}
+  .s08 .grid,.s04 .grid{grid-template-columns:1fr}
+  .tool{grid-template-columns:1fr}.tool .ctrl{border-right:0;border-bottom:1px solid var(--line)}
+  .reads b{font-size:22px}
+}
+@media (max-width:520px){.goals{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+
+<nav class="switch" aria-label="切換樣本"><a href="a-night-lab.html" aria-current="page">A 夜間實驗室</a><a href="b-editorial.html">B 雜誌大字</a><a href="c-blueprint.html">C 藍圖探索</a></nav>
+
+<!-- S01 -->
+<section class="slide cover" id="s01">
+  <div class="stage" id="surf"></div>
+  <div class="veil"></div>
+  <header class="path"><span class="brand">Derivatives Lab</span><ol aria-label="學習路線"><li>L1</li><li>L2</li><li>L3</li><li>L4</li></ol><span class="pg">01 / 19</span></header>
+  <div class="legend" aria-hidden="true">高度 ＝ 隱含波動率<br>左右 ＝ 履約價 K（低 → 高）<br>前後 ＝ 到期時間（短 → 長）<br><em>示意參數</em> · 拖曳旋轉</div>
+  <div class="hero">
+    <div class="kicker">Derivatives Lab · 開場</div>
+    <h1>波動率為什麼不是一個數字？</h1>
+    <p class="sub">從一張選擇權，到一張結構型商品的定價實驗室</p>
+    <ul class="facts">
+      <li><span>01</span>業界把隱含波動率同時對履約價與到期日畫出來，稱為「隱含波動率曲面」<span class="cite">（S10, p.3）</span></li>
+      <li><span>02</span>依古典理論，Black-Scholes 隱含波動率應與履約價、到期日無關，曲面應是平的<span class="cite">（S10, p.1）</span></li>
+      <li><span>03</span>市場上的曲面卻隨履約價與到期日起伏，而且隨時間改變<span class="cite">（S10, p.1）</span></li>
+    </ul>
+    <p class="lead">先看交易室裡的一張 3D 圖。背景曲面由程式依示意參數產生<span class="cite">（svi-parameterization, §示意參數）</span></p>
+  </div>
+</section>
+
+<!-- S02 -->
+<section class="slide s02" id="s02">
+  <header class="path"><span class="brand">Derivatives Lab</span><ol aria-label="學習路線"><li class="on">L1</li><li class="on">L2</li><li class="on">L3</li><li class="on">L4</li></ol><span class="pg">02 / 19</span></header>
+  <h2>這堂課的四個目標</h2>
+  <p class="intro">這堂課的目標：</p>
+  <div class="goals">
+    <article class="goal rv" style="--w:.25"><div class="n">L1</div><p>看懂選擇權的履約價 <span class="lat">K</span>、到期日 <span class="lat">T</span> 與損益圖 <span class="cite">（GRAPH_SPEC §0；call-put-option、payoff-diagram）</span></p><div class="where">S03 – S04</div><i class="bar"></i></article>
+    <article class="goal rv" style="--w:.5"><div class="n">L2</div><p>說出隱含波動率是從市價反推的 <span class="cite">（S13, p.18）</span></p><div class="where">S05 – S07</div><i class="bar"></i></article>
+    <article class="goal rv" style="--w:.75"><div class="n">L3</div><p>解釋曲面為什麼不是平的：偏斜（隱含波動率隨履約價變動的不對稱）、期限結構（隨到期時間的變化）<span class="cite">（S11, p.2）</span></p><div class="where">S08 – S12</div><i class="bar"></i></article>
+    <article class="goal rv" style="--w:1"><div class="n">L4</div><p>說明簡化 ELN（教學用的股權連結結構型商品）的票息（債券支付的利息）來源與投資人風險 <span class="cite">（GRAPH_SPEC §2.5；S9, §只要沒確定下市；S7, §Calculate the Return）</span></p><div class="where">S13 – S17</div><i class="bar"></i></article>
+  </div>
+  <p class="warn">⚠ 教學說明，不構成投資建議</p>
+</section>
+
+<!-- S08 -->
+<section class="slide s08" id="s08">
+  <header class="path"><span class="brand">Derivatives Lab</span><ol aria-label="學習路線"><li class="done">L1</li><li class="done">L2</li><li class="on">L3</li><li>L4</li></ol><span class="pg">08 / 19</span></header>
+  <div class="grid">
+    <div>
+      <div class="kicker rv">L3 · 先看理論，再看市場</div>
+      <p class="claim rv">如果 <span class="lat">BS</span> 是對的，<br>曲面應該是<span class="flat">平的</span>。<br>市場卻是<span class="curve">彎的</span>。</p>
+      <ol class="pts">
+        <li class="rv">Black-Scholes 假設標的任何時間、任何價位都只有一個固定波動率 <span class="cite">（S10, p.3；p.5）</span></li>
+        <li class="rv">所以同一股票、同一到期日，各履約價的隱含波動率應相同；實際上卻隨履約價改變 <span class="cite">（S13, p.18）</span></li>
+        <li class="rv">落差：尾部比對數常態肥（肥尾）、每天波動幅度不同、價格有大幅跳動 <span class="cite">（S13, p.18；p.19）</span></li>
+        <li class="rv">Derman 認為，應把 Black-Scholes 隱含波動率看成略嫌簡化的報價慣例 <span class="cite">（S10, p.5）</span></li>
+      </ol>
+    </div>
+    <figure class="fig rv" style="margin:0">
+      <div class="cap"><span>Fig. 8.1　理論與市場：同一到期日的兩條線</span><span>縱軸＝隱含波動率</span></div>
+      <svg id="fvs" role="img" aria-label="Black-Scholes 預測的水平線與示意市場型態的曲線（示意參數）"></svg>
+      <div class="src">Source：示意參數（見 svi-parameterization）；型態說明見 S13, p.18 · 呼叫 LabSVI.impliedVol</div>
+    </figure>
+  </div>
+</section>
+
+<!-- S04 -->
+<section class="slide s04" id="s04">
+  <header class="path"><span class="brand">Derivatives Lab</span><ol aria-label="學習路線"><li class="on">L1</li><li>L2</li><li>L3</li><li>L4</li></ol><span class="pg">04 / 19</span></header>
+  <h2>損益圖</h2>
+  <div class="grid">
+    <div>
+      <p class="lead rv">到期時值多少，只看到期的標的價格和 <span class="lat">K</span> 差多少。</p>
+      <ul>
+        <li class="rv">到期價值（又稱到期報償，到期時支付的金額）：call 只在標的價格高於 K 時才有，put 相反 <span class="cite">（S12, p.4；p.5；p.8）</span></li>
+        <li class="rv">買方損益＝到期價值減去當初付的權利金 <span class="cite">（S1, p.11–12）</span></li>
+        <li class="rv">價外到期就沒有價值，買方會賠掉全部權利金 <span class="cite">（S1, p.14；p.7；p.61）</span></li>
+        <li class="rv">賣方的損益正好相反：收到的權利金減去到期價值 <span class="cite">（S1, p.64；p.65）</span></li>
+      </ul>
+    </div>
+    <div class="tool rv" id="payoff">
+      <div class="head"><span class="id">P</span>損益滑桿 · Payoff Slider<span style="margin-left:auto">拖曳滑桿</span></div>
+      <div class="ctrl">
+        <div class="seg" role="group" aria-label="選擇權種類"><button data-type="call">Call 買權</button><button data-type="put">Put 賣權</button></div>
+        <div class="seg" role="group" aria-label="立場"><button data-role="buyer">買方</button><button data-role="writer">賣方</button></div>
+        <label>履約價 K<output data-out="K"></output><input type="range" name="K" min="50" max="150" step="1" value="100"></label>
+        <label>到期標的價格 S_T<output data-out="ST"></output><input type="range" name="ST" min="0" max="200" step="1" value="120"></label>
+        <label>權利金<input type="number" name="prem" min="0" step="0.5" value="5"></label>
+      </div>
+      <div class="viz">
+        <svg class="payoff" role="img" aria-label="到期損益折線"></svg>
+      </div>
+      <div class="reads" style="grid-column:1/-1" aria-live="polite">
+        <div>到期價值<b data-out="payoff"></b></div><div>損益<b data-out="profit"></b></div><div>狀態<b data-out="money"></b></div>
+      </div>
+      <div class="foot">不計稅、交易成本與保證金；以每一單位標的計（F01、F02）。呼叫 lab/bs.js：callPayoff · putPayoff · buyerProfit · writerProfit</div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../../lab/bs.js"></script>
+<script src="../../lab/svi.js"></script>
+<script src="surface3d.js"></script>
+<script src="charts.js"></script>
+<script>
+  mountSurface(document.getElementById('surf'), { yaw: -0.9, pitch: 0.46, dist: 4.1, lookY: -0.05, height: 1.0, wireOpacity: 0.22 });
+  mountFlatVsSmile(document.getElementById('fvs'));
+  mountPayoff(document.getElementById('payoff'));
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.25 });
+  document.querySelectorAll('.slide').forEach(function (s) { io.observe(s); });
+</script>
+</body>
+</html>
