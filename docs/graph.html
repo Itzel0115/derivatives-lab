@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>Derivatives Lab｜簡報生成 graph</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@900&display=swap" rel="stylesheet">
+<style>
+body { margin:0; background:#F2F2F2; color:#151B2C; font-family:"Noto Sans TC",sans-serif; }
+.wrap { width:1180px; padding:28px 36px 20px; }
+h1 { font-family:"Noto Serif TC",serif; font-weight:900; font-size:30px; margin:0; }
+h1::after { content:""; display:block; width:56px; height:3px; background:#A8893A; margin-top:10px; }
+p { color:#3B4458; font-size:15px; line-height:1.7; margin:12px 0 0; }
+.lg { display:flex; gap:22px; font-size:14px; color:#3B4458; margin:10px 0 6px; flex-wrap:wrap; }
+.lg i { display:inline-block; width:22px; height:12px; margin-right:6px; vertical-align:-1px; }
+.note { font-size:13px; color:#5C6579; }
+</style></head><body><div class="wrap">
+<h1>Derivatives Lab｜簡報生成 graph（GRAPH_SPEC v2）</h1>
+<p>深色＝產出節點，金色＝檢查節點。檢查不通過時只修報告列出的問題，並回到同一節點重做（右側弧線，輪數有上限）；發現問題出在上游時，跳回上游節點（虛線）。</p>
+<div class="lg"><span><i style="background:#151B2C"></i>產出節點 N0–N6</span><span><i style="background:#EADFB8;border:1.5px solid #A8893A"></i>檢查節點 C0–C6</span>
+<span><i style="border-top:2px dashed #6A7FA8;height:0"></i>跳回上游</span><span><i style="border-top:2.5px dashed #A8893A;height:0"></i>v2 往前移的檢查</span></div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 1175" width="1180" height="1175" font-family="Noto Sans TC, sans-serif" role="img" aria-label="GRAPH_SPEC v2 的簡報生成流程圖">
+<defs>
+<marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#3B4458"/></marker>
+<marker id="ad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#6A7FA8"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#A8893A"/></marker>
+</defs>
+<path d="M600 93.0 L600 115.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 163.0 L600 205.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 253.0 L600 275.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 323.0 L600 365.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 413.0 L600 435.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 483.0 L600 525.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M450 673.0 L450 695.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M750 673.0 L750 695.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 843.0 L600 865.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 913.0 L600 955.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 1003.0 L600 1025.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M600 1073.0 L600 1110.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="610" y="190.0" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">通過</text>
+<text x="610" y="350.0" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">通過</text>
+<text x="610" y="510.0" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">通過</text>
+<text x="610" y="940.0" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">通過</text>
+<text x="610" y="1097.5" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">通過</text>
+<path d="M560 573.0 C 560 603.0, 450 587.0, 450 625.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M640 573.0 C 640 603.0, 750 587.0, 750 625.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="600" y="603.0" font-size="13" fill="#3B4458" text-anchor="middle" font-weight="400">核准 → N3、N4 平行執行</text>
+<path d="M450 743.0 C 450 783.0, 560 757.0, 560 795.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<path d="M750 743.0 C 750 783.0, 640 757.0, 640 795.0" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="600" y="777.0" font-size="13" fill="#3B4458" text-anchor="middle" font-weight="400">兩者都通過 → N5</text>
+<path d="M710.0 300 L833 300" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="771.5" y="292" font-size="13" fill="#3B4458" text-anchor="middle" font-weight="400">缺頁且無公開來源</text>
+<path d="M710.0 140 C 765.0 140, 765.0 70, 712.0 70" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="771.0" y="110.0" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">不通過 ≤ 2 輪</text>
+<path d="M710.0 460 C 765.0 460, 765.0 390, 712.0 390" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="771.0" y="430.0" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">不通過 ≤ 3 輪</text>
+<path d="M340.0 720 C 285.0 720, 285.0 650, 338.0 650" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="279.0" y="690.0" font-size="13" fill="#3B4458" text-anchor="end" font-weight="400">程式錯 ≤ 3 輪</text>
+<path d="M860.0 720 C 915.0 720, 915.0 650, 862.0 650" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="921.0" y="690.0" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">不通過 ≤ 3 輪</text>
+<path d="M710.0 890 C 765.0 890, 765.0 820, 712.0 820" fill="none" stroke="#3B4458" stroke-width="1.6" marker-end="url(#as)"/>
+<text x="771.0" y="860.0" font-size="13" fill="#3B4458" text-anchor="start" font-weight="400">版面或程式 ≤ 3 輪</text>
+<path d="M490.0 300 L320 300 L320 76 L492.0 76" fill="none" stroke="#6A7FA8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ad)"/>
+<text x="405.0" y="293" font-size="12.5" fill="#5C6579" text-anchor="middle" font-weight="400">缺頁但有公開來源</text>
+<path d="M490.0 460 L285 460 L285 238 L492.0 238" fill="none" stroke="#A8893A" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ag)"/>
+<text x="387.5" y="453" font-size="12.5" fill="#A8893A" text-anchor="middle" font-weight="400">術語未收錄（v2 新增）</text>
+<path d="M490.0 540 L250 540 L250 396 L492.0 396" fill="none" stroke="#6A7FA8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ad)"/>
+<text x="370.0" y="533" font-size="12.5" fill="#5C6579" text-anchor="middle" font-weight="400">要修改</text>
+<path d="M490.0 562 L215 562 L215 230 L492.0 230" fill="none" stroke="#6A7FA8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ad)"/>
+<text x="352.5" y="579" font-size="12.5" fill="#5C6579" text-anchor="middle" font-weight="400">要新增概念</text>
+<path d="M340.0 732 L180 732 L180 222 L492.0 222" fill="none" stroke="#6A7FA8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ad)"/>
+<text x="260.0" y="749" font-size="12.5" fill="#5C6579" text-anchor="middle" font-weight="400">公式卡錯或缺</text>
+<path d="M860.0 732 L1010 732 L1010 224 L708.0 224" fill="none" stroke="#6A7FA8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ad)"/>
+<text x="935.0" y="749" font-size="12.5" fill="#5C6579" text-anchor="middle" font-weight="400">wiki 沒有此資訊</text>
+<path d="M710.0 890 L1045 890 L1045 642 L858.0 642" fill="none" stroke="#6A7FA8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ad)"/>
+<text x="877.5" y="883" font-size="12.5" fill="#5C6579" text-anchor="middle" font-weight="400">內容問題</text>
+<path d="M710.0 1040 L1080 1040 L1080 658 L858.0 658" fill="none" stroke="#6A7FA8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ad)"/>
+<text x="895.0" y="1033" font-size="12.5" fill="#5C6579" text-anchor="middle" font-weight="400">相關頁未引用</text>
+<path d="M710.0 1062 L1115 1062 L1115 382 L708.0 382" fill="none" stroke="#6A7FA8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ad)"/>
+<text x="912.5" y="1079" font-size="12.5" fill="#5C6579" text-anchor="middle" font-weight="400">大綱缺段落</text>
+<rect x="490.0" y="47.0" width="220" height="46" fill="#151B2C"/>
+<text x="600" y="75" font-size="15" fill="#F2F2F2" text-anchor="middle" font-weight="700">N0 Ingest 來源</text>
+<rect x="490.0" y="117.0" width="220" height="46" rx="23" fill="#EADFB8" stroke="#A8893A" stroke-width="1.5"/>
+<text x="600" y="145" font-size="14.5" fill="#151B2C" text-anchor="middle" font-weight="700">C0 Ingest 檢查</text>
+<rect x="490.0" y="207.0" width="220" height="46" fill="#151B2C"/>
+<text x="600" y="235" font-size="15" fill="#F2F2F2" text-anchor="middle" font-weight="700">N1 覆蓋對照</text>
+<rect x="490.0" y="277.0" width="220" height="46" rx="23" fill="#EADFB8" stroke="#A8893A" stroke-width="1.5"/>
+<text x="600" y="305" font-size="14.5" fill="#151B2C" text-anchor="middle" font-weight="700">C1 覆蓋檢查</text>
+<rect x="490.0" y="367.0" width="220" height="46" fill="#151B2C"/>
+<text x="600" y="395" font-size="15" fill="#F2F2F2" text-anchor="middle" font-weight="700">N2 大綱＋術語首次出現表</text>
+<rect x="490.0" y="437.0" width="220" height="46" rx="23" fill="#EADFB8" stroke="#A8893A" stroke-width="1.5"/>
+<text x="600" y="465" font-size="14.5" fill="#151B2C" text-anchor="middle" font-weight="700">C2 大綱檢查（含 C2-7 術語）</text>
+<polygon points="474.0,527.0 740.0,527.0 726.0,573.0 460.0,573.0" fill="#FFFFFF" stroke="#3E5D96" stroke-width="2"/>
+<text x="600" y="555" font-size="14.5" fill="#151B2C" text-anchor="middle" font-weight="700">H1 人工審大綱（唯一人工關卡）</text>
+<rect x="340.0" y="627.0" width="220" height="46" fill="#151B2C"/>
+<text x="450" y="655" font-size="15" fill="#F2F2F2" text-anchor="middle" font-weight="700">N3 公式卡 → 程式</text>
+<rect x="340.0" y="697.0" width="220" height="46" rx="23" fill="#EADFB8" stroke="#A8893A" stroke-width="1.5"/>
+<text x="450" y="725" font-size="14.5" fill="#151B2C" text-anchor="middle" font-weight="700">C3 單元測試</text>
+<rect x="640.0" y="627.0" width="220" height="46" fill="#151B2C"/>
+<text x="750" y="655" font-size="15" fill="#F2F2F2" text-anchor="middle" font-weight="700">N4 逐頁內容</text>
+<rect x="640.0" y="697.0" width="220" height="46" rx="23" fill="#EADFB8" stroke="#A8893A" stroke-width="1.5"/>
+<text x="750" y="725" font-size="14.5" fill="#151B2C" text-anchor="middle" font-weight="700">C4 對照檢查（含 C4-7 字數）</text>
+<rect x="490.0" y="797.0" width="220" height="46" fill="#151B2C"/>
+<text x="600" y="825" font-size="15" fill="#F2F2F2" text-anchor="middle" font-weight="700">N5 產出 HTML</text>
+<rect x="490.0" y="867.0" width="220" height="46" rx="23" fill="#EADFB8" stroke="#A8893A" stroke-width="1.5"/>
+<text x="600" y="895" font-size="14.5" fill="#151B2C" text-anchor="middle" font-weight="700">C5 呈現檢查</text>
+<rect x="490.0" y="957.0" width="220" height="46" fill="#151B2C"/>
+<text x="600" y="985" font-size="15" fill="#F2F2F2" text-anchor="middle" font-weight="700">N6 Trace 與報告</text>
+<rect x="490.0" y="1027.0" width="220" height="46" rx="23" fill="#EADFB8" stroke="#A8893A" stroke-width="1.5"/>
+<text x="600" y="1055" font-size="14.5" fill="#151B2C" text-anchor="middle" font-weight="700">C6 完整性檢查</text>
+<rect x="500.0" y="1112.0" width="200" height="46" rx="8" fill="#E6E8EE" stroke="#6A7FA8"/>
+<text x="600" y="1140" font-size="14" fill="#151B2C" text-anchor="middle" font-weight="400">發布（GitHub Pages）</text>
+<rect x="830.0" y="277.0" width="150" height="46" rx="8" fill="#E6E8EE" stroke="#6A7FA8"/>
+<text x="905" y="305" font-size="14" fill="#151B2C" text-anchor="middle" font-weight="400">STOP-DATA</text>
+</svg>
+<p class="note">全域停止規則：MAX-ROUNDS（某個 loop 達輪數上限）、STOP-SCOPE（需要新增概念或改架構）、STOP-REGRESSION（修正讓已通過的檢查失敗 → git 回復）、BUDGET（總修正輪數 &gt; 12）。v2 另把字數檢查從 C5 前移到 C4（C4-7）。完整規格見 GRAPH_SPEC.md。</p>
+</div></body></html>
